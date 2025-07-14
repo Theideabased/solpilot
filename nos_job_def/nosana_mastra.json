@@ -1,28 +1,24 @@
 {
+  "version": "1.0",
+  "type": "container",
+  "meta": {
+    "trigger": "webhook"
+  },
   "ops": [
     {
-      "id": "agents",
+      "type": "container/run",
+      "id": "mastrabolt-agent",
       "args": {
-        "gpu": true,
-        "image": "docker.io/yourusername/agent-challenge:latest",
-        "expose": [
-          {
-            "port": 8080
-          }
-        ],
-        "entrypoint": [
-          "/bin/sh"
-        ]
-      },
-      "type": "container/run"
+        "image": "docker.io/seyman101/agent-challenge:latest",
+        "expose": 8080,
+        "gpu": false,
+        "env": {
+          "NODE_ENV": "production",
+          "RUNNING_IN_DOCKER": "true",
+          "VITE_LOG_LEVEL": "info",
+          "PORT": "8080"
+        }
+      }
     }
-  ],
-  "meta": {
-    "trigger": "dashboard",
-    "system_requirements": {
-      "required_vram": 4
-    }
-  },
-  "type": "container",
-  "version": "0.1"
+  ]
 }
