@@ -69,12 +69,38 @@
 
 ## 🚀 **Quick Start**
 
-### **Prerequisites**
-- Docker (for containerized deployment)
-- Node.js 20.18.0+ (for local development)
-- API keys for your preferred LLM providers
+### **🏠 Local Development (Recommended for Development)**
 
-### **Run with Docker (Recommended)**
+#### **Step 1: Setup**
+```bash
+# Clone the repository
+git clone https://github.com/Theideabased/agent-challenge.git
+cd agent-challenge
+
+# Install dependencies
+pnpm install
+```
+
+#### **Step 2: Environment Variables**
+```bash
+# Copy the environment template
+cp .env.production .env.local
+
+# ⚠️ CRITICAL: Add your GitHub token to .env.local (REQUIRED!)
+# Without this, the app will not work properly
+GITHUB_TOKEN=your_github_token_here
+```
+
+#### **Step 3: Run the Application**
+```bash
+# Start development server
+pnpm run dev
+
+# Access the application
+open http://localhost:5173
+```
+
+### **🐳 Production Deployment (Docker)**
 ```bash
 # Pull and run the container
 docker run -p 8080:8080 seyman101/agent-challenge:latest
@@ -83,64 +109,64 @@ docker run -p 8080:8080 seyman101/agent-challenge:latest
 open http://localhost:8080
 ```
 
-### **Local Development**
+### **⚡ Nosana Deployment**
 ```bash
-# Clone the repository
-git clone https://github.com/Theideabased/agent-challenge.git
-cd agent-challenge
+# Deploy to Nosana GPU network
+nosana job post ./nos_job_def/nosana_mastra.json --market nvidia-3060 --timeout 30
 
-# Install dependencies
-pnpm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your API keys
-
-# Start development server
-pnpm run dev
-
-# Access the application
-open http://localhost:5173
+# Check deployment status
+nosana job list
 ```
 
 ---
 
 ## 🔧 **Environment Setup**
 
-### **Required Environment Variables**
-Create a `.env.local` file with your API keys:
+### **⚠️ CRITICAL: GitHub Token Required**
+
+**Only ONE environment variable is required for the app to work:**
+
+Create a `.env.local` file and add your GitHub token:
 
 ```bash
-# OpenAI Configuration
-OPENAI_API_KEY=sk-proj-...
-OPENAI_API_BASE_URL=https://api.openai.com/v1
-
-# Google Gemini Configuration
-GOOGLE_GENERATIVE_AI_API_KEY=AIza...
-GOOGLE_API_BASE_URL=https://generativelanguage.googleapis.com
-
-# Anthropic Claude Configuration
-ANTHROPIC_API_KEY=sk-ant-...
-ANTHROPIC_API_BASE_URL=https://api.anthropic.com
-
-# Groq Configuration
-GROQ_API_KEY=gsk_...
-GROQ_API_BASE_URL=https://api.groq.com/openai/v1
-
-# Ollama Configuration (for local models)
-OLLAMA_API_BASE_URL=http://localhost:11434/api
-
-# Optional: Custom provider endpoints
-OPENAI_LIKE_API_KEY=your-custom-key
-OPENAI_LIKE_API_BASE_URL=https://your-custom-endpoint.com/v1
+# REQUIRED: GitHub Token (The app won't work without this!)
+# Get from: https://github.com/settings/tokens
+GITHUB_TOKEN=your_github_token_here
 ```
 
-### **API Key Sources**
-You can obtain API keys from:
-- **OpenAI**: [platform.openai.com](https://platform.openai.com/api-keys)
-- **Google**: [aistudio.google.com](https://aistudio.google.com/app/apikey)
-- **Anthropic**: [console.anthropic.com](https://console.anthropic.com/)
-- **Groq**: [console.groq.com](https://console.groq.com/keys)
+**How to get your GitHub token:**
+1. Go to [github.com/settings/tokens](https://github.com/settings/tokens)
+2. Click "Generate new token (classic)"
+3. Select "repo" permissions
+4. Copy the token and add it to your `.env.local` file
+
+**Optional:** You can add AI provider API keys later if you want to use specific models, but the GitHub token is the only one required for the app to function.
+
+---
+
+## 📖 **How to Use**
+
+### **1. Set Up Your Environment**
+1. Copy `.env.production` to `.env.local`
+2. **Add your GitHub token (REQUIRED!)** - The app won't work without this
+3. Optional: Add AI provider API keys if you want to use specific models
+
+### **2. Start Development**
+```bash
+pnpm install
+pnpm run dev
+```
+
+### **3. Build Your AI Agent**
+1. Open http://localhost:5173
+2. Select your AI provider (OpenAI, Google, Anthropic, etc.)
+3. Start building with the visual editor
+4. Deploy to Nosana, Vercel, or Netlify
+
+### **4. Deploy to Production**
+- **Local**: `pnpm run dev` (development)
+- **Docker**: `docker run -p 8080:8080 seyman101/agent-challenge:latest`
+- **Nosana**: `nosana job post ./nos_job_def/nosana_mastra.json`
 
 ---
 
@@ -266,9 +292,13 @@ docker push seyman101/agent-challenge:latest
 
 ## ⚡ **Nosana Deployment**
 
-### **Successful Deployments**
-✅ **Job ID 1**: `E7fwkRWjB3NqpTgvRSAeVRiNSF7mZyzAr86AkFfuM1t5`  
-✅ **Job ID 2**: `FM7Y2bMKKbNKTtJPNCUjeweczkxu4qeuWyuG1pSBeQSo`
+### **Successful Deployment** 
+✅ **Job ID**: `7RqkT3wEUX1Wai2LzuANxHGnGpRoLR7BbABxAjokNK3f` **(FINAL SUBMISSION)**
+
+### **🌐 Live Access Links**
+- **🚀 Live Application**: https://2ctzgu3c9zdy3cpxvcdqzgse5dyho5djzxxfvum6hu4a.node.k8s.prd.nos.ci/
+- **📊 Deployment Dashboard**: https://dashboard.nosana.com/jobs/7RqkT3wEUX1Wai2LzuANxHGnGpRoLR7BbABxAjokNK3f
+- **🎬 Video Demo**: https://www.youtube.com/watch?v=P_-Tkh6246A
 
 ### **Deployment Configuration**
 - **Job Definition**: `./nos_job_def/nosana_mastra.json`
@@ -370,8 +400,11 @@ agent-challenge/
 ## 🔗 **Links & Resources**
 
 ### **Deployment URLs**
-- **Docker Hub**: https://hub.docker.com/r/seyman101/agent-challenge
-- **GitHub Repository**: https://github.com/Theideabased/agent-challenge
+- **🚀 Live Application**: https://2ctzgu3c9zdy3cpxvcdqzgse5dyho5djzxxfvum6hu4a.node.k8s.prd.nos.ci/
+- **📊 Nosana Dashboard**: https://dashboard.nosana.com/jobs/7RqkT3wEUX1Wai2LzuANxHGnGpRoLR7BbABxAjokNK3f
+- **🐳 Docker Hub**: https://hub.docker.com/r/seyman101/agent-challenge
+- **💻 GitHub Repository**: https://github.com/Theideabased/agent-challenge
+- **🎬 Video Demo**: https://www.youtube.com/watch?v=P_-Tkh6246A
 
 ### **Documentation**
 - **Mastra Framework**: https://mastra.ai/docs
@@ -396,7 +429,7 @@ agent-challenge/
   - Environment-aware configuration
   - Error handling & debugging system
 - **Documentation**: Comprehensive README with setup instructions ✅
-- **Environment Variables**: Complete `.env.example` file provided ✅
+- **Environment Variables**: Complete `.env.production` file provided ✅
 
 ### ✅ **2. Docker Container Requirements**
 - **Dockerfile**: Created and optimized for production ✅
@@ -422,7 +455,7 @@ docker push seyman101/agent-challenge:latest
 ### ✅ **3. Nosana Deployment Requirements**
 - **Job Definition**: Available at `./nos_job_def/nosana_mastra.json` ✅
 - **Previous Deployments**: Successfully deployed multiple times ✅
-- **Job IDs**: `E7fwkRWjB3NqpTgvRSAeVRiNSF7mZyzAr86AkFfuM1t5`, `FM7Y2bMKKbNKTtJPNCUjeweczkxu4qeuWyuG1pSBeQSo`
+- **Job IDs**: `E7fwkRWjB3NqpTgvRSAeVRiNSF7mZyzAr86AkFfuM1t5`, `FM7Y2bMKKbNKTtJPNCUjeweczkxu4qeuWyuG1pSBeQSo`, `7RqkT3wEUX1Wai2LzuANxHGnGpRoLR7BbABxAjokNK3f` **(FINAL)**
 
 **Deployment Commands**:
 ```bash
@@ -435,12 +468,12 @@ nosana job post ./nos_job_def/nosana_mastra.json --market nvidia-3060 --timeout 
 # 3. Paste into dashboard and deploy
 ```
 
-### 🎬 **4. Video Demo** (Required for submission)
-**TODO**: Record a 1-3 minute video showing:
-- Agent running on Nosana
-- Key features (multi-LLM support, code generation)
-- Real-world use case demonstration
-- Upload to YouTube/Loom and add link here
+### 🎬 **4. Video Demo** ✅ **COMPLETED**
+**Video Demo**: https://www.youtube.com/watch?v=P_-Tkh6246A
+- ✅ Agent running on Nosana
+- ✅ Key features (multi-LLM support, code generation)
+- ✅ Real-world use case demonstration
+- ✅ Live deployment showcase
 
 ### 📖 **5. Documentation Requirements**
 All documentation requirements completed in this README ✅
@@ -454,8 +487,8 @@ All documentation requirements completed in this README ✅
 git clone https://github.com/Theideabased/agent-challenge.git
 cd agent-challenge
 pnpm install
-cp .env.example .env.local
-# Edit .env.local with your API keys
+cp .env.production .env.local
+# Add your GitHub token to .env.local (REQUIRED!)
 pnpm run dev
 # Access at: http://localhost:5173
 ```
@@ -467,8 +500,11 @@ docker run -p 8080:8080 seyman101/agent-challenge:latest
 ```
 
 ### **Public Links**
-- **Docker Hub**: https://hub.docker.com/r/seyman101/agent-challenge
-- **GitHub Repository**: https://github.com/Theideabased/agent-challenge
+- **🚀 Live Application**: https://2ctzgu3c9zdy3cpxvcdqzgse5dyho5djzxxfvum6hu4a.node.k8s.prd.nos.ci/
+- **📊 Nosana Dashboard**: https://dashboard.nosana.com/jobs/7RqkT3wEUX1Wai2LzuANxHGnGpRoLR7BbABxAjokNK3f
+- **🐳 Docker Hub**: https://hub.docker.com/r/seyman101/agent-challenge
+- **💻 GitHub Repository**: https://github.com/Theideabased/agent-challenge
+- **🎬 Video Demo**: https://www.youtube.com/watch?v=P_-Tkh6246A
 
 ---
 
