@@ -12,11 +12,16 @@
         "image": "docker.io/seyman101/agent-challenge:latest",
         "expose": 8080,
         "gpu": false,
+        "memory": "4Gi",
+        "cpu": "1000m",
         "env": {
           "NODE_ENV": "production",
           "RUNNING_IN_DOCKER": "true",
           "VITE_LOG_LEVEL": "info",
-          "PORT": "8080"
+          "PORT": "8080",
+          "NODE_OPTIONS": "--max-old-space-size=3072 --optimize-for-size",
+          "UV_THREADPOOL_SIZE": "4",
+          "GENERATE_SOURCEMAP": "false"
         }
       }
     }

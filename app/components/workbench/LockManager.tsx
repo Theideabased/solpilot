@@ -48,8 +48,8 @@ export function LockManager() {
 
     loadLockedItems();
 
-    // Set up an interval to refresh the list periodically
-    const intervalId = setInterval(loadLockedItems, 5000);
+    // Set up an interval to refresh the list periodically (reduced frequency)
+    const intervalId = setInterval(loadLockedItems, 30000);
 
     return () => clearInterval(intervalId);
   }, []);

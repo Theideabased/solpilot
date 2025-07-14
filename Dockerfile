@@ -18,6 +18,10 @@ COPY . .
 EXPOSE 5173 8080 3000
 ENV PORT=8080
 
+# Memory optimization and Node.js performance tuning
+ENV NODE_OPTIONS="--max-old-space-size=3072 --optimize-for-size"
+ENV NODE_ENV=production
+
 # Production image
 FROM base AS bolt-ai-production
 
@@ -58,6 +62,11 @@ ENV WRANGLER_SEND_METRICS=false \
 RUN mkdir -p /root/.config/.wrangler && \
     echo '{"enabled":false}' > /root/.config/.wrangler/metrics.json
 
+# Add healthcheck for better monitoring (reduced frequency)
+HEALTHCHECK --interval=60s --timeout=15s --start-period=120s --retries=2 \
+  CMD curl -f http://localhost:8080/api/health || exit 1
+
+# Build with memory optimization
 RUN NODE_OPTIONS="--max-old-space-size=4096" pnpm run build
 
 CMD [ "pnpm", "run", "dockerstart"]
