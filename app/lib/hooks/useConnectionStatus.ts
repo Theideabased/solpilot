@@ -37,10 +37,10 @@ export const useConnectionStatus = () => {
   };
 
   useEffect(() => {
-    // Check immediately and then every 60 seconds (reduced frequency)
+    // Check immediately and then every 5 minutes (much reduced frequency)
     checkStatus();
 
-    const interval = setInterval(checkStatus, 60 * 1000);
+    const interval = setInterval(checkStatus, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, [acknowledgedIssue]);

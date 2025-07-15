@@ -17,11 +17,10 @@ export const checkConnection = async (): Promise<ConnectionStatus> => {
       };
     }
 
-    // Try multiple endpoints in case one fails
+    // Try only essential endpoints with timeout
     const endpoints = [
-      '/api/health',
-      '/', // Fallback to root route
-      '/favicon.ico', // Another common fallback
+      '/', // Root route - most lightweight
+      '/favicon.ico', // Fallback
     ];
 
     let latency = 0;
@@ -33,6 +32,7 @@ export const checkConnection = async (): Promise<ConnectionStatus> => {
         const response = await fetch(endpoint, {
           method: 'HEAD',
           cache: 'no-cache',
+          signal: AbortSignal.timeout(5000), // 5 second timeout
         });
         const end = performance.now();
 

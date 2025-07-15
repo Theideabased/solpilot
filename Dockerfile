@@ -19,7 +19,7 @@ EXPOSE 5173 8080 3000
 ENV PORT=8080
 
 # Memory optimization and Node.js performance tuning
-ENV NODE_OPTIONS="--max-old-space-size=3072 --optimize-for-size"
+ENV NODE_OPTIONS="--max-old-space-size=3072"
 ENV NODE_ENV=production
 
 # Production image
