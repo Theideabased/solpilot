@@ -26,22 +26,56 @@ Input : ${userMessage}
 `,
       },
     ];
-    if (!MODEL) {
-      return;
+    
+    // Check if model is configured
+    if (!MODEL || !OPENAI_API_KEY) {
+      console.log("⚠️ OpenRouter not configured, using fallback title generation");
+      return generateFallbackTitle(userMessage);
     }
 
-    const completion = await openai.chat.completions.create({
+    // Set a timeout for the API call
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('OpenRouter API timeout')), 10000)
+    );
+
+    const completionPromise = openai.chat.completions.create({
       model: MODEL,
       messages,
     });
 
+    const completion = await Promise.race([completionPromise, timeoutPromise]) as any;
+
     if (!completion.choices || completion.choices.length === 0) {
-      return "Error: No response from AI.";
+      return generateFallbackTitle(userMessage);
     }
 
-    return completion.choices[0].message?.content || "I'm not sure how to respond to that.";
-  } catch (error) {
-    console.error("❌ Error querying OpenRouter:", error);
-    return `There was an error processing your request: ${error}`;
+    return completion.choices[0].message?.content || generateFallbackTitle(userMessage);
+  } catch (error: any) {
+    // Handle network errors (DNS, connection, timeout)
+    if (error?.code === 'ENOTFOUND' || error?.code === 'EAI_AGAIN' || error?.code === 'ECONNREFUSED') {
+      console.log("⚠️ OpenRouter connection failed (network issue), using fallback title generation");
+    } else if (error?.status === 429) {
+      console.log("⚠️ OpenRouter rate limit hit, using fallback title generation");
+    } else if (error?.message?.includes('timeout')) {
+      console.log("⚠️ OpenRouter API timeout, using fallback title generation");
+    } else {
+      console.error("❌ Error querying OpenRouter:", error?.message || error);
+    }
+    
+    return generateFallbackTitle(userMessage);
   }
 };
+
+// Fallback function to generate titles without AI when API fails
+function generateFallbackTitle(message: string): string {
+  // Take first 50 characters and clean up
+  const cleanMessage = message.trim().substring(0, 50);
+  
+  // If message is short enough, use it as is
+  if (message.length <= 50) {
+    return cleanMessage;
+  }
+  
+  // Otherwise truncate and add ellipsis
+  return cleanMessage + "...";
+}

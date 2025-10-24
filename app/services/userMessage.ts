@@ -7,21 +7,25 @@ const getAuthToken = () => localStorage.getItem("token");
 
 export const createChatIfNotExists = async ({
   injectiveAddress,
-  senderId,
+  solanaAddress,
+  walletAddress,
   userMessage,
   token,
 }: {
-  injectiveAddress: string;
-  senderId: string;
+  injectiveAddress?: string;
+  solanaAddress?: string;
+  walletAddress?: string;
   userMessage: string;
   token: string;
 }) => {
   const title = await createTitleFromMessage(userMessage);
+  const finalWalletAddress = walletAddress || solanaAddress || injectiveAddress;
+  
   const res = await fetch(`${baseUrl}/api/chats`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: token ? `Bearer ${token}` : "" },
 
-    body: JSON.stringify({ title, injectiveAddress, senderId }),
+    body: JSON.stringify({ title, walletAddress: finalWalletAddress }),
   });
 
   if (!res.ok) {

@@ -35,8 +35,9 @@ export type LoadingState = "thinking" | "executing" | "general" | null;
 const Chatbot = () => {
   const [loadingState, setLoadingState] = useState<LoadingState>(null);
   const chatContainerRef = useRef<HTMLDivElement | null>(null);
-  const [solanaAddress, setSolanaAddress] = useState<string | null>(null);
-  const [isWhitelisted, setIsWhitelisted] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [isWhitelisted, setIsWhitelisted] = useState<boolean>(false); // Changed back to false
+  const [solanaAddress, setSolanaAddress] = useState<string>("");
   const [token, setToken] = useState<string>("");
   const [newChatCreated, setNewChatCreated] = useState<boolean>(false);
   const { validatorSelected, setValidatorSelected } = useValidator();
@@ -135,16 +136,19 @@ const Chatbot = () => {
       return;
     }
 
+    // Require wallet connection and whitelist for chat
     if (!solanaAddress || !isWhitelisted) {
+      console.error("Cannot send message: wallet not connected or not whitelisted");
       return;
     }
+    
     if (!currentChat?.id) {
       const newUserMessage = createChatMessage({
         sender: "user",
         text: userMessage,
         type: "text",
       });
-      const newChat = await createChat(solanaAddress, newUserMessage, token,"system");
+      const newChat = await createChat(solanaAddress, newUserMessage, token);
 
       if (newChat?.id) {
         addMessage(token, newUserMessage, newChat);

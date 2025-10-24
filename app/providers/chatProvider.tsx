@@ -9,10 +9,10 @@ type ChatContextType = {
   setAllChats: (chats: Chat[]) => void;
   currentChat: Chat | null;
   createChat: (
-    injectiveAddress: string,
+    walletAddress: string,
     userMessage: ChatMessage,
     token: string,
-    senderId: string
+    senderId?: string
   ) => Promise<Chat>;
   messageHistory: ChatMessage[];
   setMessageHistory: (messages: ChatMessage[] | ((prev: ChatMessage[]) => ChatMessage[])) => void;
@@ -29,15 +29,14 @@ const ChatProvider = ({ children }: { children: React.ReactNode }) => {
   const [messageHistory, setMessageHistory] = useState<ChatMessage[]>([]);
 
   const createChat = async (
-    injectiveAddress: string,
+    walletAddress: string,
     userMessage: ChatMessage,
     token: string,
-    senderId: string
+    _senderId?: string // Optional, not used anymore
   ) => {
     try {
       const { id, title, ai_id, user_id } = await createChatIfNotExists({
-        injectiveAddress,
-        senderId: senderId,
+        walletAddress,
         userMessage: userMessage.text || "",
         token,
       });

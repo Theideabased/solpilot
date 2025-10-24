@@ -1,5 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
-const publicPaths = ["/api/auth/nonce", "/api/auth/verifyArbitrary", "/api/users","/api/tokenHolders"];
+const publicPaths = [
+  "/api/auth/nonce", 
+  "/api/auth/verifyArbitrary", 
+  "/api/users",
+  "/api/tokenHolders",
+  "/api/chats", // Allow chat creation without auth for new users
+  "/api/chat"   // Allow chat messages (we'll verify wallet address instead)
+];
 export async function middleware(req: NextRequest) {
   if (publicPaths.includes(req.nextUrl.pathname)) {
     return NextResponse.next();

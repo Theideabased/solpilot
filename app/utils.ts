@@ -31,3 +31,14 @@ export const createChatMessage = ({
     proposals,
   };
 };
+
+// Stub function for msgBroadcastClient - needs Solana implementation
+// This is used by transaction components that haven't been migrated yet
+export const msgBroadcastClient = () => {
+  throw new Error(
+    "msgBroadcastClient is not implemented for Solana yet. " +
+    "Transaction components need to be migrated to use Solana Web3.js. " +
+    "See TRANSACTION_COMPONENTS_TODO.md for migration guide."
+  );
+};
+

@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       .update({
         nonce: nonce,
       })
-      .eq("wallet_address": address);
+      .eq("wallet_address", address);
 
       if (updateError) {
         return new Response(
