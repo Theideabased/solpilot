@@ -1,86 +1,97 @@
 import jwt from "jsonwebtoken";
-import { Buffer } from "node:buffer";
-import { PubKeySecp256k1, Hash } from "@keplr-wallet/crypto";
-import { serializeSignDoc } from "@keplr-wallet/cosmos";
+import { PublicKey } from "@solana/web3.js";
+import nacl from "tweetnacl";
+import bs58 from "bs58";
 import { supabase } from "@/lib/supabaseClient";
-
 
 export async function POST(req: Request) {
   try {
-    const { nonce, signature, pubkey, address } = await req.json();
+    const { nonce, signature, address } = await req.json();
 
-    // Convert parameters to the correct types
-    // Convert base64 pubkey and signature to Uint8Array
-    const pubKeyUint8Array = new Uint8Array(Buffer.from(pubkey, "base64"));
-    const signatureUint8Array = new Uint8Array(Buffer.from(signature, "base64"));
-
-    // Create a PubKeySecp256k1 instance
-    const cryptoPubKey = new PubKeySecp256k1(pubKeyUint8Array);
-
-    // Create a sign doc similar to what Keplr uses for arbitrary message signing
-    const signDoc = {
-      chain_id: "",
-      account_number: "0",
-      sequence: "0",
-      fee: {
-        gas: "0",
-        amount: [],
-      },
-      msgs: [
-        {
-          type: "sign/MsgSignData",
-          value: {
-            signer: address,
-            data: Buffer.from(nonce).toString("base64"),
-          },
-        },
-      ],
-      memo: "",
-    };
-
-    // Serialize the sign doc
-    const serializedSignDoc = serializeSignDoc(signDoc);
-
-    // Try both hashing algorithms
-    let isValid = false;
-
-    // Try with Keccak-256 (for EVM compatible chains like Injective)
+    // Validate Solana address
+    let publicKey: PublicKey;
     try {
-      const keccakHash = Hash.keccak256(serializedSignDoc);
-      isValid = cryptoPubKey.verifyDigest32(keccakHash, signatureUint8Array);
-
+      publicKey = new PublicKey(address);
     } catch (error) {
-      console.error("Keccak-256 verification failed:", error);
+      return new Response(
+        JSON.stringify({ 
+          isValid: false, 
+          error: "Invalid Solana address" 
+        }), 
+        { status: 400 }
+      );
     }
 
+    // Create the message that was signed
+    const message = `Sign this message to authenticate with SOLPILOT:\n\nNonce: ${nonce}`;
+    const messageBytes = new TextEncoder().encode(message);
+
+    // Decode the signature from base58
+    let signatureBytes: Uint8Array;
+    try {
+      signatureBytes = bs58.decode(signature);
+    } catch (error) {
+      return new Response(
+        JSON.stringify({ 
+          isValid: false, 
+          error: "Invalid signature format" 
+        }), 
+        { status: 400 }
+      );
+    }
+
+    // Verify the signature
+    const isValid = nacl.sign.detached.verify(
+      messageBytes,
+      signatureBytes,
+      publicKey.toBytes()
+    );
+
     if (isValid) {
-      const { data } = await supabase
+      // Check if nonce matches in database
+      const { data, error } = await supabase
         .from("users")
         .select("*")
         .eq("wallet_address", address)
         .eq("nonce", nonce)
         .single();
 
-      if (data) {
-        const token = jwt.sign(
-          {
-            aud: "authenticated",
-            wallet_address: address,
-            nonce: nonce,
-            exp: Math.floor(Date.now() / 1000) + 60 * 60,
-            user_metadata: {
-              user_id: address,
-              nonce: nonce,
-            },
-            role: "authenticated",
-          },
-          process.env.SUPABASE_JWT_SECRET as string
+      if (error || !data) {
+        return new Response(
+          JSON.stringify({ 
+            isValid: false, 
+            error: "Invalid nonce or user not found" 
+          }), 
+          { status: 401 }
         );
-        return new Response(JSON.stringify({ isValid: true, token }), { status: 200 });
       }
-      return new Response(JSON.stringify({ isValid: false, token: null }), { status: 200 });
+
+      // Generate JWT token
+      const token = jwt.sign(
+        {
+          aud: "authenticated",
+          wallet_address: address,
+          nonce: nonce,
+          exp: Math.floor(Date.now() / 1000) + 60 * 60, // 1 hour expiry
+          user_metadata: {
+            user_id: address,
+            nonce: nonce,
+          },
+          role: "authenticated",
+        },
+        process.env.SUPABASE_JWT_SECRET as string
+      );
+
+      return new Response(
+        JSON.stringify({ isValid: true, token }), 
+        { status: 200 }
+      );
     }
-    return new Response(JSON.stringify({ isValid: false, token: null }), { status: 200 });
+
+    return new Response(
+      JSON.stringify({ isValid: false, token: null }), 
+      { status: 401 }
+    );
   } catch (error) {
     console.error("Error in verification:", error);
     return new Response(

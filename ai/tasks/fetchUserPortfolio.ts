@@ -14,7 +14,7 @@ export async function fetchPortfolio(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: "Please provide the injective address better",
+        text: "Please provide the solpilotResponse address better",
         type: "text",
         intent: intent,
       })

@@ -12,7 +12,7 @@ export async function getLatestAuction(
       addToChat(
         createChatMessage({
                 sender: "ai",
-                text: "🔍 Fetching the latest INJ Burn Auction...",
+                text: "🔍 Fetching the latest SOL Burn Auction...",
                 type: "loading",
                 intent: intent,
               })
@@ -21,7 +21,7 @@ export async function getLatestAuction(
       if(latestAuction != null){
         addToChat(createChatMessage({
           sender: "ai",
-          text: "Found the latest INJ Burn Auction !",
+          text: "Found the latest SOL Burn Auction !",
           type: "success",
           intent: intent,
         }));
@@ -72,7 +72,7 @@ export async function getAuction(
           addToChat(
             createChatMessage({
               sender: "ai",
-              text: `🔍 Fetching INJ Burn Auction ${round} ...`,
+              text: `🔍 Fetching SOL Burn Auction ${round} ...`,
               type: "loading",
               intent: intent,
             })
@@ -84,7 +84,7 @@ export async function getAuction(
             addToChat(
               createChatMessage({
                 sender: "ai",
-                text: "Auction Could Not be fetched from Injective TS SDK. Try another round maybe. Tool Closed.",
+                text: "Auction Could Not be fetched from Solana TS SDK. Try another round maybe. Tool Closed.",
                 type: "text",
                 intent: intent,
               })

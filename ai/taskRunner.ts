@@ -74,16 +74,16 @@ export const executeTask = async (
       addToChat(
         createChatMessage({
           sender: "ai",
-          text: "🔍 Please Enter your amount of INJ to bid",
+          text: "🔍 Please Enter your amount of SOL to bid",
           type: "place_bid_amount",
         })
       );
       return
-    case "stake_inj_amount":
+    case "stake_sol_amount":
       addToChat(
         createChatMessage({
           sender: "ai",
-          text: "🔍 Please Enter your amount of INJ to stake.",
+          text: "🔍 Please Enter your amount of SOL to stake.",
           type: "stake_amount",
         })
       );

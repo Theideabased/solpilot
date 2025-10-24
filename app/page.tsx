@@ -35,7 +35,7 @@ export type LoadingState = "thinking" | "executing" | "general" | null;
 const Chatbot = () => {
   const [loadingState, setLoadingState] = useState<LoadingState>(null);
   const chatContainerRef = useRef<HTMLDivElement | null>(null);
-  const [injectiveAddress, setInjectiveAddress] = useState<string | null>(null);
+  const [solanaAddress, setSolanaAddress] = useState<string | null>(null);
   const [isWhitelisted, setIsWhitelisted] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const [newChatCreated, setNewChatCreated] = useState<boolean>(false);
@@ -46,7 +46,7 @@ const Chatbot = () => {
     if (token) {
       setToken(token);
     }
-  }, [injectiveAddress]);
+  }, [solanaAddress]);
   const {
     messageHistory,
     setMessageHistory,
@@ -135,7 +135,7 @@ const Chatbot = () => {
       return;
     }
 
-    if (!injectiveAddress || !isWhitelisted) {
+    if (!solanaAddress || !isWhitelisted) {
       return;
     }
     if (!currentChat?.id) {
@@ -144,7 +144,7 @@ const Chatbot = () => {
         text: userMessage,
         type: "text",
       });
-      const newChat = await createChat(injectiveAddress, newUserMessage, token,"system");
+      const newChat = await createChat(solanaAddress, newUserMessage, token,"system");
 
       if (newChat?.id) {
         addMessage(token, newUserMessage, newChat);
@@ -172,7 +172,7 @@ const Chatbot = () => {
   };
 
   const getAIResponse = async (userMessage: string, updatedChat?: Chat) => {
-    fetchResponse(userMessage, messageHistory, injectiveAddress, token)
+    fetchResponse(userMessage, messageHistory, solanaAddress, token)
       .then((data) => {
         addMessages(token, data.messages, updatedChat); 
       })
@@ -202,16 +202,16 @@ const Chatbot = () => {
     <div className="flex h-screen w-screen bg-black text-white">
       {!isWhitelisted && (
         <EarlyAccessPage
-          injectiveAddress={injectiveAddress}
-          setInjectiveAddress={(address) => setInjectiveAddress(address)}
+          solanaAddress={solanaAddress}
+          setSolanaAddress={(address) => setSolanaAddress(address)}
           isWhitelisted={isWhitelisted}
           setIsWhitelisted={(WL) => setIsWhitelisted(WL)}
         />
       )}
       <Menu
         createNewChatButton={createNewChatButton}
-        injectiveAddress={injectiveAddress}
-        setInjectiveAddress={(address) => setInjectiveAddress(address)}
+        injectiveAddress={solanaAddress}
+        setInjectiveAddress={(address) => setSolanaAddress(address)}
         loadChatHistory={loadChatHistory}
         isWhitelisted={isWhitelisted}
         newChatCreated={newChatCreated}
@@ -312,7 +312,7 @@ const Chatbot = () => {
                       )}
                       {msg.type === "unstake" && (
                         isLastError?(<>
-                          <ValidatorTable handleExit={handleExit} validators={msg.stake_info} injectiveAddress={injectiveAddress} token={token} />
+                          <ValidatorTable handleExit={handleExit} validators={msg.stake_info} injectiveAddress={solanaAddress} token={token} />
 
                         </>):(<>
                           <div className="p-3 rounded-xl bg-zinc-800 text-white max-w-[75%]">
@@ -344,7 +344,7 @@ const Chatbot = () => {
                           msg.validators && (
                             <ValidatorsMessageType
                               token={token}
-                              injectiveAddress={injectiveAddress}
+                              injectiveAddress={solanaAddress}
                               validators={msg.validators}
                               setLoadingState={setLoadingState}
                               isLastError={isLastError}
@@ -363,7 +363,7 @@ const Chatbot = () => {
                           <StakeAmountMessageType
                             token={token}
                             handleExit={handleExit}
-                            injectiveAddress={injectiveAddress}
+                            injectiveAddress={solanaAddress}
                           />
                         ) : (
                           <>
@@ -379,7 +379,7 @@ const Chatbot = () => {
                           <PlaceBidAmountMessageType
                             token={token}
                             handleExit={handleExit}
-                            injectiveAddress={injectiveAddress}
+                            injectiveAddress={solanaAddress}
                           />
                         ) : (
                           <>
@@ -400,7 +400,7 @@ const Chatbot = () => {
                               updateExecuting={updateExecuting}
                               updateChat={updateChat}
                               contractInput={msg.contractInput}
-                              injectiveAddress={injectiveAddress}
+                              injectiveAddress={solanaAddress}
                               token={token}
                             />
                           )
@@ -415,7 +415,7 @@ const Chatbot = () => {
                           msg.send && (
                             <SendTokenMessageType
                               text={msg.text}
-                              injectiveAddress={injectiveAddress}
+                              injectiveAddress={solanaAddress}
                               setExecuting={updateExecuting}
                               executing={loadingState === "executing"}
                               handleExit={handleExit}

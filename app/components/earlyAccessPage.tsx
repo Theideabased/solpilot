@@ -1,86 +1,67 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { ChainGrpcWasmApi, MsgExecuteContractCompat, toBase64 } from "@injectivelabs/sdk-ts";
-import { getNetworkEndpoints, Network } from "@injectivelabs/networks";
-import {
-  MsgBroadcaster,
-  type Wallet as WalletType,
-  WalletStrategy,
-  Wallet,
-} from "@injectivelabs/wallet-ts";
-import { connectToWallet } from "@/wallet/walletConnection";
-import { BigNumberInBase } from "@injectivelabs/utils";
-import { ChainId } from "@injectivelabs/ts-types";
+import { connectToSolanaWallet, type SolanaWalletType } from "@/wallet/solanaWalletConnection";
 import { ToastContainer, toast } from "react-toastify";
 
 import { Loader2, Wallet as WalletIcon } from "lucide-react";
-import { crateInjectiveIfNotExists } from "../services/userMessage";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
-const endpoints = getNetworkEndpoints(Network.Mainnet);
-const chainGrpcWasmApi = new ChainGrpcWasmApi(endpoints.grpc);
-
 interface EarlyAccessPageProps {
-  injectiveAddress: string | null;
-  setInjectiveAddress: (address: string | null) => void;
+  solanaAddress: string | null;
+  setSolanaAddress: (address: string | null) => void;
   isWhitelisted: boolean;
   setIsWhitelisted: (isWL: boolean) => void;
 }
 
 const EarlyAccessPage = ({
-  injectiveAddress,
-  setInjectiveAddress,
+  solanaAddress,
+  setSolanaAddress,
   isWhitelisted,
   setIsWhitelisted,
 }: EarlyAccessPageProps) => {
   const [referralCode, setReferralCode] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [strategy, setStrategy] = useState<WalletType>();
-  const earlyAccessContract = "inj1kdvdz8et52xwsvz392799r6em3qzq5ggn2nkve";
 
   const checkIsWhitelisted = useCallback(async () => {
     try {
       setIsLoading(true);
-      const queryFromObject = toBase64({ is_whitelisted: { address: `${injectiveAddress}` } });
-
-      const contractState = await chainGrpcWasmApi.fetchSmartContractState(
-        earlyAccessContract,
-        queryFromObject
-      );
-
-      const decodedResponse = new TextDecoder().decode(
-        Uint8Array.from(Object.values(contractState.data))
-      );
-
-      const parsedResponse = JSON.parse(decodedResponse);
-
+      // TODO: Implement Solana smart contract check or backend API call
+      // For now, we'll check via backend API
+      const res = await fetch("/api/users", {
+        method: "GET",
+        headers: { 
+          "Content-Type": "application/json", 
+          solanaAddress: solanaAddress || "" 
+        },
+      });
+      
+      const userData = await res.json();
       setIsLoading(false);
-      setIsWhitelisted(parsedResponse.is_whitelisted);
+      setIsWhitelisted(userData?.data?.is_whitelisted || false);
     } catch (error) {
       setIsLoading(false);
       setIsWhitelisted(false);
-      console.error("Error querying contract:", error);
+      console.error("Error checking whitelist status:", error);
     }
-  }, [injectiveAddress]);
+  }, [solanaAddress]);
 
   useEffect(() => {
-    if (injectiveAddress) {
+    if (solanaAddress) {
       checkIsWhitelisted();
     }
-  }, [injectiveAddress, checkIsWhitelisted]);
+  }, [solanaAddress, checkIsWhitelisted]);
 
-  const handleConnectWallet = async (wallet: WalletType) => {
+  const handleConnectWallet = async (walletType: SolanaWalletType) => {
     try {
       setIsLoading(true);
-      const { address, token } = await connectToWallet(wallet);
+      const { address, token } = await connectToSolanaWallet(walletType);
 
       if (address) {
-        setStrategy(wallet);
-        setInjectiveAddress(address);
-        toast.success("Wallet Connected !", {
+        setSolanaAddress(address);
+        toast.success("Wallet Connected!", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -116,58 +97,40 @@ const EarlyAccessPage = ({
   const joinEAP = async (ref_code: string) => {
     try {
       setIsLoading(true);
-      if (injectiveAddress) {
-        const msg = MsgExecuteContractCompat.fromJSON({
-          sender: injectiveAddress,
-          contractAddress: earlyAccessContract,
-          msg: {
-            join_whitelist: {
-              ref_code: ref_code || "", // Handle empty referral code
-            },
-          },
-          funds: {
-            denom: "inj",
-            amount: new BigNumberInBase(1).toWei().toFixed(),
-          },
-        });
-        const walletStrategy = new WalletStrategy({
-          chainId: ChainId.Mainnet,
-          wallet: strategy,
-        });
-
-        const msgBroadcastClient = new MsgBroadcaster({
-          walletStrategy,
-          network: Network.Mainnet,
-        });
-
-        await msgBroadcastClient.broadcast({
-          injectiveAddress: injectiveAddress,
-          msgs: msg,
-        });
-
-        localStorage.removeItem("token");
-        await crateInjectiveIfNotExists(injectiveAddress);
-        setInjectiveAddress(null);
-        toast.success("Payment success ! Please connect your wallet again.", {
+      if (solanaAddress) {
+        // TODO: Implement Solana payment transaction
+        // This would involve creating a Solana transaction to send SOL
+        // to your program/wallet address
+        
+        toast.info("Solana payment integration coming soon!", {
           position: "top-right",
           autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
         });
+        
+        // For now, just update the backend
+        const res = await fetch("/api/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ 
+            wallet_address: solanaAddress, 
+            referral_code: ref_code 
+          }),
+        });
+
+        if (res.ok) {
+          localStorage.removeItem("token");
+          setSolanaAddress(null);
+          toast.success("Registration successful! Please connect your wallet again.", {
+            position: "top-right",
+            autoClose: 3000,
+            theme: "colored",
+          });
+        }
       }
     } catch (error) {
       toast.error(`❌ ${error instanceof Error ? error.message : "Something went wrong!"}`, {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "colored",
       });
       console.error("Error joining EAP:", error);
@@ -182,10 +145,10 @@ const EarlyAccessPage = ({
       <Card className="w-full max-w-md bg-zinc-900 border-zinc-800 text-zinc-100 ">
         <CardHeader className="space-y-2 text-center">
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
-            Welcome to JECTA
+            Welcome to SOLPILOT
           </CardTitle>
           <CardDescription className="text-zinc-400">
-            {injectiveAddress
+            {solanaAddress
               ? "Join our Early Access Program"
               : "Connect your wallet to get started"}
           </CardDescription>
@@ -198,11 +161,11 @@ const EarlyAccessPage = ({
             </div>
           ) : (
             <>
-              {injectiveAddress ? (
+              {solanaAddress ? (
                 <div className="space-y-4">
                   <div className="p-3 rounded-lg bg-zinc-800/50 border border-zinc-700 break-all">
                     <p className="text-xs font-medium text-zinc-500 mb-1">Connected Address</p>
-                    <p className="text-sm font-medium text-zinc-300">{injectiveAddress}</p>
+                    <p className="text-sm font-medium text-zinc-300">{solanaAddress}</p>
                   </div>
 
                   {!isWhitelisted && (
@@ -211,7 +174,7 @@ const EarlyAccessPage = ({
                   <div className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4 space-y-2">
                     <p className="text-sm font-semibold text-zinc-300">EAP Benefits</p>
                     <ul className="text-sm space-y-1 text-zinc-400 pl-5 list-disc">
-                      <li>Support Jecta development growth</li>
+                      <li>Support Solpilot development growth</li>
                       <li>Early access to features</li>
                       <li>Unlimited AI interactions</li>
                       <li>Earn rewards for future</li>
@@ -224,7 +187,7 @@ const EarlyAccessPage = ({
                     <p className="text-sm text-zinc-400">
                       This is a single-time payment. Funds cover LLM integration, services, infrastructure, and operational costs for platform stability.
                     </p>
-                    <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent mt-2">1 INJ</p>
+                    <p className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent mt-2">0.1 SOL</p>
                   </div>
 
                  
@@ -239,7 +202,7 @@ const EarlyAccessPage = ({
                     className="w-full bg-gradient-to-r from-blue-400 to-cyan-600 hover:from-blue-500 hover:to-cyan-700 text-white"
                     onClick={() => joinEAP(referralCode)}
                   >
-                    Join Early Access (1 INJ)
+                    Join Early Access (0.1 SOL)
                   </Button>
                 </div>
               )}
@@ -250,18 +213,18 @@ const EarlyAccessPage = ({
                   <Button
                     variant="outline"
                     className="w-full border-zinc-800 hover:bg-zinc-800 hover:text-zinc-100 bg-transparent "
-                    onClick={() => handleConnectWallet(Wallet.Keplr)}
+                    onClick={() => handleConnectWallet("phantom")}
                   >
                     <WalletIcon className="mr-2 h-4 w-4" />
-                    Connect with Keplr
+                    Connect with Phantom
                   </Button>
                   <Button
                     variant="outline"
                     className="w-full border-zinc-800 hover:bg-zinc-800 hover:text-zinc-100 bg-transparent"
-                    onClick={() => handleConnectWallet(Wallet.Leap)}
+                    onClick={() => handleConnectWallet("solflare")}
                   >
                     <WalletIcon className="mr-2 h-4 w-4" />
-                    Connect with Leap
+                    Connect with Solflare
                   </Button>
                 </div>
               )}
@@ -269,7 +232,7 @@ const EarlyAccessPage = ({
           )}
         </CardContent>
 
-        {injectiveAddress && isWhitelisted && (
+        {solanaAddress && isWhitelisted && (
           <CardFooter>
             <p className="text-sm text-emerald-500 font-medium w-full text-center">
               ✨ You have Early Access! ✨

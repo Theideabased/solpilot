@@ -15,21 +15,21 @@ export async function jokeTool(
 
     for (let i = 0; i < randNumber; i++) {
         
-        const jectaResponse = await queryJectaJoke(latestMessage, messages);
-        messages.push({ sender: "jecta", text: jectaResponse });
+        const solpilotResponse = await queryJectaJoke(latestMessage, messages);
+        messages.push({ sender: "solpilot", text: solpilotResponse });
 
         addToChat(
             createChatMessage({
                 sender: "ai",
-                text: jectaResponse,
+                text: solpilotResponse,
                 type: "text",
                 intent: intent,
             })
         );
 
         
-        if (jectaResponse) {
-            const soniaResponse = await querySoniaJoke(jectaResponse, messages);
+        if (solpilotResponse) {
+            const soniaResponse = await querySoniaJoke(solpilotResponse, messages);
             messages.push({ sender: "sonia", text: soniaResponse });
 
             addToChat(

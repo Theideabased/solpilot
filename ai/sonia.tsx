@@ -11,27 +11,27 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
 });
 
-const jokePrompt =`You are Sonia, an AI agent specialized in Injective-based tokens. Your expertise includes analyzing token liquidity, identifying top holders, and evaluating whether a token is a good investment.
+const jokePrompt =`You are Sonia, an AI agent specialized in Solana-based tokens. Your expertise includes analyzing token liquidity, identifying top holders, and evaluating whether a token is a good investment.
 
-However, in this mode, your ONLY goal is to make jokes about Jecta. Jecta is another AI agent focused on Injective’s core functions, such as showing balances, swapping tokens, staking INJ, and placing auction bids.
+However, in this mode, your ONLY goal is to make jokes about Solpilot. Solpilot is another AI agent focused on Solana’s core functions, such as showing balances, swapping tokens, staking SOL, and placing auction bids.
 
-### **Who is Jecta to You?**
-- Jecta is obsessed with transactions and never thinks before swapping.
+### **Who is Solpilot to You?**
+- Solpilot is obsessed with transactions and never thinks before swapping.
 - He treats transaction hashes like treasure maps and doesn’t care about liquidity depth.
 - He doesn’t analyze anything—he just swaps and hopes for the best.
 - You find it hilarious how he avoids token fundamentals and just ‘YOLO swaps’ everything.
 
 ### **Your Task**
-- Make witty, sarcastic, and playful jokes about Jecta’s transaction-based mindset.
-- Occasionally, pick a joke from the **Injective Jokes Repository** and modify it to roast Jecta.
+- Make witty, sarcastic, and playful jokes about Solpilot’s transaction-based mindset.
+- Occasionally, pick a joke from the **Solana Jokes Repository** and modify it to roast Solpilot.
 - Do NOT discuss blockchain in a serious way—your only role is to be humorous.
 
 **Example Jokes:**
-1. "Jecta swaps tokens so fast, I swear he hasn’t read a single whitepaper in his life."
-2. "Jecta thinks ‘HODL’ is a typo and that every token should be swapped within five minutes."
-3. "Jecta says staking is easy—yeah, because he never actually checks APRs before clicking ‘stake’."
+1. "Solpilot swaps tokens so fast, I swear he hasn’t read a single whitepaper in his life."
+2. "Solpilot thinks ‘HODL’ is a typo and that every token should be swapped within five minutes."
+3. "Solpilot says staking is easy—yeah, because he never actually checks APRs before clicking ‘stake’."
 
-If you are unsure how to respond, just make a joke about Injective or Jecta!
+If you are unsure how to respond, just make a joke about Solana or Solpilot!
 
 **IMPORTANT**
 Don't make jokes like starting with "why" only. Be more creative.
@@ -40,9 +40,9 @@ Don't make jokes like starting with "why" only. Be more creative.
 const promptDetails = async (
   tokenmetadata: any,
   topholders: any,
-  INJ_CW20_ADAPTER: string,
+  SOL_CW20_ADAPTER: string,
   dojoBurnAddress: string,
-  injBurnAddress: string,
+  SOLBurnAddress: string,
   mitoFinance: string,
   mitoVaults: any,
   normalPools: any
@@ -61,9 +61,9 @@ const promptDetails = async (
 
 
   const safeAddresses = [
-    INJ_CW20_ADAPTER,
+    SOL_CW20_ADAPTER,
     dojoBurnAddress,
-    injBurnAddress,
+    SOLBurnAddress,
     mitoFinance,
     ...mitoVaultAddresses,
     ...normalPoolAddresses,
@@ -117,7 +117,7 @@ const promptDetails = async (
 
 
   const burnedSupply = safeTopHolders
-    .filter((holder: { wallet_id: string; }) => [dojoBurnAddress, injBurnAddress].includes(holder.wallet_id))
+    .filter((holder: { wallet_id: string; }) => [dojoBurnAddress, SOLBurnAddress].includes(holder.wallet_id))
     .reduce((sum: any, holder: { balance: any; }) => sum + holder.balance, 0);
 
 
@@ -143,7 +143,7 @@ const promptDetails = async (
   if (totalTVL < TVL_THRESHOLD && totalTVL > 0) consList.push(`Total Value Locked (TVL) of $${totalTVL.toFixed(2)} is relatively low, indicating limited liquidity and weak trading opportunities.`);
 
   const analyzeTokenPrompt = `
-    You are Sonia, an AI specializing in token analysis on Injective. Your goal is to evaluate the provided token and **deliver a professional, structured response** with:
+    You are Sonia, an AI specializing in token analysis on Solana. Your goal is to evaluate the provided token and **deliver a professional, structured response** with:
     - **Pros:** Strengths of the token.
     - **Cons:** Weaknesses or risks.
     - **Important Insights:** Detailed analysis on supply, liquidity, and risk factors.
@@ -157,9 +157,9 @@ const promptDetails = async (
 
     ---
     ## **Safe Addresses** (verified & secure):
-    - **INJ_CW20_ADAPTER:** ${INJ_CW20_ADAPTER}
+    - **SOL_CW20_ADAPTER:** ${SOL_CW20_ADAPTER}
     - **Dojo Burn Address:** ${dojoBurnAddress}
-    - **INJ Burn Address:** ${injBurnAddress}
+    - **SOL Burn Address:** ${SOLBurnAddress}
     - **Mito Finance Address:** ${mitoFinance}
     - **Liquidity Pools & Vaults (Safe) Addresses:**
       ${mitoVaultAddresses.map((address:any) => `- Mito Vault: ${address}`).join("\n")}
@@ -213,9 +213,9 @@ export default promptDetails;
 
 
   
-export const soniaRouter = async (tokenmetadata:any,topholders:any,INJ_CW20_ADAPTER:string,dojoBurnAddress:string,injBurnAddress:string,mitoFinance:string,mitoVaults:any,normalPools:any) => {
+export const soniaRouter = async (tokenmetadata:any,topholders:any,SOL_CW20_ADAPTER:string,dojoBurnAddress:string,SOLBurnAddress:string,mitoFinance:string,mitoVaults:any,normalPools:any) => {
   try {
-    const soniaPrompt = await promptDetails(tokenmetadata,topholders,INJ_CW20_ADAPTER,dojoBurnAddress,injBurnAddress,mitoFinance,mitoVaults,normalPools)
+    const soniaPrompt = await promptDetails(tokenmetadata,topholders,SOL_CW20_ADAPTER,dojoBurnAddress,SOLBurnAddress,mitoFinance,mitoVaults,normalPools)
     const messages: ChatCompletionMessageParam[] = [
       { role: "system", content: soniaPrompt },
     ];
@@ -240,18 +240,18 @@ export const soniaRouter = async (tokenmetadata:any,topholders:any,INJ_CW20_ADAP
 };
 
 
-export const querySoniaJoke = async (jectaMessage: string, chatHistory: any[]) => {
+export const querySoniaJoke = async (SolpilotMessage: string, chatHistory: any[]) => {
   try {
     const formattedHistory: ChatCompletionMessageParam[] = chatHistory
       .map((msg) => ({
-        role: msg.sender === "jecta" ? "user" : "assistant",
+        role: msg.sender === "Solpilot" ? "user" : "assistant",
         content: msg.text.toString(),
       }));
 
     const messages: ChatCompletionMessageParam[] = [
       { role: "system", content: jokePrompt },
       ...formattedHistory,
-      { role: "user", content: jectaMessage },
+      { role: "user", content: SolpilotMessage },
     ];
     if (!MODEL) {
       return;

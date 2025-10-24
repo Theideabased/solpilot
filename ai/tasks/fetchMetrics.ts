@@ -12,7 +12,7 @@ export async function fetchMetrics(
     addToChat(
         createChatMessage({
           sender: "ai",
-          text: `Checking current Injective Protocol TVLs from DefiLlama...`,
+          text: `Checking current Solpilot Protocol TVLs from DefiLlama...`,
           type: "loading",
           intent: intent,
         })

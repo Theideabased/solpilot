@@ -60,7 +60,7 @@ const Menu = ({
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
 
   function createTweetAndRedirect(refCode: string) {
-    const tweetText = `I'm using @jectadotai on Early Access right now ! Use my referal code to get your early access too.\n\nMy ref code : ${refCode} .\n\nTry it now ! https://www.jectadotai.com`;
+    const tweetText = `I'm using @solpilotdotai on Early Access right now ! Use my referal code to get your early access too.\n\nMy ref code : ${refCode} .\n\nTry it now ! https://www.solpilotdotai.com`;
     const twitterBaseUrl = "https://twitter.com/intent/tweet";
     const encodedTweet = encodeURIComponent(tweetText);
     const tweetUrl = `${twitterBaseUrl}?text=${encodedTweet}`;
@@ -114,10 +114,10 @@ const Menu = ({
     <div className="flex flex-col h-full ">
       <div className="space-y-6 p-4">
         <div className="flex items-center gap-2">
-          <img src="/logo.png" alt="Jecta" className="h-8 w-8" />
+          <img src="/logo.png" alt="Solpilot" className="h-8 w-8" />
           {!isCollapsed && (
             <div>
-              <h1 className="text-xl font-bold">JECTA</h1>
+              <h1 className="text-xl font-bold">SOLPILOT</h1>
               <span className="text-xs text-gray-400">v0.0.3</span>
             </div>
           )}

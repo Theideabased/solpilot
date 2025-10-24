@@ -14,7 +14,7 @@ export async function fetchLastProposals(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: "Looking for the last 10 Proposals from Injective Hub...",
+        text: "Looking for the last 10 Proposals from Solana Hub...",
         type: "text",
         intent: intent,
       })

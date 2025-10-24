@@ -1,5 +1,5 @@
 {
-  "name": "jecta-app",
+  "name": "solpilot-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,11 +21,14 @@
     "@radix-ui/react-scroll-area": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-visually-hidden": "^1.1.2",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
     "@supabase/supabase-js": "^2.48.1",
     "@vercel/analytics": "^1.5.0",
     "@walletconnect/ethereum-provider": "^2.18.0",
     "alchemy-sdk": "^3.5.1",
     "axios": "^1.6.0",
+    "bs58": "^4.0.1",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -48,6 +51,7 @@
     "shadcn-ui": "^0.9.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
+    "tweetnacl": "^1.0.3",
     "typewriter-effect": "^2.21.0",
     "uuid": "^11.1.0",
     "ws": "^8.18.0"

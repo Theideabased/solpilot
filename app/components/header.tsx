@@ -42,7 +42,7 @@ const Header = ({
       >
         <div className="flex h-14 items-center justify-between px-6">
           <div className="flex items-center gap-4">
-            <h2 className="text-lg font-semibold text-zinc-200">JECTA</h2>
+            <h2 className="text-lg font-semibold text-zinc-200">SOLPILOT</h2>
             {isWhitelisted && (
               <span className="rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-500">
               Early Access

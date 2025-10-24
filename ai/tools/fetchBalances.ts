@@ -1,127 +1,109 @@
-import { IndexerGrpcAccountPortfolioApi } from "@injectivelabs/sdk-ts";
-import { IndexerRestExplorerApi } from "@injectivelabs/sdk-ts";
-import { getNetworkEndpoints, Network } from "@injectivelabs/networks";
+import { Connection, PublicKey, LAMPORTS_PER_SOL } from "@solana/web3.js";
+import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import axios from "axios";
 import { fetchTokenPriceDirectly } from "./fetchTokenPrice";
 
-const endpoints = getNetworkEndpoints(Network.Mainnet);
-const indexerRestExplorerApi = new IndexerRestExplorerApi(`${endpoints.explorer}/api/explorer/v1`);
+// Use public RPC or your own endpoint
+const SOLANA_RPC = process.env.NEXT_PUBLIC_SOLANA_RPC || "https://api.mainnet-beta.solana.com";
+const connection = new Connection(SOLANA_RPC, "confirmed");
 
-export const fetchInjectiveBalance = async (injectiveAddress: string) => {
-  if (!injectiveAddress.startsWith("inj")) {
-    return null;
-  }
-
+export const fetchSolanaBalance = async (solanaAddress: string) => {
   try {
-    const network = Network.Mainnet;
-    const endpoints = getNetworkEndpoints(network);
-    const indexerGrpcAccountPortfolioApi = new IndexerGrpcAccountPortfolioApi(endpoints.indexer);
+    // Validate Solana address
+    const publicKey = new PublicKey(solanaAddress);
 
-    const portfolio = await indexerGrpcAccountPortfolioApi.fetchAccountPortfolioBalances(
-      injectiveAddress
-    );
-    const portfolioNonZero = portfolio.bankBalancesList.filter(
-      (coin, index) => coin.amount !== "0"
-    );
+    // Fetch SOL balance
+    const solBalance = await connection.getBalance(publicKey);
+    const solAmount = solBalance / LAMPORTS_PER_SOL;
 
-    const cw20Balances = await indexerRestExplorerApi.fetchCW20BalancesNoThrow(injectiveAddress);
+    // Fetch all SPL token accounts
+    const tokenAccounts = await connection.getParsedTokenAccountsByOwner(publicKey, {
+      programId: TOKEN_PROGRAM_ID,
+    });
 
-    const cw20BalancesNonZero = cw20Balances.filter((coin, index) => coin.balance !== "0");
-    const formattedBank = [];
-    for (const item of portfolioNonZero) {
-      const metadata = await fetchTokenMetadata(item.denom);
+    // Format SOL balance
+    const solPrice = await fetchTokenPriceDirectly("SOL");
+    const solBalanceUSD = solPrice ? solAmount * Number(solPrice) : 0;
+
+    const formattedBalances = [
+      {
+        symbol: "SOL",
+        amount: solAmount,
+        balance: solBalanceUSD,
+        logo: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+        address: "So11111111111111111111111111111111111111112",
+      },
+    ];
+
+    // Process SPL tokens
+    for (const accountInfo of tokenAccounts.value) {
+      const parsedInfo = accountInfo.account.data.parsed.info;
+      const tokenAmount = parsedInfo.tokenAmount;
+
+      // Skip if balance is zero
+      if (tokenAmount.uiAmount === 0) continue;
+
+      const mintAddress = parsedInfo.mint;
+      const amount = tokenAmount.uiAmount;
+
+      // Fetch token metadata
+      const metadata = await fetchTokenMetadata(mintAddress);
       if (!metadata) {
-        continue; 
+        // If metadata not found, still show the token with basic info
+        formattedBalances.push({
+          symbol: "UNKNOWN",
+          amount: amount,
+          balance: 0,
+          logo: "",
+          address: mintAddress,
+        });
+        continue;
       }
 
-      const decimals = metadata.decimals;
-      const logo = metadata.logo;
-      const symbol = metadata.symbol;
-
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 300)); // Rate limiting
 
       const price = await fetchTokenPriceDirectly(metadata.symbol);
+      const balanceUSD = price ? amount * Number(price) : 0;
 
-      let balance = 0;
-      if (price == null) {
-        balance = 0;
-      } else {
-        balance = (parseFloat(item.amount) / 10 ** decimals) * Number(price);
-      }
-
-      if (symbol === "USDT") {
-        balance = parseFloat(item.amount) / 10 ** decimals;
-      }
-
-      formattedBank.push({
-        symbol: symbol,
-        amount: parseFloat(item.amount) / 10 ** decimals,
-        balance: balance,
-        logo: logo,
-        address: item.denom,
+      formattedBalances.push({
+        symbol: metadata.symbol,
+        amount: amount,
+        balance: balanceUSD,
+        logo: metadata.logoURI || "",
+        address: mintAddress,
       });
     }
 
-    const formattedCW20 = [];
-    for (const item of cw20BalancesNonZero) {
-      const metadata = await fetchTokenMetadata(item.contract_address);
-      if (!metadata) {
-        continue; 
-      }
-
-      const decimals = metadata.decimals;
-      const logo = metadata.logo;
-      const symbol = metadata.symbol;
-
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      const price = await fetchTokenPriceDirectly(metadata.symbol);
-
-      let balance = 0;
-      if (price == null) {
-        balance = 0;
-      } else {
-        balance = (parseFloat(item.balance) / 10 ** decimals) * Number(price);
-      }
-
-      formattedCW20.push({
-        symbol: symbol,
-        amount: parseFloat(item.balance) / 10 ** decimals,
-        balance: balance,
-        logo: logo,
-        address: item.contract_address,
-      });
-    }
+    // Sort by balance (highest first)
+    formattedBalances.sort((a, b) => b.balance - a.balance);
 
     return {
-      bank: await Promise.all(formattedBank),
-      cw20: await Promise.all(formattedCW20),
+      bank: formattedBalances, // Keep same structure for compatibility
+      cw20: [], // Empty for Solana (no CW20 equivalent)
     };
   } catch (error) {
-    console.error("❌ Error fetching Injective balance:", error);
+    console.error("❌ Error fetching Solana balance:", error);
     return null;
   }
 };
 
-const TOKEN_LIST_URL =
-  "https://raw.githubusercontent.com/InjectiveLabs/injective-lists/refs/heads/master/json/tokens/mainnet.json";
+// Export with both names for backward compatibility
+export const fetchInjectiveBalance = fetchSolanaBalance;
 
-export const fetchTokenMetadata = async (denom: string) => {
+const TOKEN_LIST_URL = "https://token.jup.ag/all";
+
+export const fetchTokenMetadata = async (mintAddress: string) => {
   try {
-    let tokenMetadata;
-    if (denom.startsWith("peggy")) {
-      const response = await axios.get(TOKEN_LIST_URL);
-      tokenMetadata = response.data.find((token: any) => token.denom === denom);
-    } else {
-      const response = await axios.get(TOKEN_LIST_URL);
-      tokenMetadata = response.data.find((token: any) => token.address === denom);
-    }
+    const response = await axios.get(TOKEN_LIST_URL);
+    const tokenMetadata = response.data.find((token: any) => token.address === mintAddress);
+
     if (tokenMetadata) {
       return tokenMetadata;
     } else {
       return null;
     }
   } catch (error) {
-    return `❌ Failed to fetch ${denom} metadata.`;
+    console.error(`❌ Failed to fetch ${mintAddress} metadata:`, error);
+    return null;
   }
 };

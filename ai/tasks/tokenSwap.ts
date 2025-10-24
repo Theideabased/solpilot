@@ -34,7 +34,7 @@ export async function tokenSwap(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: "❌ Prompt details are unclear. Please send me an info with basic prompt like this. Example : 'I want to swap 10 INJ to USDT' ",
+        text: "❌ Prompt details are unclear. Please send me an info with basic prompt like this. Example : 'I want to swap 10 SOL to USDT' ",
         type: "error",
         intent: currentIntent,
       })
@@ -44,7 +44,7 @@ export async function tokenSwap(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: `❌ Failed to get token metadata : ${from} . Please ensure that this token is available on Injective.`,
+        text: `❌ Failed to get token metadata : ${from} . Please ensure that this token is available on Solana.`,
         type: "error",
         intent: currentIntent,
       })
@@ -54,7 +54,7 @@ export async function tokenSwap(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: `❌ Failed to get token metadata : ${to} . Please ensure that this token is available on Injective.`,
+        text: `❌ Failed to get token metadata : ${to} . Please ensure that this token is available on Solana.`,
         type: "error",
         intent: currentIntent,
       })
