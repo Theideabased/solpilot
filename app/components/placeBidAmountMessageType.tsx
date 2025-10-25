@@ -61,7 +61,7 @@ const PlaceBidAmountMessageType = ({
         injectiveAddress,
         round: latestRound,
       })
-      const msgClient = msgBroadcastClient()
+      const msgClient = msgBroadcastClient() as any
       const res = await msgClient.broadcast({
         injectiveAddress: injectiveAddress,
         msgs: msg,

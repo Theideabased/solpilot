@@ -34,15 +34,15 @@ export async function POST(req: Request) {
     // Generate response with streaming
     const result = await selectedAgent.generate(enhancedMessage, {
       maxSteps: 5,
-      onStepFinish: (step) => {
+      onStepFinish: (step: any) => {
         console.log(`Step ${step.stepNumber}:`, step.text);
       },
     });
 
     // Extract tool results if any
     const toolResults = result.steps
-      ?.filter((step) => step.toolCalls && step.toolCalls.length > 0)
-      .map((step) => ({
+      ?.filter((step: any) => step.toolCalls && step.toolCalls.length > 0)
+      .map((step: any) => ({
         tool: step.toolCalls![0].toolName,
         result: step.toolResults?.[0],
       }));

@@ -124,6 +124,192 @@ temp/
 *.tmp
 
 # ============================================
+# SOLPILOT SPECIFIC SECURITY
+# ============================================
+
+# Environment overrides with real keys
+.env.*.override
+.env.override
+.env.*.backup
+
+# Local testing files with real data
+test-wallets.json
+real-transactions.json
+actual-balances.json
+test-accounts/
+
+# Deployment configs with secrets
+vercel.json.local
+netlify.toml.local
+deployment-config.local.*
+
+# Backup files that might contain keys
+*.env.backup
+*.key.backup
+config-backup/
+backups/
+
+# Debug files with sensitive output
+debug-output/
+console-logs/
+network-logs/
+error-dumps/
+
+# MCP server configs
+mcp-server.local.ts
+mcp-config.local.json
+mcp/.env
+
+# Mastra agent configs with API keys
+mastra/.env
+mastra/.env.local
+mastra/config.local.*
+mastra/*.local.ts
+
+# OpenRouter/AI configs
+openrouter.config.local.js
+openrouter.config.local.ts
+ai-config.local.json
+ai-config.local.ts
+
+# Zerion testing files
+zerion-test-data.json
+portfolio-snapshots/
+wallet-data/
+
+# Wallet connection testing
+wallet-test.json
+connected-wallets.log
+wallet-connections/
+test-signatures/
+
+# Solana program keypairs (CRITICAL)
+program-keypair.json
+program-id.json
+authority-keypair.json
+upgrade-authority.json
+
+# Testing with real wallets (NEVER COMMIT)
+mainnet-wallet.json
+production-wallet.json
+real-keypair.json
+
+# API response caches that might contain sensitive data
+.api-cache/
+response-cache/
+*.cache.json
+
+# Local database dumps
+*.dump
+database-backup/
+db-snapshots/
+
+# Environment-specific configs
+.env.staging
+.env.preview
+.env.*.secret
+
+# Git hooks with sensitive data
+.git/hooks/*.local
+
+# IDE configs that might contain paths to secrets
+.vscode/launch.json
+.idea/runConfigurations/
+
+# npm/yarn auth tokens
+.npmrc.local
+.yarnrc.local
+.yarn/install-state.gz
+
+# Firebase/Google Cloud credentials
+firebase-adminsdk-*.json
+gcloud-service-account.json
+
+# AWS credentials
+.aws/
+aws-credentials.json
+
+# Sentry auth tokens
+.sentryclirc.local
+
+# Screenshots that might show API keys or wallet addresses
+screenshots/*.png
+screenshots/*.jpg
+debug-screenshots/
+
+# Video recordings of development
+recordings/
+screen-captures/
+
+# Transaction logs with real data
+transactions.log
+tx-history.json
+blockchain-activity.log
+
+# Performance profiling that might contain sensitive data
+*.cpuprofile
+*.heapprofile
+*.heapsnapshot
+
+# AI/ML model files (can be large and might contain training data)
+*.h5
+*.keras
+*.onnx
+fine-tuned-models/
+
+# Local SQLite databases (might contain cached user data)
+*.db-shm
+*.db-wal
+
+# Redis dumps
+appendonly.aof
+
+# Postman collections with real API keys
+*.postman_collection.local.json
+*.postman_environment.local.json
+
+# Bruno/Insomnia API collections
+bruno/environments/local.json
+insomnia/environments/local.json
+
+# Local SSL certificates
+localhost.crt
+localhost.key
+ssl-local/
+
+# Ngrok/Localtunnel configs
+.ngrok
+.localtunnel
+
+# Docker secrets (if using Docker)
+docker-compose.secrets.yml
+.docker/secrets/
+
+# Kubernetes secrets (if deploying to K8s)
+k8s-secrets/
+*.secret.yaml
+
+# Terraform state files (contain infrastructure secrets)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Git credential files
+.git-credentials
+.netrc
+
+# Shell history (might contain pasted secrets)
+.zsh_history
+.bash_history
+
+# Jupyter notebooks with outputs (might show API responses)
+*.ipynb_checkpoints/
+
+# Build artifacts that might contain embedded secrets
+dist-production/
+build-with-keys/
+
+# ============================================
 # SECURITY: API Keys & Secrets
 # ============================================
 

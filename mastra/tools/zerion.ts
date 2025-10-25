@@ -352,3 +352,13 @@ export const zerionTools = [
   getNFTsTool,
   getTokenDataTool,
 ];
+
+// Export as record object for Mastra Agent configuration
+export const createZerionTools = () => ({
+  getPortfolio: getPortfolioTool,
+  getTransactions: getTransactionsTool,
+  getPnL: getPnLTool,
+  getDeFiPositions: getDeFiPositionsTool,
+  getNFTs: getNFTsTool,
+  getTokenData: getTokenDataTool,
+});

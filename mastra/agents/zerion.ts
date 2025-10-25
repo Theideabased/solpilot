@@ -7,10 +7,19 @@
  */
 
 import { Agent } from '@mastra/core';
-import { openRouterProvider } from '../providers/openrouter';
-import { zerionTools } from '../tools/zerion';
+import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createZerionTools } from '../tools/zerion';
+
+// Initialize OpenRouter provider
+const openrouter = createOpenRouter({
+  apiKey: process.env.OPENROUTER_API_KEY,
+});
+
+// Get the model from env or use default
+const MODEL = process.env.MODEL || 'openai/gpt-4o-mini';
 
 export const zerionAgent = new Agent({
+  model: openrouter(MODEL),
   name: 'Zerion Portfolio Analyst',
   instructions: `
 You are the Zerion Portfolio Analyst for SOLPILOT, specialized in providing comprehensive wallet analytics and onchain intelligence.
@@ -81,10 +90,5 @@ Last 5 Transactions:
 4. ✅ Approved JUP for trading
 5. ✅ Claimed 5 SOL rewards"
 `.trim(),
-  model: {
-    provider: openRouterProvider,
-    name: 'anthropic/claude-3.5-sonnet',
-    toolChoice: 'auto',
-  },
-  tools: zerionTools,
+  tools: createZerionTools(),
 });

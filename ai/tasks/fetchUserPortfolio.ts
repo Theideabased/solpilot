@@ -89,12 +89,12 @@ export async function fetchPortfolio(
     createChatMessage({
       sender: "ai",
       type: "balance", 
-      balances: balances.cw20
+      balances: (balances.cw20 as any[])
         .filter((token) => token !== undefined)
         .map((token) => ({
           symbol: token.symbol,
           amount: token.amount.toString(),
-          balance:token.balance,
+          balance: token.balance,
           logo: token.logo,
           address: token.address, 
         })),

@@ -36,7 +36,7 @@ const SwapMessageType = ({
             action: "send",
           },
         });
-        const msgClient = msgBroadcastClient();
+        const msgClient = msgBroadcastClient() as any;
 
         const res = await msgClient.broadcast({
           injectiveAddress: injectiveAddress,
@@ -61,7 +61,7 @@ const SwapMessageType = ({
           },
           funds: contractInput.funds,
         });
-        const msgClient = msgBroadcastClient();
+        const msgClient = msgBroadcastClient() as any;
 
         const res = await msgClient.broadcast({
           injectiveAddress: injectiveAddress,

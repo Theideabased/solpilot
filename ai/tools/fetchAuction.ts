@@ -27,7 +27,7 @@ export async function fetchLatestAuction(auction_id:number|null) {
 
         
 
-        return formatAuctionAsHTML(auction);
+        return formatAuctionAsHTML(auction as any);
     } catch (error) {
         console.error('Error fetching auction data:', error);
         return null;

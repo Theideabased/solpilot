@@ -40,7 +40,7 @@ const SendTokenMessageType = ({
             action: "transfer",
           },
         });
-        const msgClient = msgBroadcastClient();
+        const msgClient = msgBroadcastClient() as any;
         const res = await msgClient.broadcast({
           injectiveAddress: injectiveAddress,
           msgs: msg,
@@ -63,7 +63,7 @@ const SendTokenMessageType = ({
           srcInjectiveAddress: injectiveAddress,
           dstInjectiveAddress: sendDetails.receiver,
         });
-        const msgClient = msgBroadcastClient();
+        const msgClient = msgBroadcastClient() as any;
         const res = await msgClient.broadcast({
           injectiveAddress: injectiveAddress,
           msgs: msg,
