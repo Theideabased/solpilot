@@ -34,10 +34,300 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env
 .env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# API keys and secrets
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.jks
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+serviceAccountKey.json
+
+# Configuration files with sensitive data
+config.local.js
+config.local.ts
+config.local.json
+config.private.js
+config.private.ts
+config.private.json
+
+# Supabase
+.supabase/
+supabase/.env
+
+# Wallet private keys
+wallet.json
+keypair.json
+id.json
+*.wallet
+
+# Logs that might contain sensitive data
+*.log
+logs/
+*.log.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
 
 # vercel
 .vercel
 
+# Sentry
+.sentryclirc
+
+# Local development
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# ============================================
+# SECURITY: API Keys & Secrets
+# ============================================
+
+# OpenRouter / OpenAI Keys
+.openrouter
+openrouter-key.txt
+openai-key.txt
+
+# Zerion API Keys
+zerion-key.txt
+.zerion
+
+# Venice API Keys
+venice-key.txt
+.venice
+
+# Any file with "key" or "secret" in the name
+*secret*
+*SECRET*
+*apikey*
+*api-key*
+*api_key*
+*APIKEY*
+
+# JWT secrets
+jwt-secret.txt
+.jwt
+
+# Mnemonic phrases and seed phrases
+*mnemonic*
+*seed-phrase*
+*recovery-phrase*
+
+# Private keys (Solana, Ethereum, etc.)
+*private-key*
+*privatekey*
+*privkey*
+*.priv
+
+# ============================================
+# BLOCKCHAIN SPECIFIC
+# ============================================
+
+# Solana keypairs and wallets
+*.json.key
+devnet-keypair.json
+mainnet-keypair.json
+test-wallet.json
+deployer-keypair.json
+
+# Anchor/Solana program keys
+target/deploy/*.so
+target/deploy/*-keypair.json
+
+# Ethereum/EVM private keys
+.secret
+hardhat.config.local.js
+truffle-config.local.js
+
+# ============================================
+# SENSITIVE CONFIGURATION
+# ============================================
+
+# Local override files
+.env.*.local
+.env.local.*
+local.env
+.local
+
+# Docker secrets
+docker-compose.override.yml
+.dockerenv
+
+# CI/CD secrets (if accidentally created locally)
+.gitlab-ci-local.yml
+.github/workflows/*.local.yml
+
+# ============================================
+# DATABASE & BACKEND
+# ============================================
+
+# Supabase local development
+.supabase/
+supabase/seed.sql.backup
+supabase/migrations/*.local.sql
+
+# PostgreSQL
+*.dump
+*.sql.backup
+
+# MongoDB
+*.mongo
+
+# Redis
+dump.rdb
+
+# ============================================
+# MASTRA & AI SPECIFIC
+# ============================================
+
+# Mastra local configs
+mastra/.env.local
+mastra/config.local.ts
+
+# Vector databases
+.chroma/
+.pinecone/
+.weaviate/
+
+# Model weights and caches
+*.pt
+*.pth
+*.ckpt
+models/
+.cache/
+
+# ============================================
+# DEBUGGING & DEVELOPMENT
+# ============================================
+
+# Debug outputs
+debug/
+.debug/
+debug.log
+debug-*.log
+
+# Test data with sensitive info
+test-data-real.json
+real-addresses.txt
+actual-transactions.json
+
+# Screenshots that might contain keys
+screenshots/
+*.png
+*.jpg
+!public/*.png
+!public/*.jpg
+!images/*.png
+!images/*.jpg
+
+# ============================================
+# BACKUPS (might contain sensitive data)
+# ============================================
+
+# Backup files
+backup/
+backups/
+*.backup
+*-backup.*
+*.bak
+*-bak.*
+
+# Archives that might contain secrets
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+!public/*.zip
+
+# ============================================
+# NOTES & DOCUMENTATION WITH KEYS
+# ============================================
+
+# Personal notes that might have keys
+NOTES.md
+NOTES.txt
+TODO-PRIVATE.md
+SECRETS.md
+API-KEYS.md
+keys.txt
+passwords.txt
+
+# ============================================
+# MISC SECURITY
+# ============================================
+
+# SSH keys
+*.pub
+*.ssh
+.ssh/
+
+# GPG keys
+*.gpg
+*.asc
+
+# Certificate files
+*.cer
+*.der
+
+# Android keystore
+*.keystore
+*.jks
+
+# iOS provisioning
+*.mobileprovision
+*.p12
+
+# Windows executable that might be malicious
+*.exe
+*.dll
+*.bat
+*.cmd
+
+# macOS extended attributes
+.AppleDouble
+.LSOverride
