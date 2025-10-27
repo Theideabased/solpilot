@@ -1,39 +1,25 @@
-import { ChainGrpcWasmApi, toBase64 } from "@injectivelabs/sdk-ts";
-import { getNetworkEndpoints, Network } from "@injectivelabs/networks";
-
 interface RefDetails {
   ref_code: string;
   count: number;
   refferer: string;
 }
+const deriveRefCode = (solanaAddress: string) => `sol-${solanaAddress.slice(0, 4)}-${solanaAddress.slice(-4)}`;
 
-const endpoints = getNetworkEndpoints(Network.Mainnet);
-const chainGrpcWasmApi = new ChainGrpcWasmApi(endpoints.grpc);
-
-const earlyAccessContract = "inj1kdvdz8et52xwsvz392799r6em3qzq5ggn2nkve";
-
-export const getRefCodeDetails = async (injectiveAddress: string | null) => {
+export const getRefCodeDetails = async (solanaAddress: string | null) => {
   try {
-    if (injectiveAddress) {
-      const ref_code = injectiveAddress.replace(/^inj/, "jecta");
-      const queryFromObject = toBase64({ get_referral: { ref_code: ref_code } });
-      const contractState = await chainGrpcWasmApi.fetchSmartContractState(
-        earlyAccessContract,
-        queryFromObject
-      );
-
-      const decodedResponse = new TextDecoder().decode(
-        Uint8Array.from(Object.values(contractState.data))
-      );
-
-      const parsedResponse: RefDetails = JSON.parse(decodedResponse);
-
-      if (parsedResponse !== null || parsedResponse !== undefined) {
-        return parsedResponse;
-      }
+    if (!solanaAddress) {
+      return null;
     }
+
+    const referralDetails: RefDetails = {
+      ref_code: deriveRefCode(solanaAddress),
+      count: 0,
+      refferer: solanaAddress,
+    };
+
+    return referralDetails;
   } catch (error) {
-    console.error("Error querying contract:", error);
+    console.error("Error preparing Solana referral details:", error);
     return null;
   }
 };

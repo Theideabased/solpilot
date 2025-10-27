@@ -1,39 +1,55 @@
+import { Connection, LAMPORTS_PER_SOL, PublicKey, StakeProgram } from "@solana/web3.js";
 
-import { ChainGrpcStakingApi} from "@injectivelabs/sdk-ts";
-import { BigNumberInBase } from "@injectivelabs/utils";
-import {getNetworkEndpoints, Network } from '@injectivelabs/networks';
+const SOLANA_RPC = process.env.NEXT_PUBLIC_SOLANA_RPC || "https://api.mainnet-beta.solana.com";
+const connection = new Connection(SOLANA_RPC, "confirmed");
 
-const endpoints = getNetworkEndpoints(Network.Mainnet);
-const stakingApi = new ChainGrpcStakingApi(endpoints.grpc);
+export const fetchSolanaStakingInfo = async (walletAddress: string | null) => {
+  if (!walletAddress) {
+    return [];
+  }
 
-export const fetchInjectiveStakingInfo = async (walletAddress: string|null) => {
   try {
-    
-    if(!walletAddress){
-        return [];
-    }
-    const delegations = await stakingApi.fetchDelegations({injectiveAddress:walletAddress});
-    if (!delegations.delegations.length) {
-      console.log("No staking data found for this wallet.");
-      return [];
-    }
-    const validators = await stakingApi.fetchValidators();
+    const walletPublicKey = new PublicKey(walletAddress);
+    const stakeAccounts = await connection.getParsedProgramAccounts(StakeProgram.programId);
 
-    const stakingInfo = delegations.delegations.map((delegation) => {
-      const validator = validators.validators.find(
-        (v) => v.operatorAddress === delegation.delegation.validatorAddress
-      );
+    const validatorStakes = stakeAccounts
+      .map((account) => {
+        const parsed = account.account.data as any;
+        const info = parsed?.parsed?.info;
 
-      return {
-        validatorName: validator ? validator.description.moniker : "Unknown Validator",
-        validatorAddress: delegation.delegation.validatorAddress,
-        stakedAmount: new BigNumberInBase(delegation.balance.amount).toNumber() / 1e18, 
-        rewards: 0, 
-      };
-    });
-    return stakingInfo;
+        if (!info) {
+          return null;
+        }
+
+        const authorized = info.meta?.authorized;
+        const isOwnedByUser =
+          authorized?.staker === walletAddress || authorized?.withdrawer === walletAddress;
+
+        if (!isOwnedByUser) {
+          return null;
+        }
+
+        const delegation = info.stake?.delegation;
+        const stakeAmountLamports = delegation?.stake ?? 0;
+        const rewardsLamports = info.stake?.credits ?? 0;
+
+        return {
+          validatorName: delegation?.voter ?? "Unknown Validator",
+          validatorAddress: delegation?.voter ?? "Unknown",
+          stakedAmount: stakeAmountLamports / LAMPORTS_PER_SOL,
+          rewards: rewardsLamports / LAMPORTS_PER_SOL,
+        };
+      })
+      .filter((entry): entry is {
+        validatorName: string;
+        validatorAddress: string;
+        stakedAmount: number;
+        rewards: number;
+      } => entry !== null);
+
+    return validatorStakes;
   } catch (error) {
-    console.error("Error fetching staking information:", error);
+    console.error("Error fetching Solana staking information:", error);
     return [];
   }
 };

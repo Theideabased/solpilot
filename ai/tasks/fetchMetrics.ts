@@ -1,6 +1,6 @@
 import { createChatMessage } from "@/app/utils";
 import { fetchTokenPrice } from "../tools/fetchTokenPrice";
-import { fetchInjectiveData } from "../tools/injectiveMetrics";
+import { fetchSolanaData } from "../tools/solanaMetrics";
 
 export async function fetchMetrics(
   intent: string,
@@ -17,7 +17,7 @@ export async function fetchMetrics(
           intent: intent,
         })
       );
-    const metrics = await fetchInjectiveData();
+  const metrics = await fetchSolanaData();
     console.log(metrics)
     if(metrics == null){
         addToChat(

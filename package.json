@@ -10,12 +10,7 @@
     "mcp": "tsx mastra/mcp-server.ts"
   },
   "dependencies": {
-    "@cosmjs/launchpad": "^0.27.1",
     "@ethersproject/providers": "^5.7.2",
-    "@injectivelabs/sdk-ts": "^1.14.40",
-    "@injectivelabs/wallet-ts": "^1.14.40",
-    "@keplr-wallet/cosmos": "^0.12.190",
-    "@keplr-wallet/provider-extension": "^0.12.190",
     "@ledgerhq/hw-app-eth": "^6.42.5",
     "@mastra/core": "^0.23.1",
     "@modelcontextprotocol/sdk": "^1.20.2",

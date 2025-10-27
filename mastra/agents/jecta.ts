@@ -11,9 +11,7 @@ const openrouter = createOpenRouter({
 const MODEL = process.env.MODEL || 'anthropic/claude-3.5-sonnet';
 
 // Jecta Agent - Main Solana blockchain assistant
-export const jec
-
-taAgent = new Agent({
+export const jectaAgent = new Agent({
   model: openrouter(MODEL),
   name: 'Jecta',
   instructions: `

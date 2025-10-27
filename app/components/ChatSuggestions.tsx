@@ -20,13 +20,13 @@ import { Button } from "./ui/button";
 
 const suggestions = [
   {
-    title: "Injective Basics",
+    title: "Nosana Basics",
     icon: <Rocket className="w-5 h-5" />,
     description: "Learn the fundamentals",
     prompts: [
-      { text: "What is Injective?", icon: <Zap className="w-4 h-4" /> },
-      { text: "How do I get started with Injective?", icon: <ArrowRight className="w-4 h-4" /> },
-      { text: "What are the key features of Injective?", icon: <Code className="w-4 h-4" /> },
+      { text: "What is Solana?", icon: <Zap className="w-4 h-4" /> },
+      { text: "How do I get started with Solana?", icon: <ArrowRight className="w-4 h-4" /> },
+      { text: "What are the key features of Solana?", icon: <Code className="w-4 h-4" /> },
     ],
   },
   {
@@ -34,15 +34,15 @@ const suggestions = [
     icon: <LineChart className="w-5 h-5" />,
     description: "Explore DeFi opportunities",
     prompts: [
-      { text: "Swap 1 INJ to QUNT", icon: <Coins className="w-4 h-4" /> },
-      { text: "What is the current price of HDRO ?", icon: <Wallet className="w-4 h-4" /> },
-      { text: "I want to stake INJ.", icon: <Server className="w-4 h-4" /> },
+      { text: "Swap 1 SOL to NOS", icon: <Coins className="w-4 h-4" /> },
+      { text: "What is the current price of NOS?", icon: <Wallet className="w-4 h-4" /> },
+      { text: "I want to stake SOL.", icon: <Server className="w-4 h-4" /> },
     ],
   },
   {
     title: "Technical Insights",
     icon: <MessageSquare className="w-5 h-5" />,
-    description: "Deep dive into Injective",
+    description: "Deep dive into Solana",
     prompts: [
       { text: "Explain me a tx by its own hash.", icon: <Server className="w-4 h-4" /> },
       { text: "I want to see my own portfolio.", icon: <Zap className="w-4 h-4" /> },
@@ -54,8 +54,8 @@ const suggestions = [
     icon: <ShieldCheck className="w-5 h-5" />,
     description: "Track proposals and bidding",
     prompts: [
-      { text: "Show me the Injective governance proposals.", icon: <BookOpenCheck className="w-4 h-4" /> },
-      { text: "Get me the most recent Injective auction.", icon: <Zap className="w-4 h-4" /> },
+      { text: "Show me the Solana governance proposals.", icon: <BookOpenCheck className="w-4 h-4" /> },
+      { text: "Get me the most recent Solana auction.", icon: <Zap className="w-4 h-4" /> },
       { text: "Place a bid for me in the latest auction.", icon: <ArrowRight className="w-4 h-4" /> },
     ],
   },
@@ -64,9 +64,9 @@ const suggestions = [
     icon: <Wallet className="w-5 h-5" />,
     description: "Portfolio & token tracking",
     prompts: [
-      { text: "Fetch my Injective portfolio.", icon: <Wallet className="w-4 h-4" /> },
+      { text: "Fetch my Solana portfolio.", icon: <Wallet className="w-4 h-4" /> },
       { text: "Analyze the portfolio of this user.", icon: <Server className="w-4 h-4" /> },
-      { text: "Send 5 INJ to this wallet address.", icon: <ArrowRight className="w-4 h-4" /> },
+      { text: "Send 5 SOL to this wallet address.", icon: <ArrowRight className="w-4 h-4" /> },
     ],
   },
   {
@@ -74,9 +74,9 @@ const suggestions = [
     icon: <LineChart className="w-5 h-5" />,
     description: "Track auctions, TVL, and governance",
     prompts: [
-      { text: "Show me the total TVL of Injective.", icon: <TrendingUp className="w-4 h-4" /> },
-      { text: "Get me the most recent Injective auction.", icon: <Zap className="w-4 h-4" /> },
-      { text: "Show me the Injective governance proposals.", icon: <BookOpenCheck className="w-4 h-4" /> },
+      { text: "Show me the total TVL of Solana.", icon: <TrendingUp className="w-4 h-4" /> },
+      { text: "Get me the most recent Solana auction.", icon: <Zap className="w-4 h-4" /> },
+      { text: "Show me the Solana governance proposals.", icon: <BookOpenCheck className="w-4 h-4" /> },
     ],
   },
 ];

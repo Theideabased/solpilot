@@ -6,20 +6,18 @@ const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000";
 const getAuthToken = () => localStorage.getItem("token");
 
 export const createChatIfNotExists = async ({
-  injectiveAddress,
   solanaAddress,
   walletAddress,
   userMessage,
   token,
 }: {
-  injectiveAddress?: string;
   solanaAddress?: string;
   walletAddress?: string;
   userMessage: string;
   token: string;
 }) => {
   const title = await createTitleFromMessage(userMessage);
-  const finalWalletAddress = walletAddress || solanaAddress || injectiveAddress;
+  const finalWalletAddress = walletAddress || solanaAddress;
   
   const res = await fetch(`${baseUrl}/api/chats`, {
     method: "POST",
@@ -35,16 +33,6 @@ export const createChatIfNotExists = async ({
   const { data } = await res.json();
 
   return { id: data.id, title: data.title, ai_id: data.ai_id, user_id: data.user_id };
-};
-
-export const crateInjectiveIfNotExists = async (injectiveAddress: string) => {
-  const res = await fetch(`${baseUrl}/api/users`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "createInjective", injectiveAddress }),
-  });
-  const data = await res.json();
-  return data;
 };
 
 export const createMessage = async ({

@@ -1,8 +1,6 @@
 import React from "react";
 import { Copy, LogOut } from "lucide-react";
-import { MsgUndelegate } from "@injectivelabs/sdk-ts"; // Injective SDK
-import { BigNumberInBase } from "@injectivelabs/utils";
-import { createChatMessage, msgBroadcastClient } from "../utils";
+import { createChatMessage } from "../utils";
 import { useChat } from "../providers/chatProvider";
 interface Validator {
   validatorName: string;
@@ -14,10 +12,10 @@ interface Validator {
 const ValidatorList = ({
     validators,
     handleExit,
-    injectiveAddress,
+    solanaAddress,
     token
   }: {
-    injectiveAddress:string|null,
+    solanaAddress:string|null,
     validators: Validator[];
     handleExit: () => void;
     token:string;
@@ -26,40 +24,27 @@ const ValidatorList = ({
     navigator.clipboard.writeText(text);
   };
   const { addMessage } = useChat();
-  const handleUnstake = async (validator: Validator) => {
-    try {
-      
-      
-      const unstakeAmount = new BigNumberInBase(validator.stakedAmount).toWei(18);
-        if(!injectiveAddress){
-            return
-        }
-      
-      const msgUndelegate = MsgUndelegate.fromJSON({
-        injectiveAddress,
-        validatorAddress: validator.validatorAddress,
-        amount: {
-          denom: "inj",
-          amount: unstakeAmount.toFixed(),
-        },
-      });
-      const msgClient = msgBroadcastClient() as any
-      const res = await msgClient.broadcast({
-        injectiveAddress: injectiveAddress,
-        msgs: msgUndelegate,
-      });
-      addMessage(token,
-              createChatMessage({
-                sender: "ai",
-                text: `Unstake success ! Here is your tx Hash : ${res.txHash}`,
-                type: "text",
-              })
-            );
+  const handleUnstake = (validator: Validator) => {
+    if (!solanaAddress) {
+      addMessage(
+        token,
+        createChatMessage({
+          sender: "ai",
+          text: "Connect your Solana wallet before unstaking.",
+          type: "text",
+        })
+      );
+      return;
+    }
 
-      
-    } catch (error) {
-      
-    } 
+    addMessage(
+      token,
+      createChatMessage({
+        sender: "ai",
+        text: `Unstaking support via Solana transactions is coming soon. You can manually unstake validator ${validator.validatorName} using your wallet in the meantime.`,
+        type: "text",
+      })
+    );
   };
 
   return (
@@ -79,8 +64,8 @@ const ValidatorList = ({
 
             <div className="mt-4 flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400">Staked: <span className="text-white">{validator.stakedAmount.toFixed(6)} INJ</span></p>
-                <p className="text-sm text-gray-400">Rewards: <span className="text-white">{validator.rewards} INJ</span></p>
+                <p className="text-sm text-gray-400">Staked: <span className="text-white">{validator.stakedAmount.toFixed(6)} SOL</span></p>
+                <p className="text-sm text-gray-400">Rewards: <span className="text-white">{validator.rewards} SOL</span></p>
               </div>
               <button
                 className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg"

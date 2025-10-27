@@ -1,8 +1,7 @@
 import { fetchSolanaStakingInfo } from "../tools/stakingInformation";
 import { createChatMessage } from "@/app/utils";
 
-// Legacy alias maintained for backwards compatibility
-export async function unstakeInjective(
+export async function unstakeSolana(
   intent: string,
   message: string,
   chatHistory: any[],
@@ -15,38 +14,42 @@ export async function unstakeInjective(
         sender: "ai",
         text: "Please connect your Solana wallet first.",
         type: "text",
-        intent: intent,
+        intent,
       })
     );
     return;
   }
+
   addToChat(
     createChatMessage({
       sender: "ai",
-      text: "Checking all Solana validators for your staking information...",
+      text: "🔍 Gathering your Solana staking positions...",
       type: "text",
-      intent: intent,
+      intent,
     })
   );
+
   const stakingInformation = await fetchSolanaStakingInfo(address);
+
   if (stakingInformation.length === 0) {
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: "You have no staked SOL on any validators currently.",
+        text: "It looks like you do not have any staked SOL positions right now.",
         type: "text",
-        intent: intent,
+        intent,
       })
     );
     return;
   }
+
   addToChat(
     createChatMessage({
       sender: "ai",
-      text: "Done",
+      text: "Here are your current Solana staking positions.",
       type: "unstake",
       stake_info: stakingInformation,
-      intent: intent,
+      intent,
     })
   );
 }

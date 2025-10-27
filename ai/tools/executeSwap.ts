@@ -1,4 +1,5 @@
 import axios from "axios";
+import { fetchTokenMetadataBySymbol } from "./tokenTools";
 
 export async function extractSwapDetails(message: string) {
   const regex = /swap (\d+(?:\.\d+)?) (\w+) to (\w+)/i;
@@ -7,15 +8,15 @@ export async function extractSwapDetails(message: string) {
   if (match) {
     const amount = parseFloat(match[1]);
     const from = match[2].toUpperCase();
-    const fromMetaData = await fetchTokenMetadata(from);
+    const fromMetaData = await fetchTokenMetadataBySymbol(from);
 
-    if (fromMetaData == "error") {
+    if (!fromMetaData) {
       const status = "failed_from";
       return { from: from, from_metadata: "", to: "", to_metadata: "", amount: 0, status: status };
     }
     const to = match[3].toUpperCase();
-    const toMetaData = await fetchTokenMetadata(to);
-    if (toMetaData == "error") {
+    const toMetaData = await fetchTokenMetadataBySymbol(to);
+    if (!toMetaData) {
       const status = "failed_to";
       return { from: "", from_metadata: "", to: to, to_metadata: "", amount: 0, status: status };
     }
@@ -35,24 +36,6 @@ export async function extractSwapDetails(message: string) {
     return { from: "", from_metadata: "", to: "", to_metadata: "", amount: 0, status: status }; 
   }
 }
-
-// Jupiter's token list - verified tokens on Solana
-const TOKEN_LIST_URL = "https://token.jup.ag/all";
-
-export const fetchTokenMetadata = async (ticker: string) => {
-  try {
-    const response = await axios.get(TOKEN_LIST_URL);
-    const tokenMetadata = response.data.find((token: any) => token.symbol === ticker);
-
-    if (tokenMetadata === undefined) {
-      return "error";
-    } else {
-      return tokenMetadata;
-    }
-  } catch (error) {
-    return "error";
-  }
-};
 
 export const fetchSwapDetails = async (fromMetaData: any, amount: number, toMetaData: any) => {
   try {
@@ -92,13 +75,9 @@ export const fetchSwapDetails = async (fromMetaData: any, amount: number, toMeta
 
 export async function validateTokens(from: string, to: string) {
   try {
-    const response = await axios.get(TOKEN_LIST_URL);
-    const tokens = response.data;
-
-    const validFrom = tokens.some((token: any) => token.symbol.toUpperCase() === from);
-    const validTo = tokens.some((token: any) => token.symbol.toUpperCase() === to);
-
-    return validFrom && validTo;
+    const fromMeta = await fetchTokenMetadataBySymbol(from.toUpperCase());
+    const toMeta = await fetchTokenMetadataBySymbol(to.toUpperCase());
+    return Boolean(fromMeta && toMeta);
   } catch (error) {
     return false;
   }

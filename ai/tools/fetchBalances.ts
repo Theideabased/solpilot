@@ -87,9 +87,6 @@ export const fetchSolanaBalance = async (solanaAddress: string) => {
   }
 };
 
-// Export with both names for backward compatibility
-export const fetchInjectiveBalance = fetchSolanaBalance;
-
 const TOKEN_LIST_URL = "https://token.jup.ag/all";
 
 export const fetchTokenMetadata = async (mintAddress: string) => {

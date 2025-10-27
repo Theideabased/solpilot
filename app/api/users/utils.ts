@@ -15,44 +15,6 @@ export async function getMessages(chatId: number) {
   return data;
 }
 
-export async function getInjectiveAddress(injectiveAddress: string): Promise<any> {
-  const { data, error } = await supabase
-    .from("users")
-    .select("wallet_address")
-    .eq("wallet_address", injectiveAddress)
-    .single();
-
-  if (error) {
-    console.error("Error fetching injective address:", error);
-    return { data: null, error };
-  }
-
-  return { data, error };
-}
-
-export async function createInjectiveIfNotExists(injectiveAddress: string): Promise<any> {
-  const { data: existingInjective, error: existingInjectiveError } = await supabase
-    .from("users")
-    .select("wallet_address")
-    .eq("wallet_address", injectiveAddress)
-    .single();
-
-  if (existingInjective) {
-    return existingInjective;
-  }
-
-  const { data, error } = await supabase
-    .from("users")
-    .insert([{ wallet_address: injectiveAddress }]);
-
-  if (error) {
-    console.error("Error creating injective:", error);
-    return { data: null, error };
-  }
-
-  return { data, error };
-}
-
 export async function sendMessageToDB(chatId: number, senderId: number, message: object) {
   const { data, error } = await supabase
     .from("messages")
@@ -81,7 +43,10 @@ export async function getSolanaAddress(solanaAddress: string): Promise<any> {
   return { data, error };
 }
 
-export async function createSolanaIfNotExists(solanaAddress: string, referralCode?: string): Promise<any> {
+export async function createSolanaIfNotExists(
+  solanaAddress: string,
+  referralCode?: string
+): Promise<any> {
   const { data: existingSolana, error: existingSolanaError } = await supabase
     .from("users")
     .select("wallet_address")
@@ -108,10 +73,12 @@ export async function createSolanaIfNotExists(solanaAddress: string, referralCod
 
   const { data, error } = await supabase
     .from("users")
-    .insert([{ 
-      wallet_address: solanaAddress,
-      is_whitelisted: referralCode !== undefined 
-    }])
+    .insert([
+      {
+        wallet_address: solanaAddress,
+        is_whitelisted: referralCode !== undefined,
+      },
+    ])
     .select();
 
   if (error) {

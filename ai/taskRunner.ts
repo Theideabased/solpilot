@@ -1,10 +1,10 @@
 import { queryOpenRouter } from "./ai";
 import { tokenSwap } from "./tasks/tokenSwap";
-import { searchInjectiveNews } from "./tasks/searchInjectiveNews";
+import { searchSolanaNews } from "./tasks/searchSolanaNews";
 import { fetchBalance } from "./tasks/fetchBalance";
 import { fetchPrice } from "./tasks/fetchPrice";
 import { searchTxHash } from "./tasks/searchTxHash";
-import { stakeInjective } from "./tasks/stakeInjective";
+import { stakeSolana } from "./tasks/stakeSolana";
 import { transferFunds } from "./tasks/transferFunds";
 import { createChatMessage } from "@/app/utils";
 import { getAuction, getLatestAuction } from "./tasks/fetchAuction";
@@ -12,7 +12,7 @@ import { tokenAnalysis } from "./tasks/tokenAnalysis";
 import { jokeTool } from "./tasks/jokeTool";
 import { fetchMetrics } from "./tasks/fetchMetrics";
 import { fetchPortfolio } from "./tasks/fetchUserPortfolio";
-import { unstakeInjective } from "./tasks/unstakeInjective";
+import { unstakeSolana } from "./tasks/unstakeSolana";
 import { fetchLastProposals } from "./tasks/fetchLastProposals";
 
 
@@ -27,8 +27,8 @@ export const executeTask = async (
     case "swap_token":
       await tokenSwap(intent, message, chatHistory, addToChat, address);
       return;
-    case "search_injective_news":
-      await searchInjectiveNews(intent, message, chatHistory, addToChat, address);
+    case "search_solana_news":
+      await searchSolanaNews(intent, message, chatHistory, addToChat, address);
       return;
     case "fetch_my_portfolio":
       await fetchBalance(intent, message, chatHistory, addToChat, address);
@@ -42,11 +42,11 @@ export const executeTask = async (
     case "tx_search":
       await searchTxHash(intent, message, chatHistory, addToChat, address);
       return;
-    case "stake_inj":
-      await stakeInjective(intent, message, chatHistory, addToChat, address);
+    case "stake_sol":
+      await stakeSolana(intent, message, chatHistory, addToChat, address);
       return;
-    case "unstake_inj":
-      await unstakeInjective(intent, message, chatHistory, addToChat, address);
+    case "unstake_sol":
+      await unstakeSolana(intent, message, chatHistory, addToChat, address);
       return
     case "send_token":
       await transferFunds(intent, message, chatHistory, addToChat, address);

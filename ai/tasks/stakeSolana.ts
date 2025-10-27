@@ -1,8 +1,7 @@
 import { fetchValidators } from "../tools/stakeTool";
 import { createChatMessage } from "@/app/utils";
 
-// Legacy alias maintained for backwards compatibility
-export async function stakeInjective(
+export async function stakeSolana(
   intent: string,
   message: string,
   chatHistory: any[],
@@ -31,7 +30,13 @@ export async function stakeInjective(
   const validators = await fetchValidators();
 
   if (validators.length === 0) {
-    addToChat(createChatMessage({ sender: "ai", text: "⚠️ No validators found!", type: "text" }));
+    addToChat(
+      createChatMessage({
+        sender: "ai",
+        text: "⚠️ No validators found on Solana right now.",
+        type: "text",
+      })
+    );
     return;
   }
 

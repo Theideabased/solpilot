@@ -37,7 +37,7 @@ const Chatbot = () => {
   const chatContainerRef = useRef<HTMLDivElement | null>(null);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [isWhitelisted, setIsWhitelisted] = useState<boolean>(false); // Changed back to false
-  const [solanaAddress, setSolanaAddress] = useState<string>("");
+  const [solanaAddress, setSolanaAddress] = useState<string | null>(null);
   const [token, setToken] = useState<string>("");
   const [newChatCreated, setNewChatCreated] = useState<boolean>(false);
   const { validatorSelected, setValidatorSelected } = useValidator();
@@ -214,8 +214,8 @@ const Chatbot = () => {
       )}
       <Menu
         createNewChatButton={createNewChatButton}
-        injectiveAddress={solanaAddress}
-        setInjectiveAddress={(address) => setSolanaAddress(address)}
+        solanaAddress={solanaAddress}
+        setSolanaAddress={(address) => setSolanaAddress(address)}
         loadChatHistory={loadChatHistory}
         isWhitelisted={isWhitelisted}
         newChatCreated={newChatCreated}
@@ -261,7 +261,7 @@ const Chatbot = () => {
                         animate: { opacity: 1, y: 0 },
                         exit: { opacity: 0, y: -10 },
                         transition: {
-                          type: "spring",
+                          type: "spring" as const,
                           stiffness: 500,
                           damping: 30,
                           mass: 1,
@@ -316,7 +316,7 @@ const Chatbot = () => {
                       )}
                       {msg.type === "unstake" && (
                         isLastError?(<>
-                          <ValidatorTable handleExit={handleExit} validators={msg.stake_info} injectiveAddress={solanaAddress} token={token} />
+                          <ValidatorTable handleExit={handleExit} validators={msg.stake_info} solanaAddress={solanaAddress} token={token} />
 
                         </>):(<>
                           <div className="p-3 rounded-xl bg-zinc-800 text-white max-w-[75%]">
@@ -348,7 +348,7 @@ const Chatbot = () => {
                           msg.validators && (
                             <ValidatorsMessageType
                               token={token}
-                              injectiveAddress={solanaAddress}
+                              solanaAddress={solanaAddress}
                               validators={msg.validators}
                               setLoadingState={setLoadingState}
                               isLastError={isLastError}
@@ -367,7 +367,7 @@ const Chatbot = () => {
                           <StakeAmountMessageType
                             token={token}
                             handleExit={handleExit}
-                            injectiveAddress={solanaAddress}
+                            solanaAddress={solanaAddress}
                           />
                         ) : (
                           <>
@@ -383,7 +383,7 @@ const Chatbot = () => {
                           <PlaceBidAmountMessageType
                             token={token}
                             handleExit={handleExit}
-                            injectiveAddress={solanaAddress}
+                            solanaAddress={solanaAddress}
                           />
                         ) : (
                           <>
@@ -404,7 +404,7 @@ const Chatbot = () => {
                               updateExecuting={updateExecuting}
                               updateChat={updateChat}
                               contractInput={msg.contractInput}
-                              injectiveAddress={solanaAddress}
+                              solanaAddress={solanaAddress}
                               token={token}
                             />
                           )
@@ -419,7 +419,7 @@ const Chatbot = () => {
                           msg.send && (
                             <SendTokenMessageType
                               text={msg.text}
-                              injectiveAddress={solanaAddress}
+                              solanaAddress={solanaAddress}
                               setExecuting={updateExecuting}
                               executing={loadingState === "executing"}
                               handleExit={handleExit}

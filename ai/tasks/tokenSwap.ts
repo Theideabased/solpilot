@@ -64,7 +64,7 @@ export async function tokenSwap(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: `🔍 Searching for the best route on Coinhall for ${from}/${to}...`,
+        text: `🔍 Searching Jupiter for the best ${from}/${to} route...`,
         type: "text",
         intent: currentIntent,
       })

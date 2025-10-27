@@ -39,15 +39,15 @@ interface ChatItem {
 interface MenuProps {
   loadChatHistory: (chatId: string) => void;
   createNewChatButton: () => void;
-  injectiveAddress: string | null;
-  setInjectiveAddress: (address: string | null) => void;
+  solanaAddress: string | null;
+  setSolanaAddress: (address: string | null) => void;
   isWhitelisted: boolean;
   newChatCreated: boolean;
 }
 
 const Menu = ({
-  injectiveAddress,
-  setInjectiveAddress,
+  solanaAddress,
+  setSolanaAddress,
   loadChatHistory,
   createNewChatButton,
   isWhitelisted,
@@ -69,11 +69,11 @@ const Menu = ({
   }
 
   useEffect(() => {
-    if (!injectiveAddress) {
+    if (!solanaAddress) {
       return;
     }
     const fetchLastChatNames = async () => {
-      const response = await getLastChatNames(injectiveAddress || "");
+      const response = await getLastChatNames(solanaAddress || "");
       if (response) {
         const sortedChats = response.sort(
           (a: ChatItem, b: ChatItem) =>
@@ -87,15 +87,15 @@ const Menu = ({
 
   useEffect(() => {
     const getRef = async () => {
-      if (isWhitelisted && injectiveAddress) {
-        const response = await getRefCodeDetails(injectiveAddress);
+      if (isWhitelisted && solanaAddress) {
+        const response = await getRefCodeDetails(solanaAddress);
         if (response) {
           setRefDetails(response);
         }
       }
     };
     getRef();
-  }, [isWhitelisted, injectiveAddress]);
+  }, [isWhitelisted, solanaAddress]);
 
   const copyToClipboard = () => {
     if (refDetails?.ref_code) {
@@ -251,8 +251,8 @@ const Menu = ({
   return (
     <>
       <Header
-        injectiveAddress={injectiveAddress}
-        setInjectiveAddress={setInjectiveAddress}
+        solanaAddress={solanaAddress}
+        setSolanaAddress={setSolanaAddress}
         isWhitelisted={isWhitelisted}
         isCollapsed={isCollapsed}
       />

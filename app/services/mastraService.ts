@@ -12,7 +12,7 @@ export async function processMastraMessage(
 ) {
   try {
     // Determine which agent to use based on message content
-    let agentName = 'solpilot';
+    let agentName: 'solpilot' | 'sonia' | 'zerion' = 'solpilot';
     
     const lowerMessage = userMessage.toLowerCase();
     
@@ -21,9 +21,9 @@ export async function processMastraMessage(
       agentName = 'sonia';
     }
     
-    // Route to Venice for research/news
+    // Route to Zerion for research/news
     if (lowerMessage.includes('news') || lowerMessage.includes('research') || lowerMessage.includes('latest')) {
-      agentName = 'venice';
+      agentName = 'zerion';
     }
 
     const agent = mastra.getAgent(agentName);
@@ -42,22 +42,22 @@ export async function processMastraMessage(
     // Generate response using Mastra
     const result = await agent.generate(contextualMessage, {
       maxSteps: 5,
-      onStepFinish: (step) => {
-        console.log(`✅ Step ${step.stepNumber} completed:`, step.text?.substring(0, 100));
+      onStepFinish: (step: any) => {
+        console.log(`✅ Step completed:`, step.text?.substring(0, 100));
       },
     });
 
     // Process tool results if any
     const toolResults: any[] = [];
     if (result.steps) {
-      for (const step of result.steps) {
+      for (const step of result.steps as any[]) {
         if (step.toolCalls && step.toolCalls.length > 0) {
           for (let i = 0; i < step.toolCalls.length; i++) {
             const toolCall = step.toolCalls[i];
             const toolResult = step.toolResults?.[i];
             
             toolResults.push({
-              tool: toolCall.toolName,
+              tool: toolCall.toolName || 'unknown',
               args: toolCall.args,
               result: toolResult,
             });
@@ -86,6 +86,6 @@ export async function processMastraMessage(
 /**
  * Get specific agent for direct interaction
  */
-export async function getAgent(agentName: 'solpilot' | 'sonia' | 'venice') {
+export async function getAgent(agentName: 'solpilot' | 'sonia' | 'zerion') {
   return mastra.getAgent(agentName);
 }

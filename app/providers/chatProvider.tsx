@@ -87,13 +87,12 @@ const ChatProvider = ({ children }: { children: React.ReactNode }) => {
     if (Array.isArray(messages)) {
       for (const message of messages) {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        if (message.sender === "ai" && chatToUse.ai_id) {
+        // Handle user messages
+        if (message.sender === "user" && chatToUse.user_id) {
           addMessage(token, message, newChat);
-        } else if (message.sender === "sonia" && chatToUse.ai_id) {
-          addMessage(token, message, newChat);
-        } else if (message.sender === "venicia" && chatToUse.ai_id) {
-          addMessage(token, message, newChat);
-        } else if (message.sender === "user" && chatToUse.user_id) {
+        } 
+        // Handle all AI agent messages (ai, sonia, venicia, solpilot, zerion, etc.)
+        else if (message.sender !== "user" && chatToUse.ai_id) {
           addMessage(token, message, newChat);
         }
       }

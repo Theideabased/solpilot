@@ -1,52 +1,68 @@
+import { useState } from "react";
 import { useValidator } from "../providers/validatorProvider";
 import { useChat } from "../providers/chatProvider";
-import { MsgDelegate } from "@injectivelabs/sdk-ts";
-import { useState } from "react";
-import { createChatMessage,msgBroadcastClient } from "../utils";
+import { createChatMessage } from "../utils";
 
 const StakeAmountMessageType = ({
   handleExit,
-  injectiveAddress,
-  token
+  solanaAddress,
+  token,
 }: {
-  injectiveAddress: string | null;
+  solanaAddress: string | null;
   handleExit: () => void;
-  token:string;
+  token: string;
 }) => {
-  const [amount, setAmount] = useState<string>();
+  const [amount, setAmount] = useState<string>("");
   const { validatorAddress, setValidatorSelected } = useValidator();
   const { addMessage } = useChat();
 
-  const confirmStake = async () => {
-    try {
-      if (amount === undefined || injectiveAddress === null) {
-        return;
-      }
-
-      const msg = MsgDelegate.fromJSON({
-        injectiveAddress,
-        validatorAddress: validatorAddress,
-        amount: {
-          denom: "inj",
-          amount: String(Number(amount) * 10 ** 18),
-        },
-      });
-      const msgClient = msgBroadcastClient() as any
-      const res = await msgClient.broadcast({
-        injectiveAddress: injectiveAddress,
-        msgs: msg,
-      });
-      addMessage(token,
+  const confirmStake = () => {
+    if (!solanaAddress) {
+      addMessage(
+        token,
         createChatMessage({
           sender: "ai",
-          text: `Stake success ! Here is your tx Hash : ${res.txHash}`,
+          text: "Please connect your Solana wallet before staking.",
           type: "text",
         })
       );
-      setValidatorSelected(false);
-    } catch (error) {
-
+      return;
     }
+
+    if (!validatorAddress) {
+      addMessage(
+        token,
+        createChatMessage({
+          sender: "ai",
+          text: "Select a validator before staking SOL.",
+          type: "text",
+        })
+      );
+      return;
+    }
+
+    if (!amount || Number(amount) <= 0) {
+      addMessage(
+        token,
+        createChatMessage({
+          sender: "ai",
+          text: "Enter a valid SOL amount before staking.",
+          type: "text",
+        })
+      );
+      return;
+    }
+
+    setValidatorSelected(false);
+
+    addMessage(
+      token,
+      createChatMessage({
+        sender: "ai",
+        text: "Native Solana staking transactions are coming soon. For now, you can stake manually using your wallet UI.",
+        type: "text",
+      })
+    );
   };
 
   return (
@@ -54,10 +70,10 @@ const StakeAmountMessageType = ({
       <h3 className="text-lg font-semibold mb-2">Enter Staking Amount:</h3>
       <input
         type="number"
-        placeholder="Amount in INJ"
+        placeholder="Amount in SOL"
         className="p-2 rounded-lg bg-gray-700 text-white w-full"
+        value={amount}
         onChange={(e) => setAmount(e.target.value)}
-        //onKeyDown={(e) => e.key === "Enter" && handleStakeAmount(e.target.value)}
       />
       <div className=" space-x-4">
         <button

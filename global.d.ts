@@ -2,11 +2,23 @@ export {};
 
 declare global {
   interface Window {
-    keplr?: {
-      enable: (chainId: string) => Promise<void>;
-      disable: (chainId: string) => Promise<void>;
-      getOfflineSigner: (chainId: string) => any;
-      signArbitrary:(chainId:string,address:string,msg:any)=>any;
+    phantom?: {
+      solana?: {
+        isPhantom?: boolean;
+        connect: () => Promise<{ publicKey: { toString: () => string } }>;
+        disconnect?: () => Promise<void>;
+        isConnected?: boolean;
+        publicKey?: { toString: () => string };
+        signMessage?: (message: Uint8Array, display?: string) => Promise<{ signature: Uint8Array }>;
+      };
+    };
+    solflare?: {
+      isSolflare?: boolean;
+      connect: () => Promise<{ publicKey: { toString: () => string } }>;
+      disconnect?: () => Promise<void>;
+      isConnected?: boolean;
+      publicKey?: { toString: () => string };
+      signMessage?: (message: Uint8Array, display?: string) => Promise<{ signature: Uint8Array }>;
     };
   }
 }

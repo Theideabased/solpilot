@@ -1,83 +1,41 @@
-import { useChat } from "../providers/chatProvider";
 import { useState } from "react";
-import { createChatMessage,msgBroadcastClient } from "../utils";
-import {
-    MsgBid,
-    ChainGrpcAuctionApi,
-    IndexerGrpcAuctionApi,
-  } from '@injectivelabs/sdk-ts'
-import { INJ_DENOM, BigNumberInBase } from '@injectivelabs/utils'
-import { getNetworkEndpoints, Network } from '@injectivelabs/networks'
-
-const endpointsForNetwork = getNetworkEndpoints(Network.Mainnet)
-const auctionApi = new ChainGrpcAuctionApi(endpointsForNetwork.grpc)
-
-const network = Network.Mainnet;
-const endpoints = getNetworkEndpoints(network);
-const indexerGrpcAuctionApi = new IndexerGrpcAuctionApi(endpoints.indexer);
+import { useChat } from "../providers/chatProvider";
+import { createChatMessage } from "../utils";
 
 const PlaceBidAmountMessageType = ({
   handleExit,
-  injectiveAddress,
-  token
+  solanaAddress,
+  token,
 }: {
-  injectiveAddress: string | null;
+  solanaAddress: string | null;
   handleExit: () => void;
-  token:string;
+  token: string;
 }) => {
-  const [amount, setAmount] = useState<string>();
+  const [amount, setAmount] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const { addMessage } = useChat();
-  const [errorMessage,setErrorMessage] = useState<string>("");
 
-  const confirmBid = async () => {
-    
-    try {
-      if (amount === undefined || injectiveAddress === null) {
-        return;
-      }
-
-      const amountBid = {
-        denom: INJ_DENOM,
-        amount: String(new BigNumberInBase(amount).toWei()),
-      }
-      const latestAuctionModuleState = await auctionApi.fetchModuleState()
-      const latestRound = latestAuctionModuleState.auctionRound
-      const auction = await indexerGrpcAuctionApi.fetchAuction(latestRound);
-      let minBid;
-      if(auction.bids.length >0){
-        const sortedBids = auction.bids.sort((a, b) => Number(b.bidAmount) - Number(a.bidAmount));
-        minBid = Number(sortedBids[0].bidAmount);
-      }else{
-        minBid = 0;
-      }
-      if(Number(amount) < (minBid/(10**18))){
-        setErrorMessage(`Min Bid must be more than ${minBid/(10**18)} INJ`);
-        return
-      }else{
-        setErrorMessage("")
-      }
-      const msg = MsgBid.fromJSON({
-        amount:amountBid,
-        injectiveAddress,
-        round: latestRound,
-      })
-      const msgClient = msgBroadcastClient() as any
-      const res = await msgClient.broadcast({
-        injectiveAddress: injectiveAddress,
-        msgs: msg,
-      });
-      addMessage(token,
-        createChatMessage({
-          sender: "ai",
-          text: `Bid success ! Here is your tx Hash : ${res.txHash}`,
-          type: "text",
-        })
-      );
-      
-    } catch (error) {
-      setErrorMessage(String(error))
-      console.log(error)
+  const confirmBid = () => {
+    if (!solanaAddress) {
+      setErrorMessage("Please connect your Solana wallet first.");
+      return;
     }
+
+    if (!amount || Number(amount) <= 0) {
+      setErrorMessage("Enter a valid SOL amount before bidding.");
+      return;
+    }
+
+    setErrorMessage("");
+
+    addMessage(
+      token,
+      createChatMessage({
+        sender: "ai",
+        text: "Solana auction bidding is coming soon. We'll notify you as soon as it is available.",
+        type: "text",
+      })
+    );
   };
 
   return (
@@ -88,8 +46,9 @@ const PlaceBidAmountMessageType = ({
       </div>
       <input
         type="number"
-        placeholder="Amount in INJ"
+        placeholder="Amount in SOL"
         className="p-2 rounded-lg bg-gray-700 text-white w-full"
+        value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
       <div className=" space-x-4">

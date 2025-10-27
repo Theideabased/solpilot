@@ -5,14 +5,14 @@ import type { Validator } from "../types";
 import { createChatMessage } from "../utils";
 
 const ValidatorsMessageType = ({
-  injectiveAddress,
+  solanaAddress,
   validators,
   isLastError,
   handleExit,
   setLoadingState,
   token
 }: {
-  injectiveAddress: string | null;
+  solanaAddress: string | null;
   validators: Validator[];
   isLastError: boolean;
   handleExit: () => void;
@@ -34,8 +34,8 @@ const ValidatorsMessageType = ({
         body: JSON.stringify({
           message: `${validatorIndex}`,
           chatHistory: messageHistory,
-          address: injectiveAddress,
-          intent: "stake_inj_amount",
+          address: solanaAddress,
+          intent: "stake_sol_amount",
         }),
       });
 

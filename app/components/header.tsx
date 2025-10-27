@@ -6,22 +6,22 @@ import { LogOut, MessageSquare, Wallet } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface HeaderProps {
-  injectiveAddress: string | null;
-  setInjectiveAddress: (address: string | null) => void;
+  solanaAddress: string | null;
+  setSolanaAddress: (address: string | null) => void;
   isWhitelisted: boolean;
   isCollapsed?: boolean;
 }
 
 const Header = ({
-  injectiveAddress,
-  setInjectiveAddress,
+  solanaAddress,
+  setSolanaAddress,
   isWhitelisted,
   isCollapsed = false,
 }: HeaderProps) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleDisconnect = () => {
-    setInjectiveAddress(null);
+    setSolanaAddress(null);
     setShowPopup(false);
     localStorage.removeItem("token");
 
@@ -51,7 +51,7 @@ const Header = ({
           </div>
 
           <div className="flex items-center gap-4">
-            {injectiveAddress ? (
+            {solanaAddress ? (
               <div className="relative">
                 <Button
                   variant="ghost"
@@ -64,7 +64,7 @@ const Header = ({
                 >
                   <Wallet className="h-4 w-4" />
                   <span>
-                    {injectiveAddress.slice(0, 6)}...{injectiveAddress.slice(-4)}
+                    {solanaAddress.slice(0, 6)}...{solanaAddress.slice(-4)}
                   </span>
                 </Button>
 
@@ -81,7 +81,7 @@ const Header = ({
                     <div className="absolute right-0 top-full z-50 mt-2 min-w-[200px] rounded-lg border border-zinc-800 bg-zinc-900 py-1 shadow-xl">
                       <div className="px-3 py-2">
                         <p className="text-xs font-medium text-zinc-400">Connected Address</p>
-                        <p className="mt-1 break-all text-sm text-zinc-200">{injectiveAddress}</p>
+                        <p className="mt-1 break-all text-sm text-zinc-200">{solanaAddress}</p>
                       </div>
                       <div className="h-px bg-zinc-800" />
                       <Button
@@ -115,7 +115,7 @@ const Header = ({
           <div className="w-8" /> 
           <h2 className="text-lg font-semibold text-zinc-200">JECTA Chat</h2>
           <div className="flex items-center">
-            {injectiveAddress && (
+            {solanaAddress && (
               <Button
                 variant="ghost"
                 size="sm"

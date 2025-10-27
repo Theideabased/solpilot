@@ -1,6 +1,5 @@
-import { MsgExecuteContractCompat } from "@injectivelabs/sdk-ts";
 import type { ChatMessage, ContractInput } from "../types";
-import { createChatMessage, msgBroadcastClient } from "../utils";
+import { createChatMessage } from "../utils";
 
 const SwapMessageType = ({
   text = "",
@@ -9,7 +8,7 @@ const SwapMessageType = ({
   contractInput,
   updateChat,
   updateExecuting,
-  injectiveAddress,
+  solanaAddress,
   token,
 }: {
   text?: string;
@@ -18,65 +17,33 @@ const SwapMessageType = ({
   contractInput: ContractInput;
   updateChat: (cb: (prevChat: ChatMessage[]) => ChatMessage[]) => void;
   updateExecuting: (executing: boolean) => void;
-  injectiveAddress: string | null;
+  solanaAddress: string | null;
   token: string;
 }) => {
   const confirmSwap = async (contractInput: ContractInput) => {
     try {
-      if (injectiveAddress === null) {
+      if (solanaAddress === null) {
+        updateChat((prevChat) => [
+          ...prevChat,
+          createChatMessage({
+            sender: "ai",
+            text: "Connect your Solana wallet before confirming a swap.",
+            type: "text",
+            intent: "general",
+          }),
+        ]);
         return;
       }
       updateExecuting(true);
-      if (contractInput.executeMsg.send !== undefined) {
-        const msg = MsgExecuteContractCompat.fromJSON({
-          sender: injectiveAddress,
-          contractAddress: contractInput.address,
-          exec: {
-            msg: contractInput.executeMsg.send,
-            action: "send",
-          },
-        });
-        const msgClient = msgBroadcastClient() as any;
-
-        const res = await msgClient.broadcast({
-          injectiveAddress: injectiveAddress,
-          msgs: msg,
-        });
-        updateChat((prevChat) => [
-          ...prevChat,
-          createChatMessage({
-            sender: "ai",
-            text: `Swap success ! Here is your tx Hash : ${res.txHash}`,
-            type: "text",
-            intent: "general",
-          }),
-        ]);
-      } else {
-        const msg = MsgExecuteContractCompat.fromJSON({
-          sender: injectiveAddress,
-          contractAddress: contractInput.address,
-          exec: {
-            msg: contractInput.executeMsg.execute_routes,
-            action: "execute_routes",
-          },
-          funds: contractInput.funds,
-        });
-        const msgClient = msgBroadcastClient() as any;
-
-        const res = await msgClient.broadcast({
-          injectiveAddress: injectiveAddress,
-          msgs: msg,
-        });
-        updateChat((prevChat) => [
-          ...prevChat,
-          createChatMessage({
-            sender: "ai",
-            text: `Swap success ! Here is your tx Hash : ${res.txHash}`,
-            type: "text",
-            intent: "general",
-          }),
-        ]);
-      }
+      updateChat((prevChat) => [
+        ...prevChat,
+        createChatMessage({
+          sender: "ai",
+          text: "Direct Solana swap execution inside SOLPILOT is coming soon. For now, please confirm the quote in your wallet manually.",
+          type: "text",
+          intent: "general",
+        }),
+      ]);
       updateExecuting(false);
     } catch (error) {
       if (error instanceof Error) {
@@ -89,8 +56,7 @@ const SwapMessageType = ({
             ...prevChat,
             createChatMessage({
               sender: "ai",
-              text: `Swap failed, Error : 'The swap failed because your minimum receive amount is too high. ' +    
-            'Please adjust your slippage settings at your .env to proceed with the swap.'`,
+              text: "Swap failed. Please verify your Solana wallet connection and try again.",
               type: "text",
               intent: "general",
             }),

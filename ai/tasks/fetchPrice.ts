@@ -13,7 +13,7 @@ export async function fetchPrice(
     addToChat(
       createChatMessage({
         sender: "ai",
-        text: "❌ Token couldn't be found. Please write the ticker as INJ or ATOM.",
+        text: "❌ Token couldn't be found. Please write the ticker as SOL, JUP, BONK, etc.",
         type: "error",
         intent: intent,
       })
@@ -24,7 +24,7 @@ export async function fetchPrice(
   addToChat(
     createChatMessage({
       sender: "ai",
-      text: `🔍 Fetching ${token} price from Coinhall...`,
+      text: `🔍 Fetching ${token} price from Solana price feeds...`,
       type: "loading",
       intent: intent,
     })

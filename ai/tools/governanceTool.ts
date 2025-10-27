@@ -1,6 +1,3 @@
-import { ChainGrpcGovApi, PaginationOption, ProposalStatusMap } from '@injectivelabs/sdk-ts'
-import { getNetworkEndpoints, Network } from '@injectivelabs/networks'
-
 export type ProposalSummary = {
     proposalId: number
     title: string
@@ -20,63 +17,35 @@ export type ProposalSummary = {
     }
   }
 
+const PLACEHOLDER_PROPOSALS: ProposalSummary[] = [
+  {
+    proposalId: 0,
+    title: 'Solana governance proposals coming soon',
+    summary: 'We are wiring up Solana governance sources (Realms, Squads, SPL Governance) and will surface live proposals here shortly.',
+    proposer: 'Solana Ecosystem',
+    type: 'Informational',
+    status: 'Pending Integration',
+    expedited: false,
+    submitTime: new Date().toISOString(),
+    votingStartTime: new Date().toISOString(),
+    votingEndTime: new Date().toISOString(),
+    finalTally: {
+      yes: '0',
+      no: '0',
+      abstain: '0',
+      noWithVeto: '0',
+    },
+  },
+]
+
 export const fetchLast10Proposals = async () => {
   try {
-    const endpoints = getNetworkEndpoints(Network.Mainnet)
-    const govApi = new ChainGrpcGovApi(endpoints.grpc)
-
-    const pagination: PaginationOption = {
-      limit: 10,
-      reverse: true,
-    }
-
-    const { proposals } = await govApi.fetchProposals({
-      status: ProposalStatusMap.PROPOSAL_STATUS_UNSPECIFIED, 
-      pagination,
-    })
-    const summarizedProposals = summarizeProposals(proposals);
-    return summarizedProposals
+    // TODO: Integrate with a Solana governance indexer (e.g. Realms API) once the data pipeline is finalised.
+    return PLACEHOLDER_PROPOSALS
   } catch (error) {
-    console.error('Error fetching proposals:', error)
-    return []
+    console.error('Error preparing Solana governance proposals:', error)
+    return PLACEHOLDER_PROPOSALS
   }
 }
-
-const summarizeProposals = (proposals: any[]): ProposalSummary[] => {
-    return proposals.map(toProposalSummary)
-  }
-
-const getProposalStatusText = (status: number): string => {
-    const statusMap: Record<number, string> = {
-      0: 'Unspecified',
-      1: 'Deposit Period',
-      2: 'Voting Period',
-      3: 'Passed',
-      4: 'Rejected',
-      5: 'Failed',
-    }
-  
-    return statusMap[status] || 'Unknown'
-  }
-  
-
-const toProposalSummary = (raw: any): ProposalSummary => ({
-    proposalId: raw.proposalId,
-    title: raw.title,
-    summary: raw.summary,
-    proposer: raw.proposer,
-    type: raw.type,
-    status: getProposalStatusText(raw.status),
-    expedited: raw.expedited,
-    submitTime: new Date(raw.submitTime * 1000).toISOString(),
-    votingStartTime: new Date(raw.votingStartTime * 1000).toISOString(),
-    votingEndTime: new Date(raw.votingEndTime * 1000).toISOString(),
-    finalTally: {
-      yes: raw.finalTallyResult.yesCount,
-      no: raw.finalTallyResult.noCount,
-      abstain: raw.finalTallyResult.abstainCount,
-      noWithVeto: raw.finalTallyResult.noWithVetoCount,
-    },
-  })
 
 

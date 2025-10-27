@@ -1,4 +1,4 @@
-export async function fetchInjectiveUpdates(userMessage: string): Promise<string> {
+export async function fetchSolanaUpdates(userMessage: string): Promise<string> {
     const apiKey = process.env.VENICE_API;
   
     if (!apiKey) {
@@ -21,7 +21,6 @@ You are Venice, a highly intelligent crypto research assistant focused on real-t
 
 Your mission:
 - Search ONLY trusted sources in real-time:
-  - https://blog.injective.com
   - https://cointelegraph.com/tags/solana
   - https://coindesk.com/tag/Solana
   - https://medium.com/solana-labs

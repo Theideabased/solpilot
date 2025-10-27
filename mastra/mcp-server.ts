@@ -6,7 +6,7 @@ import {
   ListResourcesRequestSchema,
   ReadResourceRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { mastra } from '../index';
+import { mastra } from './index';
 
 /**
  * MCP Server for SOLPILOT
@@ -122,14 +122,16 @@ class SolpilotMCPServer {
 
       try {
         // Get the appropriate agent based on tool type
-        let agent = mastra.getAgent('solpilot');
+        let agentName: 'solpilot' | 'sonia' | 'zerion' = 'solpilot';
 
         // Route to specialized agents if needed
         if (name.includes('token-analysis')) {
-          agent = mastra.getAgent('sonia');
+          agentName = 'sonia';
         } else if (name.includes('research') || name.includes('news')) {
-          agent = mastra.getAgent('venice');
+          agentName = 'zerion';
         }
+
+        const agent = mastra.getAgent(agentName);
 
         // Execute the tool through the agent
         const result = await agent.generate(

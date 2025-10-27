@@ -1,6 +1,6 @@
 export const intents = {
     swap_token: {
-        description: "Executes a token swap from Coinhall Routes.",
+    description: "Executes a token swap using Jupiter routes.",
         examples: [
             "I want to trade SOL for USDT.",
             "Swap 50 SOL to BNB.",

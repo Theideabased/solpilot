@@ -2,15 +2,16 @@ import { createChatMessage } from "@/app/utils";
 import type { ChatMessage } from "@/app/types";
 import { fetchSolanaUpdates } from "../venice";
 
-// Legacy alias maintained for backwards compatibility with older intents.
-export async function searchInjectiveNews(
+export async function searchSolanaNews(
   intent: string,
   message: string,
-  _chatHistory: any[],
+  chatHistory: any[],
   addToChat: (msg: any) => void,
-  _address: string | null
+  address: string | null
 ) {
-  const addMessage = (msg: ChatMessage) => addToChat(msg);
+  const addMessage = (msg: ChatMessage) => {
+    addToChat(msg);
+  };
 
   addMessage(
     createChatMessage({

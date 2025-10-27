@@ -1,7 +1,6 @@
-import { MsgExecuteContractCompat, MsgSend } from "@injectivelabs/sdk-ts";
 import { useChat } from "../providers/chatProvider";
 import type { SendDetails } from "../types";
-import { createChatMessage, msgBroadcastClient } from "../utils";
+import { createChatMessage } from "../utils";
 
 const SendTokenMessageType = ({
   text = "",
@@ -9,10 +8,10 @@ const SendTokenMessageType = ({
   setExecuting,
   handleExit,
   send,
-  injectiveAddress,
+  solanaAddress,
   token,
 }: {
-  injectiveAddress: string | null;
+  solanaAddress: string | null;
   text?: string;
   executing: boolean;
   setExecuting: (executing: boolean) => void;
@@ -24,59 +23,27 @@ const SendTokenMessageType = ({
 
   const confirmSend = async (sendDetails: SendDetails) => {
     try {
-      if (injectiveAddress === null) {
+      if (solanaAddress === null) {
+        addMessage(
+          token,
+          createChatMessage({
+            sender: "ai",
+            text: "Connect your Solana wallet before sending tokens.",
+            type: "text",
+          })
+        );
         return;
       }
       setExecuting(true);
-      if (sendDetails.token.tokenType === "cw20") {
-        const msg = MsgExecuteContractCompat.fromJSON({
-          sender: injectiveAddress,
-          contractAddress: sendDetails.token.address,
-          exec: {
-            msg: {
-              recipient: sendDetails.receiver,
-              amount: String(sendDetails.amount * 10 ** sendDetails.token.decimals),
-            },
-            action: "transfer",
-          },
-        });
-        const msgClient = msgBroadcastClient() as any;
-        const res = await msgClient.broadcast({
-          injectiveAddress: injectiveAddress,
-          msgs: msg,
-        });
-        setExecuting(false);
-        addMessage(token,
-          createChatMessage({
-            sender: "ai",
-            text: `Transfer success ! Here is your tx Hash : ${res.txHash}`,
-            type: "text",
-          })
-        );
-      } else {
-        const amount = {
-          denom: sendDetails.token.denom,
-          amount: String(sendDetails.amount * 10 ** sendDetails.token.decimals),
-        };
-        const msg = MsgSend.fromJSON({
-          amount,
-          srcInjectiveAddress: injectiveAddress,
-          dstInjectiveAddress: sendDetails.receiver,
-        });
-        const msgClient = msgBroadcastClient() as any;
-        const res = await msgClient.broadcast({
-          injectiveAddress: injectiveAddress,
-          msgs: msg,
-        });
-        setExecuting(false);
-        addMessage(token,
-          createChatMessage({
-            sender: "ai",
-            text: `Transfer success ! Here is your tx Hash : ${res.txHash}`,
-            type: "text",
-          })
-        );
-      }
+      addMessage(
+        token,
+        createChatMessage({
+          sender: "ai",
+          text: "Direct token transfers via SOLPILOT are coming soon. Please complete this transfer in your Solana wallet.",
+          type: "text",
+        })
+      );
+      setExecuting(false);
     } catch (error) {
       setExecuting(false);
       addMessage(token,

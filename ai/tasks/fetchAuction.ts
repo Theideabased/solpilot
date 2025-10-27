@@ -17,33 +17,15 @@ export async function getLatestAuction(
                 intent: intent,
               })
         );
-      const latestAuction = await fetchLatestAuction(null)
-      if(latestAuction != null){
-        addToChat(createChatMessage({
+      const latestAuction = await fetchLatestAuction(null);
+      addToChat(
+        createChatMessage({
           sender: "ai",
-          text: "Found the latest SOL Burn Auction !",
+          text: latestAuction,
           type: "success",
           intent: intent,
-        }));
-        
-        addToChat(
-          createChatMessage({
-            sender: "ai",
-            text: latestAuction,
-            type: "success",
-            intent: intent,
-          })
-          );
-      }else{
-        addToChat(
-          createChatMessage({
-            sender: "ai",
-            text: "Latest Auction could not be found. Try again later...",
-            type: "text",
-            intent: intent,
-          })
-          );
-      }
+        })
+      );
 
       
       
@@ -79,33 +61,15 @@ export async function getAuction(
             );
     
           
-          const latestAuction = await fetchLatestAuction(round)
-          if(latestAuction == null){
-            addToChat(
-              createChatMessage({
-                sender: "ai",
-                text: "Auction Could Not be fetched from Solana TS SDK. Try another round maybe. Tool Closed.",
-                type: "text",
-                intent: intent,
-              })
-              );
-          }else{
-            addToChat(
-              createChatMessage({
-                sender: "ai",
-                text: "Found Burn Auction !",
-                type: "success",
-                intent: intent,
-              }));
-            addToChat(
-              createChatMessage({
-                sender: "ai",
-                text: latestAuction,
-                type: "success",
-                intent: intent,
-              })
-            );
-          }
+          const latestAuction = await fetchLatestAuction(round);
+          addToChat(
+            createChatMessage({
+              sender: "ai",
+              text: latestAuction,
+              type: "success",
+              intent: intent,
+            })
+          );
           
         }
 

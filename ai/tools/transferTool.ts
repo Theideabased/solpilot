@@ -25,7 +25,7 @@ export async function extractTransactionData(message: string) {
 
     const token = match[3].toUpperCase();
     const tokenMetadata = await fetchTokenMetadata(token);
-    if (tokenMetadata == "error") {
+    if (!tokenMetadata) {
       return { amount: 0, token: "", receiver: "", status: "fail_token" };
     }
 
@@ -44,19 +44,11 @@ function isValidSolanaAddress(address: string): boolean {
   }
 }
 
-const TOKEN_LIST_URL = "https://token.jup.ag/all";
-
 const fetchTokenMetadata = async (ticker: string) => {
   try {
-    const response = await axios.get(TOKEN_LIST_URL);
-    const tokenMetadata = response.data.find((token: any) => token.symbol === ticker);
-
-    if (tokenMetadata === undefined) {
-      return "error";
-    } else {
-      return tokenMetadata;
-    }
+    const response = await axios.get("https://token.jup.ag/all");
+    return response.data.find((token: any) => token.symbol === ticker) || null;
   } catch (error) {
-    return "error";
+    return null;
   }
 };

@@ -1,6 +1,6 @@
 import { createChatMessage } from "@/app/utils";
 import { queryOpenRouter } from "../ai";
-import { fetchInjectiveBalance } from "../tools/fetchBalances";
+import { fetchSolanaBalance } from "../tools/fetchBalances";
 
 export async function fetchBalance(
   intent: string,
@@ -21,12 +21,12 @@ export async function fetchBalance(
     return;
   }
 
-  const balances = await fetchInjectiveBalance(address);
+  const balances = await fetchSolanaBalance(address);
 
   addToChat(
     createChatMessage({
       sender: "ai",
-      text: "🔍 Searching for your Bank Balances...",
+  text: "🔍 Fetching your Solana token balances...",
       type: "text",
       intent: intent,
     })
@@ -56,46 +56,6 @@ export async function fetchBalance(
           balance:token.balance,
           logo: token.logo,
           address: token.address,
-        })),
-      intent: intent,
-    })
-  );
-
-  addToChat(
-    createChatMessage({
-      sender: "ai",
-      text: "🔍 Searching for your CW20 Balances...",
-      type: "text",
-      intent: intent,
-    })
-  );
-
-  if (!balances?.cw20.length || !balances.cw20) {
-    addToChat(
-      createChatMessage({
-        sender: "ai",
-        text: "❌ No balances found in your CW20 Balance.",
-        type: "text",
-        intent: intent,
-      })
-    );
-    return;
-  }
-
- 
-
-  addToChat(
-    createChatMessage({
-      sender: "ai",
-      type: "balance", 
-      balances: (balances.cw20 as any[])
-        .filter((token) => token !== undefined)
-        .map((token) => ({
-          symbol: token.symbol,
-          amount: token.amount.toString(),
-          balance: token.balance,
-          logo: token.logo,
-          address: token.address, 
         })),
       intent: intent,
     })

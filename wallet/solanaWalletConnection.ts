@@ -9,7 +9,7 @@ export async function connectToSolanaWallet(walletType: "phantom" | "solflare" =
   const provider = getProvider(walletType);
   
   // Check if already connected - if so, just return the existing connection
-  if (provider.isConnected && provider.publicKey) {
+  if (provider.publicKey) {
     console.log("✅ Already connected to wallet!");
     const publicKey = new PublicKey(provider.publicKey.toString());
     const address = publicKey.toString();
