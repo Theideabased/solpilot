@@ -122,13 +122,15 @@ class SolpilotMCPServer {
 
       try {
         // Get the appropriate agent based on tool type
-        let agentName: 'solpilot' | 'sonia' | 'zerion' = 'solpilot';
+        let agentName: 'solpilot' | 'sonia' | 'zerion' | 'venice' = 'solpilot';
 
         // Route to specialized agents if needed
         if (name.includes('token-analysis')) {
           agentName = 'sonia';
-        } else if (name.includes('research') || name.includes('news')) {
+        } else if (name.includes('portfolio') || name.includes('transaction') || name.includes('pnl') || name.includes('defi')) {
           agentName = 'zerion';
+        } else if (name.includes('research') || name.includes('news')) {
+          agentName = 'venice';
         }
 
         const agent = mastra.getAgent(agentName);

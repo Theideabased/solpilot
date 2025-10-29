@@ -33,6 +33,7 @@ export interface ContractInput {
 }
 
 export interface ChatMessage {
+  id?: string;
   balances?: Token[] | null;
   sender: string;
   text?: string;
@@ -46,4 +47,5 @@ export interface ChatMessage {
   llama?:any;
   stake_info?:any;
   proposals?:any;
+  timestamp?: Date;
 }

@@ -15,6 +15,7 @@ import ErrorMessageType from "./components/errorMessageType";
 import DefaultMessageType from "./components/defaultMessageType";
 import EarlyAccessPage from "./components/earlyAccessPage";
 import { fetchResponse } from "./services/apiChat";
+import { consumeStream } from "./services/streamingChat";
 import { createChatMessage } from "./utils";
 import { useChat } from "./providers/chatProvider";
 import { useValidator } from "./providers/validatorProvider";
@@ -176,24 +177,135 @@ const Chatbot = () => {
   };
 
   const getAIResponse = async (userMessage: string, updatedChat?: Chat) => {
-    fetchResponse(userMessage, messageHistory, solanaAddress, token)
-      .then((data) => {
-        addMessages(token, data.messages, updatedChat); 
-      })
-      .catch((err) => {
-        console.error("Error fetching response:", err);
-        addMessage(
-          token,
-          createChatMessage({
-            sender: "ai",
-            text: "Error processing request",
-            type: "error",
-          })
-        );
-      })
-      .finally(() => {
-        setLoadingState(null);
-      });
+    // Check if this is a transfer request first (use non-streaming for transfers)
+    const lowerMessage = userMessage.toLowerCase();
+    const isTransferRequest = (lowerMessage.includes('send') || lowerMessage.includes('transfer')) && 
+                              (lowerMessage.includes('sol') || lowerMessage.includes('to'));
+
+    if (isTransferRequest) {
+      // Use non-streaming for transfer requests
+      fetchResponse(userMessage, messageHistory, solanaAddress, token)
+        .then((data) => {
+          addMessages(token, data.messages, updatedChat); 
+        })
+        .catch((err) => {
+          console.error("Error fetching response:", err);
+          addMessage(
+            token,
+            createChatMessage({
+              sender: "ai",
+              text: "Error processing request",
+              type: "error",
+            })
+          );
+        })
+        .finally(() => {
+          setLoadingState(null);
+        });
+      return;
+    }
+
+    // Use streaming for all other requests
+    let streamingText = '';
+    let currentAgent = 'ai';
+    
+    // Create a temporary message that will be updated as we stream
+    const streamingMessageId = Date.now().toString();
+    
+    try {
+      await consumeStream(
+        userMessage,
+        messageHistory,
+        solanaAddress,
+        token,
+        // onChunk: Called for each text chunk
+        (chunk: string) => {
+          streamingText += chunk;
+          
+          // Update the streaming message in real-time
+          setMessageHistory((prev) => {
+            const existing = prev.find((msg) => msg.id === streamingMessageId);
+            
+            if (existing) {
+              // Update existing message
+              return prev.map((msg) =>
+                msg.id === streamingMessageId
+                  ? { ...msg, text: streamingText }
+                  : msg
+              );
+            } else {
+              // Create new streaming message
+              return [
+                ...prev,
+                {
+                  id: streamingMessageId,
+                  sender: currentAgent,
+                  text: streamingText,
+                  type: "text",
+                  intent: "general",
+                  timestamp: new Date(),
+                },
+              ];
+            }
+          });
+        },
+        // onAgent: Called when agent is identified
+        (agent: string) => {
+          currentAgent = agent;
+        },
+        // onComplete: Called when streaming finishes
+        () => {
+          console.log('✅ Streaming complete');
+          // Save the final message to database if needed
+          if (updatedChat) {
+            addMessage(
+              token,
+              createChatMessage({
+                sender: currentAgent,
+                text: streamingText,
+                type: "text",
+              }),
+              updatedChat
+            );
+          }
+          setLoadingState(null);
+        },
+        // onError: Called if streaming fails
+        (error: string) => {
+          console.error('Streaming error:', error);
+          addMessage(
+            token,
+            createChatMessage({
+              sender: "ai",
+              text: `Error: ${error}`,
+              type: "error",
+            })
+          );
+          setLoadingState(null);
+        }
+      );
+    } catch (err) {
+      console.error("Error with streaming:", err);
+      // Fallback to non-streaming
+      fetchResponse(userMessage, messageHistory, solanaAddress, token)
+        .then((data) => {
+          addMessages(token, data.messages, updatedChat); 
+        })
+        .catch((err2) => {
+          console.error("Error fetching response:", err2);
+          addMessage(
+            token,
+            createChatMessage({
+              sender: "ai",
+              text: "Error processing request",
+              type: "error",
+            })
+          );
+        })
+        .finally(() => {
+          setLoadingState(null);
+        });
+    }
   };
   const createNewChatButton = () => {
     if (!loadingState) {

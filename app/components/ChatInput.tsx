@@ -74,7 +74,7 @@ const ChatInput = ({ loading, onSubmit, disableSend, isEmptyState }: ChatInputPr
               Welcome to SOLPILOT
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-zinc-400">
-              Your AI assistant for the Injective ecosystem
+              Your AI assistant for the Solana ecosystem
             </p>
           </motion.div>
           <motion.form

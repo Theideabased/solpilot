@@ -20,7 +20,7 @@ import { Button } from "./ui/button";
 
 const suggestions = [
   {
-    title: "Nosana Basics",
+    title: "Solana Basics",
     icon: <Rocket className="w-5 h-5" />,
     description: "Learn the fundamentals",
     prompts: [
@@ -37,16 +37,6 @@ const suggestions = [
       { text: "Swap 1 SOL to NOS", icon: <Coins className="w-4 h-4" /> },
       { text: "What is the current price of NOS?", icon: <Wallet className="w-4 h-4" /> },
       { text: "I want to stake SOL.", icon: <Server className="w-4 h-4" /> },
-    ],
-  },
-  {
-    title: "Technical Insights",
-    icon: <MessageSquare className="w-5 h-5" />,
-    description: "Deep dive into Solana",
-    prompts: [
-      { text: "Explain me a tx by its own hash.", icon: <Server className="w-4 h-4" /> },
-      { text: "I want to see my own portfolio.", icon: <Zap className="w-4 h-4" /> },
-      { text: "Analyze SHROOM for me.", icon: <TrendingUp className="w-4 h-4" /> },
     ],
   },
   {
@@ -67,6 +57,16 @@ const suggestions = [
       { text: "Fetch my Solana portfolio.", icon: <Wallet className="w-4 h-4" /> },
       { text: "Analyze the portfolio of this user.", icon: <Server className="w-4 h-4" /> },
       { text: "Send 5 SOL to this wallet address.", icon: <ArrowRight className="w-4 h-4" /> },
+    ],
+  },
+  {
+    title: "🔥 Meme Coin Hunter",
+    icon: <TrendingUp className="w-5 h-5" />,
+    description: "Live trading metrics & new tokens",
+    prompts: [
+      { text: "Show me new tokens launched today", icon: <Zap className="w-4 h-4" /> },
+      { text: "Is BONK being bought or sold?", icon: <TrendingUp className="w-4 h-4" /> },
+      { text: "What's the buy pressure for WIF?", icon: <LineChart className="w-4 h-4" /> },
     ],
   },
   {
