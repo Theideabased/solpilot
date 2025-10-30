@@ -4,13 +4,25 @@ const publicPaths = [
   "/api/auth/verifyArbitrary", 
   "/api/users",
   "/api/tokenHolders",
-  "/api/chats", // Allow chat creation without auth for new users
   "/api/chat"   // Allow chat messages (we'll verify wallet address instead)
 ];
+
+// Paths that should bypass auth check (use startsWith for dynamic routes)
+const publicPathPrefixes = [
+  "/api/chats" // Allow all chat operations (GET, POST, DELETE for chats and messages)
+];
+
 export async function middleware(req: NextRequest) {
+  // Check exact match first
   if (publicPaths.includes(req.nextUrl.pathname)) {
     return NextResponse.next();
   }
+
+  // Check prefix match for dynamic routes
+  if (publicPathPrefixes.some(prefix => req.nextUrl.pathname.startsWith(prefix))) {
+    return NextResponse.next();
+  }
+
   const token = req.headers.get("authorization")?.split("Bearer ")[1];
 
   if (!token) {

@@ -35,4 +35,20 @@ const getChatHistory = async (chatId: string) => {
   return data;
 };
 
-export { getLastChatNames, getChatHistory };
+const deleteChat = async (chatId: string) => {
+  const token = getAuthToken();
+
+  const response = await fetch(`${baseUrl}/api/chats/${chatId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token ? `Bearer ${token}` : "",
+    },
+  });
+
+  if (!response.ok) throw new Error(`Failed to delete chat: ${response.status}`);
+  const data = await response.json();
+  return data;
+};
+
+export { getLastChatNames, getChatHistory, deleteChat };

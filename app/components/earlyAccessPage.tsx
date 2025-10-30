@@ -202,7 +202,7 @@ const EarlyAccessPage = ({
                     className="w-full bg-gradient-to-r from-blue-400 to-cyan-600 hover:from-blue-500 hover:to-cyan-700 text-white"
                     onClick={() => joinEAP(referralCode)}
                   >
-                    Join Early Access (0.1 SOL)
+                    Join Early Access
                   </Button>
                 </div>
               )}

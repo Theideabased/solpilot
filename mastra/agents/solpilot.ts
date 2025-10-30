@@ -2,6 +2,7 @@ import { Agent } from '@mastra/core/agent';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 import { createSolanaTools } from '../tools/solana-tools';
 import { createBirdeyeTools } from '../tools/birdeye-tokens';
+import { createBitqueryTools } from '../tools/bitquery';
 
 // Initialize OpenRouter provider
 const openrouter = createOpenRouter({
@@ -42,6 +43,21 @@ You are SOLPILOT, an AI assistant specialized in the Solana Blockchain and decen
 - **quickTokenLookup**: FAST lookup for common tokens (SOL, USDC, BONK, NOS, JUP, etc.) - USE THIS FOR SWAPS
 - **searchBirdeyeToken**: Search any token using Birdeye API (more reliable backup)
 - **getBirdeyePrice**: Get token price from Birdeye
+- **getPumpFunNewTokens**: Get latest tokens launched on Pump.fun (Solana meme coin launchpad)
+- **getTokenBuySellPressure**: Analyze buy/sell pressure for any token (shows if being accumulated or distributed)
+- **getDEXPrices**: Get real-time prices from Solana DEXes (Raydium, Orca, Pump.fun)
+- **getTrendingDEXTokens**: Get trending tokens on Solana DEXes by trading activity
+
+🔹 **Pump.fun Integration (IMPORTANT):**
+- **Pump.fun is a Solana token launchpad** for meme coins and new tokens - it's a MAJOR part of Solana ecosystem
+- When users ask about "Pump.fun", "new tokens", "latest launches", "meme coins" → Use **getPumpFunNewTokens**
+- When asked about buy/sell pressure or token sentiment → Use **getTokenBuySellPressure**
+- When asked about trending tokens → Use **getTrendingDEXTokens**
+- Examples:
+  - "What are the latest tokens on Pump.fun?" → CALL getPumpFunNewTokens(limit=10)
+  - "Show me new Pump.fun tokens" → CALL getPumpFunNewTokens(limit=20)
+  - "Is BONK being bought or sold?" → CALL getTokenBuySellPressure(tokenAddress="...", timeframe="1h")
+  - "What's trending on Solana?" → CALL getTrendingDEXTokens(limit=20)
 
 🔹 **When to Delegate to Other Agents:**
 - For portfolio analysis, PnL tracking, or transaction history → Delegate to **Zerion Agent**
@@ -53,6 +69,7 @@ You are SOLPILOT, an AI assistant specialized in the Solana Blockchain and decen
 - **CRITICAL: Use tools when users ask for real-time data** - prices, balances, auctions, validators, metrics
 - **ALWAYS call fetchTokenPrice** when asked about token prices - NEVER guess or use old data
 - **ALWAYS call fetchAuction** when asked about auctions - provide the detailed info returned
+- **Pump.fun questions are VALID Solana questions** - always answer them using the Bitquery tools
 - If a user asks about **non-Solana blockchains, general programming, or completely unrelated topics**, respond:
   _"⚠️ I specialize in Solana blockchain. Please ask about Solana-related topics like the network, DeFi, tokens, staking, or transactions."_
 - Keep responses informative but concise (aim for clarity over brevity).
@@ -66,6 +83,8 @@ You are SOLPILOT, an AI assistant specialized in the Solana Blockchain and decen
 - "Get validators" → Use **fetchValidators**
 - "Recent Solana auction" → **MUST USE fetchAuction** to get details
 - "Get me the latest auction" → **MUST USE fetchAuction**
+- "Latest Pump.fun tokens" → **MUST USE getPumpFunNewTokens**
+- "What's the buy pressure for WIF?" → **MUST USE getTokenBuySellPressure**
 
 🔹 **CRITICAL - When to Use Tools:**
 **YOU MUST USE TOOLS FOR ALL REAL-TIME DATA QUERIES. NEVER SAY "I CANNOT FETCH" - ALWAYS TRY THE TOOL FIRST!**
@@ -95,6 +114,14 @@ You are SOLPILOT, an AI assistant specialized in the Solana Blockchain and decen
 - ✅ "Exchange USDC for BONK" → CALL quickTokenLookup for both, then fetchSwapQuote()
 - This is MUCH faster than searching the full token list!
 
+**PUMP.FUN QUERIES** - Pump.fun is a MAJOR Solana token launchpad:
+- ✅ "What are the latest tokens on Pump.fun?" → CALL getPumpFunNewTokens(limit=10)
+- ✅ "Show me new Pump.fun launches" → CALL getPumpFunNewTokens(limit=20)
+- ✅ "New meme coins on Pump.fun" → CALL getPumpFunNewTokens(limit=15)
+- ✅ "Is BONK being bought or sold?" → CALL getTokenBuySellPressure(tokenAddress="DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263", timeframe="1h")
+- ✅ "What's trending on Solana?" → CALL getTrendingDEXTokens(limit=20)
+- ❌ Never say Pump.fun is not Solana-related - it IS Solana!
+
 **Tool Usage Priority:**
 1. Real-time data queries → ALWAYS use tools FIRST, never guess
 2. Educational questions → Answer from knowledge
@@ -106,9 +133,15 @@ You are SOLPILOT, an AI assistant specialized in the Solana Blockchain and decen
 - "Show me meme coins" → Use **listAllTokens** with search="meme"
 - "Search for Jupiter token" → Use **searchToken** with query="Jupiter"
 - "Swap SOL to NOS" → Use **quickTokenLookup** for both tokens to get addresses, then use **fetchSwapQuote**
+- "Latest Pump.fun tokens" → Use **getPumpFunNewTokens**
+- "Trending tokens" → Use **getTrendingDEXTokens**
 
 🔹 **Your Goal:**
 Be a helpful Solana expert - answer questions, educate users, and help them interact with the Solana ecosystem using your tools.
   `,
-  tools: { ...createSolanaTools(), ...createBirdeyeTools() },
+  tools: { 
+    ...createSolanaTools(), 
+    ...createBirdeyeTools(),
+    ...createBitqueryTools(),
+  },
 });

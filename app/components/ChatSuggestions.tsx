@@ -56,17 +56,17 @@ const suggestions = [
     prompts: [
       { text: "Fetch my Solana portfolio.", icon: <Wallet className="w-4 h-4" /> },
       { text: "Analyze the portfolio of this user.", icon: <Server className="w-4 h-4" /> },
-      { text: "Send 5 SOL to this wallet address.", icon: <ArrowRight className="w-4 h-4" /> },
+      { text: "Send 1 SOL to this wallet address.", icon: <ArrowRight className="w-4 h-4" /> },
     ],
   },
   {
-    title: "🔥 Meme Coin Hunter",
+    title: "Meme Coin Hunter",
     icon: <TrendingUp className="w-5 h-5" />,
-    description: "Live trading metrics & new tokens",
+    description: "Pump.fun & DEX tracking",
     prompts: [
-      { text: "Show me new tokens launched today", icon: <Zap className="w-4 h-4" /> },
-      { text: "Is BONK being bought or sold?", icon: <TrendingUp className="w-4 h-4" /> },
-      { text: "What's the buy pressure for WIF?", icon: <LineChart className="w-4 h-4" /> },
+      { text: "What are the latest tokens on Pump.fun?", icon: <Zap className="w-4 h-4" /> },
+      { text: "Show me trending tokens on Solana DEXes", icon: <TrendingUp className="w-4 h-4" /> },
+      { text: "Is BONK being bought or sold?", icon: <LineChart className="w-4 h-4" /> },
     ],
   },
   {

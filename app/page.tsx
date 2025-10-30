@@ -79,19 +79,45 @@ const Chatbot = () => {
   };
 
   const loadChatHistory = async (chatId: string) => {
-    if (!loadingState) {
+    try {
       setLoadingState("general");
+      console.log("Loading chat history for chatId:", chatId);
+      
       const response = await getChatHistory(chatId);
-      const messages = response.map((chat: { message: ChatMessage }) => chat.message);
-      setMessageHistory(messages);
+      console.log("Chat history response:", response);
+      
+      // Update current chat info first
       const chatInfos = allChats.filter((chat) => chat.id === chatId);
-      setCurrentChat({
-        id: chatInfos[0].id,
-        title: chatInfos[0].title,
-        ai_id: chatInfos[0].ai_id,
-        user_id: chatInfos[0].user_id,
-      });
+      if (chatInfos.length > 0) {
+        setCurrentChat({
+          id: chatInfos[0].id,
+          title: chatInfos[0].title,
+          ai_id: chatInfos[0].ai_id,
+          user_id: chatInfos[0].user_id,
+        });
+      } else {
+        console.warn("Chat info not found in allChats for chatId:", chatId);
+      }
+      
+      if (!response || response.length === 0) {
+        console.warn("No messages found for chat:", chatId);
+        // Set an empty message history - this is valid for chats with no messages yet
+        setMessageHistory([]);
+        setLoadingState(null);
+        return;
+      }
+      
+      const messages = response.map((chat: { message: ChatMessage }) => chat.message);
+      console.log("Parsed messages:", messages);
+      setMessageHistory(messages);
+      
       setLoadingState(null);
+      console.log("Chat history loaded successfully, messages count:", messages.length);
+    } catch (error) {
+      console.error("Error loading chat history:", error);
+      setLoadingState(null);
+      // On error, still try to show the chat but with no messages
+      setMessageHistory([]);
     }
   };
 

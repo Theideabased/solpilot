@@ -42,17 +42,25 @@ export async function connectToSolanaWallet(walletType: "phantom" | "solflare" =
 
 async function fetchNonce(address: string): Promise<string> {
   try {
+    console.log("📝 Fetching nonce for address:", address);
     const res = await fetch("/api/auth/nonce", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ wallet_address: address }),
+      body: JSON.stringify({ address: address }),
     });
     
+    if (!res.ok) {
+      const errorData = await res.json();
+      console.error("❌ Nonce fetch failed:", errorData);
+      throw new Error(errorData.error || "Failed to get authentication nonce");
+    }
+    
     const data = await res.json();
+    console.log("✅ Nonce received:", data.nonce);
     return data.nonce;
   } catch (error) {
     console.error("Error fetching nonce:", error);
-    throw new Error("Failed to get authentication nonce");
+    throw error;
   }
 }
 
@@ -82,6 +90,7 @@ const signMessage = async (
   nonce: string
 ): Promise<{ status: string; token: string | null }> => {
   try {
+    console.log("✍️ Requesting message signature...");
     // Create message to sign
     const message = `Sign this message to authenticate with SOLPILOT:\n\nNonce: ${nonce}`;
     const encodedMessage = new TextEncoder().encode(message);
@@ -91,23 +100,33 @@ const signMessage = async (
     
     // Convert signature to base58
     const signature = bs58.encode(signedMessage.signature);
+    console.log("✅ Message signed successfully");
 
     // Verify signature with backend
+    console.log("🔍 Verifying signature with backend...");
     const res = await fetch("/api/auth/verifyArbitrary", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nonce, signature, address }),
     });
 
+    if (!res.ok) {
+      const errorData = await res.json();
+      console.error("❌ Verification failed:", errorData);
+      return { status: "failed", token: null };
+    }
+
     const { isValid, token } = await res.json();
 
     if (isValid) {
+      console.log("✅ Authentication successful!");
       return { status: "success", token };
     }
 
+    console.warn("⚠️ Signature verification returned invalid");
     return { status: "failed", token: null };
   } catch (error) {
-    console.error("Signing error:", error);
+    console.error("❌ Signing error:", error);
     return { status: "failed", token: null };
   }
 };

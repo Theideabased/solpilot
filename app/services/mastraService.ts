@@ -20,17 +20,32 @@ export async function processMastraMessage(
     
     const lowerMessage = userMessage.toLowerCase();
     
+    // Route Pump.fun and new token queries to Sonia (token analyst)
+    if (lowerMessage.includes('pump.fun') || 
+        lowerMessage.includes('pumpfun') ||
+        lowerMessage.includes('pump fun') ||
+        (lowerMessage.includes('new') && lowerMessage.includes('token')) ||
+        (lowerMessage.includes('latest') && lowerMessage.includes('token')) ||
+        (lowerMessage.includes('trending') && lowerMessage.includes('token')) ||
+        lowerMessage.includes('buy pressure') ||
+        lowerMessage.includes('sell pressure') ||
+        lowerMessage.includes('buy/sell')) {
+      agentName = 'sonia';
+    }
+    
     // Route to Sonia for token analysis
     if (lowerMessage.includes('token') && (lowerMessage.includes('analyze') || lowerMessage.includes('analysis'))) {
       agentName = 'sonia';
     }
     
-    // Route to Venice for news and research (but NOT for auction/price/swap queries)
+    // Route to Venice for news and research (but NOT for auction/price/swap/token queries)
     if (!lowerMessage.includes('auction') && 
         !lowerMessage.includes('price') &&
         !lowerMessage.includes('swap') &&
         !lowerMessage.includes('buy') &&
         !lowerMessage.includes('sell') &&
+        !lowerMessage.includes('token') &&
+        !lowerMessage.includes('pump') &&
         (lowerMessage.includes('news') || 
          lowerMessage.includes('research') || 
          lowerMessage.includes('latest update') || 
@@ -139,6 +154,19 @@ export async function processMastraMessageStream(
     
     const lowerMessage = userMessage.toLowerCase();
     
+    // Route Pump.fun and new token queries to Sonia (token analyst)
+    if (lowerMessage.includes('pump.fun') || 
+        lowerMessage.includes('pumpfun') ||
+        lowerMessage.includes('pump fun') ||
+        (lowerMessage.includes('new') && lowerMessage.includes('token')) ||
+        (lowerMessage.includes('latest') && lowerMessage.includes('token')) ||
+        (lowerMessage.includes('trending') && lowerMessage.includes('token')) ||
+        lowerMessage.includes('buy pressure') ||
+        lowerMessage.includes('sell pressure') ||
+        lowerMessage.includes('buy/sell')) {
+      agentName = 'sonia';
+    }
+    
     // Route to Sonia for token analysis
     if (lowerMessage.includes('token') && (lowerMessage.includes('analyze') || lowerMessage.includes('analysis'))) {
       agentName = 'sonia';
@@ -150,6 +178,8 @@ export async function processMastraMessageStream(
         !lowerMessage.includes('swap') &&
         !lowerMessage.includes('buy') &&
         !lowerMessage.includes('sell') &&
+        !lowerMessage.includes('token') &&
+        !lowerMessage.includes('pump') &&
         (lowerMessage.includes('news') || 
          lowerMessage.includes('research') || 
          lowerMessage.includes('latest update') || 
