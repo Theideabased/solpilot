@@ -52,14 +52,29 @@ export async function POST(req: Request) {
           });
         }
 
+        // Type guard: only create send_token message if token is an object
+        if (typeof transactionData.token !== 'string') {
+          return NextResponse.json({
+            messages: [
+              createChatMessage({
+                sender: "ai",
+                text: `You want to send ${transactionData.amount} ${transactionData.token.symbol} to ${transactionData.receiver}. Please confirm this transaction.`,
+                type: "send_token",
+                intent: "transfer",
+                send: transactionData as any,
+              }),
+            ],
+          });
+        }
+        
+        // Fallback if token is string (error case)
         return NextResponse.json({
           messages: [
             createChatMessage({
               sender: "ai",
-              text: `You want to send ${transactionData.amount} ${transactionData.token.symbol} to ${transactionData.receiver}. Please confirm this transaction.`,
-              type: "send_token",
+              text: `❌ ${transactionData.token}`,
+              type: "error",
               intent: "transfer",
-              send: transactionData,
             }),
           ],
         });

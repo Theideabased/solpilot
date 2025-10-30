@@ -34,13 +34,33 @@ export async function transferFunds(
         );
         return;
       }
+      
+      // Get token symbol safely
+      const tokenSymbol = typeof transactionData.token === 'string' 
+        ? transactionData.token 
+        : transactionData.token.symbol;
+      
+      // Only pass send data if token is an object with proper structure
+      const sendData = typeof transactionData.token === 'string' 
+        ? null 
+        : {
+            token: {
+              tokenType: transactionData.token.tokenType,
+              address: transactionData.token.address,
+              decimals: transactionData.token.decimals,
+              denom: transactionData.token.denom
+            },
+            receiver: transactionData.receiver,
+            amount: transactionData.amount
+          };
+      
       addToChat(
         createChatMessage({
           sender: "ai",
-          text: ` You want to send  ${transactionData.amount} ${transactionData.token.symbol} to ${transactionData.receiver}. Are you confirming this transaction ?`,
+          text: ` You want to send  ${transactionData.amount} ${tokenSymbol} to ${transactionData.receiver}. Are you confirming this transaction ?`,
           type: "send_token",
           intent: intent,
-          send: transactionData,
+          send: sendData,
         })
       );
       return;
