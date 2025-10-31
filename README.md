@@ -1,105 +1,364 @@
-# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - Your AI-Powered Solana Command Center
+# 🚀 SOLPILOT — Submission for Nosana Builders Challenge: Agents 102# 🚀 SOLPILOT — Judge Summary (Nosana Builders Challenge: Agents 102)# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - Your AI-Powered Solana Command Center
 
 
 
 [![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
-[![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
+[![Powered by Mastra](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
-[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
-
-
-
-> **Nosana Builders Challenge: Agents 102** - Conversational Solana DeFi powered by Mastra multi-agent framework[![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
+[![Docker Hub](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
 
 
----[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)> **The Future of Solana DeFi Intelligence**: An enterprise-grade, AI-native platform that transforms how users interact with the Solana blockchain through natural language conversations.
+**Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework**[![Powered by Mastra](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
 
 
-## 🎯 Live Deployment[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)
+---[![Docker Hub](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
 
 
-🌐 **Live**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  [![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
-
-🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  
-
-💻 **GitHub**: https://github.com/Theideabased/solpilot> **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework
+## 🎯 Submission Links
 
 
 
----[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+- **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/Live demo • deployment • core tech — concise for judges.[![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
+- **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot
 
+- **Repository**: https://github.com/Theideabased/solpilot
 
-## 📋 Overview---
+- **Demo Video**: https://youtu.be/HhgCNku9oDo
 
-
-
-**The Problem**: 95% of Solana users locked out of DeFi due to complexity—juggling 10+ apps for portfolios, staking, and swaps.[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-
-
-
-**Our Solution**: Natural language interface for blockchain operations. Type "Swap 5 USDC for SOL" or "Show trending Pump.fun tokens" and AI handles everything.## 🎯 Live Deployment
-
-
-
----[![Solana](https://img.shields.io/badge/Solana-14F195?style=for-the-badge&logo=solana&logoColor=white)](https://solana.com/)
-
-
-
-## 🤖 Mastra Multi-Agent System🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
-
-
-
-**Powered by Mastra 0.23.1** - Production multi-agent orchestration🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  > **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-
-
-
-### 4 Specialized Agents💻 **GitHub**: https://github.com/Theideabased/solpilot  
-
-
-
-| Agent | Focus | Tools |🎥 **Demo Video**: *(Coming soon - recording before Oct 31 deadline)*[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-
-|-------|-------|-------|
-
-| **SOLPILOT** | Transactions, portfolio | Balance, Swap, Stake, Transfer |
-
-| **Sonia** | Market data, Pump.fun | Bitquery, DEX analytics |
-
-| **Zerion** | Cross-chain (25+ chains) | Portfolio, PnL, DeFi positions |------
-
-| **Venice** | News, sentiment | Real-time Solana news |
-
-
-
-### Smart Routing
-
-- "Latest Pump.fun tokens" → **Sonia** (Bitquery)## 📋 What is SOLPILOT?---
-
-- "Show my portfolio" → **Zerion** (Multi-chain)
-
-- "Solana news?" → **Venice** (News search)
-
-- "Stake 10 SOL" → **SOLPILOT** (Transaction)
-
-**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.## 🎯 Live Deployment
+---[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
 ---
 
 
 
-## 🛠️ Features
+## 💡 What is SOLPILOT?
+
+## Live links
+
+A conversational Solana copilot that transforms complex DeFi operations into simple natural language interactions. Users type commands like "Swap 5 USDC for SOL" or "Show trending Pump.fun tokens" and our AI agents handle everything safely.
+
+
+
+**The Problem**: 95% of potential Solana users can't access DeFi due to complexity—managing portfolios, tracking launches, staking requires juggling 10+ apps.
+
+- Live app: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/> **Nosana Builders Challenge: Agents 102** - Conversational Solana DeFi powered by Mastra multi-agent framework[![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
+
+**Our Solution**: One conversational interface powered by 4 specialized Mastra agents with 25+ production tools.
+
+- Docker Hub: https://hub.docker.com/r/seyman101/solpilot
+
+---
+
+- Repo: https://github.com/Theideabased/solpilot
+
+## 🤖 Mastra Multi-Agent Architecture
+
+- Demo video (Nosana): https://youtu.be/HhgCNku9oDo
+
+### 4 Specialized Agents
+
+---[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)> **The Future of Solana DeFi Intelligence**: An enterprise-grade, AI-native platform that transforms how users interact with the Solana blockchain through natural language conversations.
+
+| Agent | Focus | Key Tools |
+
+|-------|-------|-----------|---
+
+| **SOLPILOT** | Transactions & portfolio | Balance, swap, stake, transfer |
+
+| **Sonia** | Market intelligence | Bitquery (Pump.fun), DEX analytics |
+
+| **Zerion** | Cross-chain portfolio | 25+ chains, PnL, DeFi positions |
+
+| **Venice** | News & sentiment | Real-time Solana ecosystem news |## One-line pitch
+
+
+
+### Smart Agent Routing## 🎯 Live Deployment[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)
+
+- "Latest Pump.fun tokens" → **Sonia** (Bitquery data)
+
+- "Show my portfolio" → **Zerion** (Cross-chain analysis)SOLPILOT is a conversational Solana copilot that converts plain-English requests into safe DeFi actions using a Mastra multi-agent system and real-time blockchain data.
+
+- "Solana news?" → **Venice** (Web search + trusted sources)
+
+- "Stake 10 SOL" → **SOLPILOT** (Transaction execution)
+
+
+
+------
+
+
+
+## ⚡ Key Features🌐 **Live**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  [![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
+
+
+
+### DeFi Operations## What judges should care about (quick)
+
+- Real-time portfolio tracking (SOL + SPL tokens)
+
+- Token swaps via Jupiter Aggregator🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  
+
+- Staking/unstaking with top validators
+
+- Secure token transfers- 4 specialized Mastra agents: SOLPILOT (transactions), Sonia (market data), Zerion (cross-chain), Venice (news)
+
+- Transaction search and analysis
+
+- 25+ production-ready tools for blockchain ops, market analytics, and news💻 **GitHub**: https://github.com/Theideabased/solpilot> **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework
+
+### Market Intelligence
+
+- Live Pump.fun token launches (Bitquery GraphQL)- Live on Nosana (decentralized compute) + Docker image published
+
+- DEX analytics and buy/sell pressure
+
+- Price feeds from CoinGecko, Birdeye, Jupiter- Streaming conversational UI and wallet-based auth (Phantom)
+
+- Curated news from trusted Solana sources
+
+
+
+### Security & UX
+
+- Phantom Wallet integration (non-custodial)------[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+- Message-based authentication (no passwords)
+
+- Transaction previews before execution
+
+- Real-time streaming responses (SSE)
+
+## Demo video
+
+---
+
+
+
+## 🔧 Technical Stack
+
+Watch the Nosana deployment & feature demo (3 min):## 📋 Overview---
+
+- **Frontend**: Next.js 15 + TypeScript + Tailwind CSS
+
+- **AI Orchestration**: Mastra 0.23.1 framework
+
+- **LLM Provider**: OpenRouter (gpt-4o-mini, fallback strategy)
+
+- **Database**: Supabase PostgreSQLhttps://youtu.be/HhgCNku9oDo
+
+- **Blockchain**: Solana Web3.js + Jupiter + Phantom
+
+- **Data Sources**: Bitquery, CoinGecko, Birdeye, Zerion, Venice AI
+
+
+
+------**The Problem**: 95% of Solana users locked out of DeFi due to complexity—juggling 10+ apps for portfolios, staking, and swaps.[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+
+
+
+## 🐳 Deployment
+
+
+
+### Nosana Network## Run on Nosana (only commands shown)
+
+**Live URL**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/
+
+
+
+Deploy to Nosana using the CLI:
+
+```bash**Our Solution**: Natural language interface for blockchain operations. Type "Swap 5 USDC for SOL" or "Show trending Pump.fun tokens" and AI handles everything.## 🎯 Live Deployment
+
+```bash
+
+npm install -g @nosana/clinpm install -g @nosana/cli
+
+nosana auth login
+
+nosana jobs run nos_job_def/nosana_solpilot.jsonnosana auth login
+
+```
+
+nosana jobs run nos_job_def/nosana_solpilot.json
+
+### Docker Hub
+
+**Image**: `seyman101/solpilot:latest` (207MB optimized)```---[![Solana](https://img.shields.io/badge/Solana-14F195?style=for-the-badge&logo=solana&logoColor=white)](https://solana.com/)
+
+
+
+Multi-stage build with Node.js 20 Alpine for production efficiency.
+
+
+
+------
+
+
+
+## 🏆 Challenge Criteria Fulfilled
+
+
+
+### ✅ Innovation (25%)## Short tech snapshot## 🤖 Mastra Multi-Agent System🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
+
+- First conversational DeFi interface for Solana
+
+- Multi-agent orchestration with intelligent routing
+
+- Real-time streaming UI with Server-Sent Events
+
+- Frontend: Next.js + TypeScript
+
+### ✅ Technical Implementation (25%)
+
+- Production-ready Next.js 15 application- Orchestration: Mastra multi-agent framework
+
+- Mastra framework integration with 4 specialized agents
+
+- 25+ tools across blockchain, market data, and news- AI: OpenRouter (gpt-4o-mini fallback strategy)**Powered by Mastra 0.23.1** - Production multi-agent orchestration🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  > **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+
+- Optimized Docker containerization
+
+- Data: Bitquery (real-time), CoinGecko, Birdeye, Zerion
+
+### ✅ Deployment on Nosana (25%)
+
+- Successfully deployed on Nosana's decentralized network- Blockchain: Solana Web3.js, Jupiter aggregator
+
+- Docker image published to Docker Hub
+
+- Job definition with proper secrets management
+
+- Accessible via public Nosana URL
+
+---### 4 Specialized Agents💻 **GitHub**: https://github.com/Theideabased/solpilot  
+
+### ✅ User Experience (25%)
+
+- Natural language interface (no technical jargon)
+
+- Real-time conversational responses
+
+- Mobile-responsive design## Judges checklist
+
+- Safe transaction previews and confirmations
+
+
+
+---
+
+1. Open the live app at the Nosana link| Agent | Focus | Tools |🎥 **Demo Video**: *(Coming soon - recording before Oct 31 deadline)*[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+
+## 📹 Demo Video
+
+2. Play the demo video (deployment + core flows)
+
+Watch the complete 3-minute demonstration showing Nosana deployment and core features:
+
+3. Verify Docker image exists on Docker Hub (seyman101/solpilot:latest)|-------|-------|-------|
+
+**https://youtu.be/HhgCNku9oDo**
+
+4. Confirm agents cover market data, transactions, cross-chain analytics, and news
+
+Showcases:
+
+- Live Nosana deployment walkthrough| **SOLPILOT** | Transactions, portfolio | Balance, Swap, Stake, Transfer |
+
+- Natural language DeFi operations
+
+- Multi-agent system in action---
+
+- Pump.fun token discovery
+
+- Portfolio management across chains| **Sonia** | Market data, Pump.fun | Bitquery, DEX analytics |
+
+
+
+---## Contact
+
+
+
+## 📊 Performance Metrics| **Zerion** | Cross-chain (25+ chains) | Portfolio, PnL, DeFi positions |------
+
+
+
+- **Response Time**: 50-200ms first token- Repo & issues: https://github.com/Theideabased/solpilot
+
+- **Image Size**: 207MB (optimized)
+
+- **Agents**: 4 specialized (Mastra)- Support: support@solpilot.ai| **Venice** | News, sentiment | Real-time Solana news |
+
+- **Tools**: 25+ production-ready
+
+- **Chains**: Solana + 25 EVM chains (via Zerion)
+
+
+
+------
+
+
+
+## 🎯 Judge Evaluation Checklist
+
+
+
+1. **Visit Live App**: Open https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/*This README is intentionally short and focused for judge review. Want a one-page PDF summary? I can generate it next.*### Smart Routing
+
+2. **Watch Demo Video**: https://youtu.be/HhgCNku9oDo (3 minutes)
+
+3. **Verify Docker Image**: Check https://hub.docker.com/r/seyman101/solpilot
+
+4. **Test Agents**: Confirm specialized responses for market data, transactions, news, and cross-chain analytics- "Latest Pump.fun tokens" → **Sonia** (Bitquery)## 📋 What is SOLPILOT?---
+
+
+
+---- "Show my portfolio" → **Zerion** (Multi-chain)
+
+
+
+## 📞 Contact- "Solana news?" → **Venice** (News search)
+
+
+
+- **Repository**: https://github.com/Theideabased/solpilot- "Stake 10 SOL" → **SOLPILOT** (Transaction)
+
+- **Issues**: https://github.com/Theideabased/solpilot/issues
+
+- **Email**: support@solpilot.ai**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.## 🎯 Live Deployment
+
+
+
+------
+
+
+
+<p align="center">
+
+  <strong>Built for Nosana Builders Challenge: Agents 102</strong><br>
+
+  Submitted October 31, 2025 • Powered by Mastra • Deployed on Nosana## 🛠️ Features
+
+</p>
 
 **Our Solution**: SOLPILOT transforms complex blockchain operations into simple conversations. Just type "Swap 5 USDC for SOL" or "Show me trending Pump.fun tokens" and our AI agents handle everything.## 🎯 Executive Summary
 
-### DeFi Operations
+<p align="center">
 
-✅ Real-time portfolio tracking  
+  <a href="https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/">🌐 Live Demo</a> •### DeFi Operations
 
+  <a href="https://hub.docker.com/r/seyman101/solpilot">🐳 Docker Hub</a> •
+
+  <a href="https://youtu.be/HhgCNku9oDo">🎥 Demo Video</a>✅ Real-time portfolio tracking  
+
+</p>
 ✅ Token swaps (Jupiter)  
 
 ✅ Staking/unstaking  ---🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
