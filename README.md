@@ -1,951 +1,722 @@
-# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - Your AI-Powered Solana Command Center
+# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - AI-Powered Solana Command Center# 🚀 SOLPILOT - Your AI-Powered Solana Command Center
 
 
 
-[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)> **The Future of Solana DeFi Intelligence**: An enterprise-grade, AI-native platform that transforms how users interact with the Solana blockchain through natural language conversations.
+[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
 [![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
 
-[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 
-[![Solana](https://img.shields.io/badge/Solana-14F195?style=for-the-badge&logo=solana&logoColor=white)](https://solana.com/)
 
-> **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+> **Nosana Builders Challenge: Agents 102** - Conversational Solana DeFi powered by Mastra multi-agent framework[![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+
+
+---[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)> **The Future of Solana DeFi Intelligence**: An enterprise-grade, AI-native platform that transforms how users interact with the Solana blockchain through natural language conversations.
+
+
+
+## 🎯 Live Deployment[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)
+
+
+
+🌐 **Live**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  [![Mastra AI](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
+
+🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  
+
+💻 **GitHub**: https://github.com/Theideabased/solpilot> **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework
+
+
+
+---[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+
+
+## 📋 Overview---
+
+
+
+**The Problem**: 95% of Solana users locked out of DeFi due to complexity—juggling 10+ apps for portfolios, staking, and swaps.[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+
+
+
+**Our Solution**: Natural language interface for blockchain operations. Type "Swap 5 USDC for SOL" or "Show trending Pump.fun tokens" and AI handles everything.## 🎯 Live Deployment
+
+
+
+---[![Solana](https://img.shields.io/badge/Solana-14F195?style=for-the-badge&logo=solana&logoColor=white)](https://solana.com/)
+
+
+
+## 🤖 Mastra Multi-Agent System🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
+
+
+
+**Powered by Mastra 0.23.1** - Production multi-agent orchestration🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  > **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+
+
+
+### 4 Specialized Agents💻 **GitHub**: https://github.com/Theideabased/solpilot  
+
+
+
+| Agent | Focus | Tools |🎥 **Demo Video**: *(Coming soon - recording before Oct 31 deadline)*[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+
+|-------|-------|-------|
+
+| **SOLPILOT** | Transactions, portfolio | Balance, Swap, Stake, Transfer |
+
+| **Sonia** | Market data, Pump.fun | Bitquery, DEX analytics |
+
+| **Zerion** | Cross-chain (25+ chains) | Portfolio, PnL, DeFi positions |------
+
+| **Venice** | News, sentiment | Real-time Solana news |
+
+
+
+### Smart Routing
+
+- "Latest Pump.fun tokens" → **Sonia** (Bitquery)## 📋 What is SOLPILOT?---
+
+- "Show my portfolio" → **Zerion** (Multi-chain)
+
+- "Solana news?" → **Venice** (News search)
+
+- "Stake 10 SOL" → **SOLPILOT** (Transaction)
+
+**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.## 🎯 Live Deployment
 
 ---
 
+
+
+## 🛠️ Features
+
+**Our Solution**: SOLPILOT transforms complex blockchain operations into simple conversations. Just type "Swap 5 USDC for SOL" or "Show me trending Pump.fun tokens" and our AI agents handle everything.## 🎯 Executive Summary
+
+### DeFi Operations
+
+✅ Real-time portfolio tracking  
+
+✅ Token swaps (Jupiter)  
+
+✅ Staking/unstaking  ---🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
+
+✅ Token transfers  
+
+✅ Transaction search
+
+
+
+### Market Intelligence## 🤖 Mastra Multi-Agent Architecture🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  **SOLPILOT** is a revolutionary AI-powered interface that democratizes access to Solana's DeFi ecosystem. By combining cutting-edge Large Language Models with real-time blockchain data, we've created the world's first truly conversational blockchain copilot that anyone can use—from crypto natives to complete beginners.
+
+✅ Pump.fun launches (Bitquery)  
+
+✅ DEX analytics  
+
+✅ Price feeds (CoinGecko, Birdeye)  
+
+✅ News aggregation**Powered by Mastra 0.23.1** - A production-grade multi-agent orchestration framework💻 **GitHub**: https://github.com/Theideabased/solpilot  
+
+
+
+### Security
+
+✅ Phantom wallet (non-custodial)  
+
+✅ Message signing auth  ### 4 Specialized Agents🎥 **Demo Video**: *(Coming soon - recording before Oct 31 deadline)*### The Problem We Solve
+
+✅ Transaction previews
+
+
+
 ---
 
-## 🎯 Live Deployment
+| Agent | Specialization | Key Tools |
 
-## 🎯 Executive Summary
-
-🌐 **Live App**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/  
-
-🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  **SOLPILOT** is a revolutionary AI-powered interface that democratizes access to Solana's DeFi ecosystem. By combining cutting-edge Large Language Models with real-time blockchain data, we've created the world's first truly conversational blockchain copilot that anyone can use—from crypto natives to complete beginners.
-
-💻 **GitHub**: https://github.com/Theideabased/solpilot  
-
-🎥 **Demo Video**: *(Coming soon - recording before Oct 31 deadline)*### The Problem We Solve
-
-
-
----The Solana ecosystem is exploding with innovation, but **95% of potential users** are locked out due to:
-
-- **Complexity Barrier**: Understanding wallets, tokens, staking, and DeFi protocols requires technical knowledge
-
-## 📋 What is SOLPILOT?- **Fragmented Tools**: Users need 10+ different apps to manage their Solana portfolio
-
-- **Information Overload**: Tracking new tokens, market trends, and opportunities requires constant monitoring
-
-**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.- **Fear of Mistakes**: One wrong transaction can cost thousands in gas fees or lost funds
-
-
-
-**Our Solution**: SOLPILOT transforms complex blockchain operations into simple conversations. Just type "Swap 5 USDC for SOL" or "Show me trending Pump.fun tokens" and our AI agents handle everything.### Our Solution
-
-
-
----SOLPILOT transforms blockchain interaction from **command-line complexity** to **conversational simplicity**. Users simply type what they want in plain English:
-
-- "What's my SOL balance?"
-
-## 🤖 Mastra Multi-Agent Architecture- "Show me the latest Pump.fun tokens"
-
-- "Stake 10 SOL with the best validator"
-
-**Powered by Mastra 0.23.1** - A production-grade multi-agent orchestration framework- "Swap 5 USDC for SOL"
-
-
-
-### 4 Specialized AgentsOur multi-agent AI system handles everything else—routing queries, executing transactions, and providing real-time insights with human-like understanding.
-
-
-
-| Agent | Specialization | Key Tools |---
+## 🔧 Tech Stack
 
 |-------|---------------|-----------|
 
-| **SOLPILOT** | Portfolio management, transactions | Balance, Swap, Stake, Transfer |## 💎 Core Value Proposition
+- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
 
-| **Sonia** | Market intelligence, Pump.fun tracking | Bitquery, DEX analytics, trending tokens |
+- **Backend**: Mastra 0.23.1, OpenRouter (gpt-4o-mini), Supabase| **SOLPILOT** | Portfolio management, transactions | Balance, Swap, Stake, Transfer |---The Solana ecosystem is exploding with innovation, but **95% of potential users** are locked out due to:
 
-| **Zerion** | Cross-chain portfolio (25+ chains) | Multi-chain balance, PnL, DeFi positions |### For Users
+- **Blockchain**: Solana Web3.js, Jupiter, Phantom
 
-| **Venice** | News curation, market sentiment | Real-time Solana news with web search |- **Zero Learning Curve**: No need to understand blockchain terminology
+- **Data**: Bitquery, Birdeye, CoinGecko, Zerion, Venice AI| **Sonia** | Market intelligence, Pump.fun tracking | Bitquery, DEX analytics, trending tokens |
 
-- **All-in-One Platform**: Portfolio management, staking, swaps, news, and analytics in one place
 
-### Smart Routing System- **Real-Time Intelligence**: Live data from Bitquery, CoinGecko, Birdeye, and Jupiter
 
-- **Safety First**: Transaction previews and confirmations before any blockchain action
+---| **Zerion** | Cross-chain portfolio (25+ chains) | Multi-chain balance, PnL, DeFi positions |- **Complexity Barrier**: Understanding wallets, tokens, staking, and DeFi protocols requires technical knowledge
 
-```typescript
 
-// Automatic agent selection based on query intent### For Investors
 
-"Latest Pump.fun tokens" → Sonia Agent (Bitquery)- **Massive TAM**: $68B Solana market cap × 3M+ active wallets = enormous growth potential
+## 🛠️ Mastra Tools (25+ Tools)| **Venice** | News curation, market sentiment | Real-time Solana news with web search |
 
-"Show my portfolio" → Zerion Agent (Cross-chain data)- **Network Effects**: Each user interaction improves our AI models
 
-"What's new in Solana?" → Venice Agent (News search)- **Multiple Revenue Streams**: Transaction fees, premium features, API access, white-label solutions
 
-"Stake 10 SOL" → SOLPILOT Agent (Transaction)- **Proven Traction**: [Add your metrics: users, transactions, retention]
+**Blockchain**: fetchBalance, fetchTokenPrice, executeSwap, stakeSOL, unstakeSOL, transferToken, searchTransaction, getStakeAccounts, getValidatorInfo## 📋 What is SOLPILOT?- **Fragmented Tools**: Users need 10+ different apps to manage their Solana portfolio
 
-```
+
+
+**Market Data**: getPumpFunNewTokens, getTokenBuySellPressure, getDEXPrices, getTrendingDEXTokens, getSolanaTokenList, searchSolanaToken, getBirdeyeTokenPrice, getTokenOverview, getTokenHolders### Smart Routing System
+
+
+
+**Portfolio**: getPortfolio, getTransactions, getPnL, getDeFiPositions- **Information Overload**: Tracking new tokens, market trends, and opportunities requires constant monitoring
+
+
+
+**News**: searchSolanaNews, analyzeSolanaMarket, researchSolanaTrends- "Latest Pump.fun tokens" → Sonia Agent (Bitquery)
+
+
+
+---- "Show my portfolio" → Zerion Agent (Cross-chain data)**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.- **Fear of Mistakes**: One wrong transaction can cost thousands in gas fees or lost funds
+
+
+
+## 🐳 Docker- "What's new in Solana?" → Venice Agent (News search)
+
+
+
+**Image**: seyman101/solpilot:latest (207MB)  - "Stake 10 SOL" → SOLPILOT Agent (Transaction)
+
+Multi-stage build, Node.js 20 Alpine
+
+
 
 ---
 
----
+---**Our Solution**: SOLPILOT transforms complex blockchain operations into simple conversations. Just type "Swap 5 USDC for SOL" or "Show me trending Pump.fun tokens" and our AI agents handle everything.### Our Solution
 
-## ✨ Key Features
+## ☁️ Nosana Deployment
+
+
+
+### Run on Nosana Network
 
 ## 🛠️ Core Features
 
----
+```bash
 
-### 💰 DeFi Operations
+# Install CLI
 
-- ✅ **Portfolio Tracking**: Real-time SOL and SPL token balances## ✨ Key Features
+npm install -g @nosana/cli
 
-- ✅ **Token Swaps**: Jupiter Aggregator for best rates
+### 💰 DeFi Operations---SOLPILOT transforms blockchain interaction from **command-line complexity** to **conversational simplicity**. Users simply type what they want in plain English:
 
-- ✅ **Staking**: Delegate SOL to top validators### 🤖 Multi-Agent AI Architecture
+# Login
 
-- ✅ **Transfers**: Send any token with natural language- **SOLPILOT Agent**: Master orchestrator for portfolio management, transactions, and general queries
+nosana auth login- ✅ **Portfolio Tracking**: Real-time SOL and SPL token balances
 
-- ✅ **Transaction Search**: Find and analyze any Solana transaction- **Sonia Agent**: Specialized in real-time market data, Pump.fun tokens, and DEX analytics
 
-- **Zerion Agent**: Expert in cross-chain portfolio tracking and DeFi protocol analysis
 
-### 📊 Market Intelligence- **Venice Agent**: Curates Solana ecosystem news and market sentiment analysis
+# Deploy- ✅ **Token Swaps**: Jupiter Aggregator for best rates- "What's my SOL balance?"
 
-- ✅ **Pump.fun Integration**: Live new token launches via Bitquery GraphQL
+nosana jobs run nos_job_def/nosana_solpilot.json
 
-- ✅ **DEX Analytics**: Buy/sell pressure, trending tokens### 💰 Complete Financial Suite
+```- ✅ **Staking**: Delegate SOL to top validators
 
-- ✅ **Price Feeds**: CoinGecko, Birdeye, Jupiter| Feature | Description | Status |
 
-- ✅ **News Aggregation**: Curated Solana ecosystem updates|---------|-------------|--------|
 
-| **Portfolio Dashboard** | Real-time balance tracking across all tokens | ✅ Live |
+**Deployed at**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/- ✅ **Transfers**: Send any token with natural language#06B6D4
 
-### 🔐 Security| **Token Swaps** | Powered by Jupiter Aggregator for best rates | ✅ Live |
+# 🤖 Mastra Multi-Agent Architecture- "Show me the latest Pump.fun tokens"
 
-- ✅ **Phantom Wallet**: Non-custodial authentication| **Staking & Unstaking** | Delegate SOL to top validators with one command | ✅ Live |
 
-- ✅ **Message Signing**: No passwords, wallet-based auth| **Token Transfers** | Send any SPL token with natural language | ✅ Live |
 
-- ✅ **Transaction Previews**: Always confirm before executing| **Transaction Search** | Find and analyze any Solana transaction by signature | ✅ Live |
+---- ✅ **Transaction Search**: Find and analyze any Solana transaction
 
 
 
----### 📊 Market Intelligence
+## 🏆 Challenge Criteria- "Stake 10 SOL with the best validator"
 
-- **Pump.fun Integration**: Track new token launches in real-time via Bitquery GraphQL API
 
-## 🔧 Technology Stack- **DEX Analytics**: Buy/sell pressure, trending tokens, liquidity pools
 
-- **Price Feeds**: Live pricing from CoinGecko, Birdeye, and Jupiter
+### ✅ Innovation (25%)### 📊 Market Intelligence
 
-### Frontend- **News Aggregation**: Curated Solana ecosystem updates from trusted sources
+Multi-agent orchestration, conversational DeFi, real-time streaming
 
-- **Next.js 15.1.6** (App Router, React Server Components)- **Token Analysis**: Deep-dive metrics including holder distribution and trading patterns
+- ✅ **Pump.fun Integration**: Live new token launches via Bitquery GraphQL**Powered by Mastra 0.23.1** - A production-grade multi-agent orchestration framework- "Swap 5 USDC for SOL"
 
-- **TypeScript 5.x** (Strict mode)
+### ✅ Technical (25%)
 
-- **Tailwind CSS + shadcn/ui** (Responsive design)### 🔐 Security & Authentication
+Next.js 15, Mastra framework, 25+ tools, Docker optimized- ✅ **DEX Analytics**: Buy/sell pressure, trending tokens
 
-- **Framer Motion** (Smooth animations)- **Phantom Wallet Integration**: Non-custodial, user-controlled funds
 
-- **Message Signing Auth**: No passwords—authenticate with wallet signatures
 
-### Backend- **JWT Tokens**: Secure session management with 1-hour expiry
+### ✅ Nosana Deployment (25%)- ✅ **Price Feeds**: CoinGecko, Birdeye, Jupiter
 
-- **Mastra 0.23.1** (Multi-agent orchestration)- **Transaction Previews**: Always show details before executing
+Live on decentralized compute, Docker Hub published
 
-- **OpenRouter API** (gpt-4o-mini for fast responses)
+- ✅ **News Aggregation**: Curated Solana ecosystem updates
 
-- **Supabase PostgreSQL** (User data, chat history)### 💬 Conversational Interface
+### ✅ User Experience (25%)
 
-- **Solana Web3.js 1.98.4** (Blockchain interaction)- **Streaming Responses**: See AI responses word-by-word in real-time (SSE)
+Natural language, no blockchain jargon, mobile-responsive### 4 Specialized AgentsOur multi-agent AI system handles everything else—routing queries, executing transactions, and providing real-time insights with human-like understanding.
 
-- **Chat History**: Persistent conversations stored in Supabase PostgreSQL
 
-### Data Providers- **Smart Suggestions**: Context-aware prompts guide users to powerful features
 
-- **Bitquery GraphQL**: Real-time Pump.fun & DEX data- **Multi-Format Responses**: Text, tables, charts, transaction cards, and more
+---### 🔐 Security
 
-- **Birdeye API**: Solana token analytics
 
-- **CoinGecko**: Market data and prices---
 
-- **Zerion API**: Multi-chain portfolio tracking
+## 📊 Metrics- ✅ **Phantom Wallet**: Non-custodial authentication
 
-- **Venice AI**: News with web search (llama-3.3-70b)## 🏗️ Technical Architecture
 
 
+- **Response**: 50-200ms first token- ✅ **Message Signing**: No passwords, wallet-based auth
 
----### Frontend Stack
+- **Image**: 207MB optimized
 
-```typescript
+- **Agents**: 4 specialized (Mastra)- ✅ **Transaction Previews**: Always confirm before executing| Agent | Specialization | Key Tools |---
 
-## 🛠️ Mastra Tools (20+ Tools)Framework:     Next.js 15.1.6 (App Router, React Server Components)
+- **Tools**: 25+ across blockchain/market/news
 
-Language:      TypeScript 5.x (Strict mode enabled)
+- **Chains**: Solana + 25 EVM (via Zerion)
 
-### Blockchain ToolsUI Library:    React 18.3.1 with Hooks & Context API
 
-1. `fetchBalance` - Get SOL and SPL token balancesStyling:       Tailwind CSS 3.4 + shadcn/ui components
 
-2. `fetchTokenPrice` - Real-time token pricesAnimations:    Framer Motion for smooth transitions
+------|-------|---------------|-----------|
 
-3. `executeSwap` - Jupiter-powered swapsState:         React Context (ChatProvider, MenuProvider, ValidatorProvider)
 
-4. `stakeSOL` - Delegate SOL to validatorsForms:         React Hook Form with Zod validation
-
-5. `unstakeSOL` - Undelegate staked SOL```
-
-6. `transferToken` - Send any token
-
-7. `searchTransaction` - Find transactions by signature**Key Dependencies:**
-
-8. `getStakeAccounts` - View staking positions- `next` (15.1.6) - Server-side rendering, API routes, optimized builds
-
-9. `getValidatorInfo` - Validator performance metrics- `react` (18.3.1) - Component library with concurrent features
-
-- `typescript` (5.x) - Type safety across the entire codebase
-
-### Market Data Tools- `tailwindcss` (3.4.1) - Utility-first CSS framework
-
-10. `getPumpFunNewTokens` - Latest Pump.fun launches (Bitquery)- `framer-motion` (12.0.2) - Production-ready animation library
-
-11. `getTokenBuySellPressure` - Buy vs sell volume analysis- `lucide-react` (0.469.0) - 1,000+ beautiful SVG icons
-
-12. `getDEXPrices` - Prices across multiple DEXes- `@radix-ui/*` - Accessible, unstyled UI primitives (Dialog, DropdownMenu, ScrollArea, etc.)
-
-13. `getTrendingDEXTokens` - Trending by volume and buyers
-
-14. `getSolanaTokenList` - CoinGecko token list### Backend Stack
-
-15. `searchSolanaToken` - Token search by name/symbol```typescript
-
-16. `getBirdeyeTokenPrice` - Birdeye price dataAPI Layer:       Next.js API Routes (Edge & Node.js runtimes)
-
-17. `getTokenOverview` - Comprehensive token metricsAI Engine:       Mastra 0.23.1 (Multi-agent orchestration framework)
-
-18. `getTokenHolders` - Top holders distributionLLM Provider:    OpenRouter API (gpt-4o-mini, gpt-4-turbo)
-
-Database:        Supabase PostgreSQL 2.48.1 (Serverless)
-
-### Portfolio ToolsAuthentication:  JWT (jsonwebtoken 9.0.2) + Wallet signatures
-
-19. `getPortfolio` - Cross-chain portfolio (Zerion)Blockchain:      Solana Web3.js 1.98.4
-
-20. `getTransactions` - Transaction history```
-
-21. `getPnL` - Profit & loss tracking
-
-22. `getDeFiPositions` - Staking, LP, lending positions**Key Dependencies:**
-
-- `@mastra/core` (0.23.1) - Multi-agent AI framework with tool execution
-
-### News Tools- `@solana/web3.js` (1.98.4) - Solana blockchain interaction
-
-23. `searchSolanaNews` - Latest news from trusted sources- `@supabase/supabase-js` (2.48.1) - PostgreSQL client
-
-24. `analyzeSolanaMarket` - Market trends and sentiment- `jsonwebtoken` (9.0.2) - JWT token generation/verification
-
-25. `researchSolanaTrends` - Deep ecosystem research- `tweetnacl` (1.0.3) - Cryptographic signature verification
-
-- `bs58` (6.0.0) - Base58 encoding/decoding for Solana addresses
-
----
-
-### AI & Data Integration
-
-## 🐳 Docker Deployment```typescript
-
-AI Router:      OpenRouter (https://openrouter.ai)
-
-### Quick StartModel:          gpt-4o-mini (streaming enabled)
-
-Real-Time Data: Bitquery GraphQL (https://streaming.bitquery.io/eap)
-
-```bashPrice Feeds:    CoinGecko API v3, Birdeye API, Jupiter API
-
-# Pull from Docker HubNews API:       Venice AI (Solana-specific content curation)
-
-docker pull seyman101/solpilot:latestDEX Data:       Pump.fun protocol via Bitquery ("pump", "pump_amm")
-
-```
-
-# Run locally
-
-docker run -p 3000:3000 \**Bitquery Integration:**
-
-  -e OPENROUTER_API_KEY=your_key \- **GraphQL Endpoint**: `https://streaming.bitquery.io/eap`
-
-  -e NEXT_PUBLIC_SUPABASE_URL=your_url \- **Authorization**: Bearer token authentication
-
-  -e NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key \- **Dataset**: `solana-mainnet` with real-time WebSocket support
-
-  -e SUPABASE_JWT_SECRET=your_secret \- **Use Cases**: New token launches, DEX trades, buy/sell pressure, trending tokens
-
-  -e BITQUERY_API_KEY=your_key \
-
-  seyman101/solpilot:latest**Example Query (Pump.fun New Tokens):**
-
-``````graphql
-
-query PumpFunNewTokens($limit: Int!) {
-
-### Multi-Stage Build (207MB Final Image)  Solana {
-
-    DEXTrades(
-
-```dockerfile      where: {
-
-FROM node:20-alpine AS deps        Trade: {
-
-WORKDIR /app          Dex: { ProtocolName: { in: ["pump", "pump_amm"] } }
-
-COPY package*.json ./        }
-
-RUN npm install --legacy-peer-deps        Block: { Time: { since: "2024-10-29T00:00:00Z" } }
-
-      }
-
-FROM node:20-alpine AS builder      orderBy: { descending: Block_Time }
-
-WORKDIR /app      limit: $limit
-
-COPY --from=deps /app/node_modules ./node_modules    ) {
-
-COPY . .      Trade {
-
-RUN npm run build        Currency { MintAddress Name Symbol }
-
-        Price PriceInUSD
-
-FROM node:20-alpine AS runner        Dex { ProtocolName ProtocolFamily }
-
-WORKDIR /app      }
-
-ENV NODE_ENV=production      Block { Time }
-
-COPY --from=builder /app/.next/standalone ./    }
-
-COPY --from=builder /app/.next/static ./.next/static  }
-
-COPY --from=builder /app/public ./public}
-
-EXPOSE 3000```
-
-CMD ["node", "server.js"]
-
-```### Blockchain Integration
-
-```typescript
-
----Network:      Solana Mainnet (Primary), Devnet (Testing)
-
-RPC:          https://api.mainnet-beta.solana.com
-
-## ☁️ Nosana Network DeploymentWallet:       Phantom (Web3 Provider)
-
-Token Swaps:  Jupiter Aggregator V6
-
-### Deployed InfrastructureStaking:      Native Solana stake program
-
-```
-
-- **Platform**: Nosana Network (Decentralized GPU/CPU compute)
-
-- **Container**: seyman101/solpilot:v1.0.0**Solana Web3.js Usage:**
-
-- **Port**: 3000 (HTTP)- **Connection**: `new Connection(rpcUrl, 'confirmed')`
-
-- **URL**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/- **Wallet Adapter**: Phantom provider with `signMessage()` and `signTransaction()`
-
-- **Transaction Building**: `SystemProgram`, `StakeProgram`, `Token`
-
-### Nosana Job Definition- **Signature Verification**: `nacl.sign.detached.verify()`
-
-
-
-```json---
-
-{
-
-  "version": "0.1",## 🗂️ Project Structure
-
-  "ops": [
-
-    {```
-
-      "type": "container/run",solpilot/
-
-      "id": "solpilot-app",├── app/                          # Next.js App Router
-
-      "args": {│   ├── api/                      # Backend API Routes
-
-        "image": "seyman101/solpilot:v1.0.0",│   │   ├── auth/                 # Authentication endpoints
-
-        "expose": 3000,│   │   │   ├── nonce/            # Generate wallet nonce
-
-        "env": {│   │   │   └── verifyArbitrary/  # Verify signed message
-
-          "OPENROUTER_API_KEY": "{{secrets.OPENROUTER_API_KEY}}",│   │   ├── chat/                 # Streaming chat endpoint
-
-          "NEXT_PUBLIC_SUPABASE_URL": "{{secrets.NEXT_PUBLIC_SUPABASE_URL}}",│   │   ├── chats/                # Chat CRUD operations
-
-          "NEXT_PUBLIC_SUPABASE_ANON_KEY": "{{secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY}}",│   │   │   └── [chatId]/         # Get/delete specific chat
-
-          "SUPABASE_JWT_SECRET": "{{secrets.SUPABASE_JWT_SECRET}}",│   │   ├── messages/             # Message storage
-
-          "BITQUERY_API_KEY": "{{secrets.BITQUERY_API_KEY}}"│   │   └── tokenHolders/         # Token holder analytics
-
-        }│   ├── components/               # React Components
-
-      }│   │   ├── ui/                   # shadcn/ui primitives
-
-    }│   │   │   ├── button.tsx
-
-  ]│   │   │   ├── dropdown-menu.tsx
-
-}│   │   │   ├── dialog.tsx
-
-```│   │   │   └── scroll-area.tsx
-
-│   │   ├── menu.tsx              # Sidebar with chat history
-
-### Deploy with Nosana CLI│   │   ├── header.tsx            # Top navbar with wallet
-
-│   │   ├── ChatInput.tsx         # Message input with suggestions
-
-```bash│   │   ├── ChatSuggestions.tsx   # Smart prompt cards
-
-# Install Nosana CLI│   │   ├── defaultMessageType.tsx # Markdown message renderer
-
-npm install -g @nosana/cli│   │   ├── balanceMessageType.tsx # Portfolio display
-
-│   │   ├── swapMessageType.tsx   # Token swap UI
-
-# Login with wallet│   │   ├── stakeAmountMessageType.tsx # Staking interface
-
-nosana auth login│   │   ├── validatorsMessageType.tsx  # Validator selector
-
-│   │   ├── metricsMessageType.tsx     # Chain analytics
-
-# Deploy job│   │   ├── TokenMetadataCard.tsx      # Token details card
-
-nosana jobs run nos_job_def/nosana_solpilot.json│   │   └── TokenPieChart.tsx          # Portfolio chart
-
-```│   ├── providers/                # React Context Providers
-
-│   │   ├── chatProvider.tsx      # Chat state management
-
----│   │   ├── menuProvider.tsx      # Sidebar state
-
-│   │   └── validatorProvider.tsx # Validator selection
-
-## 🚀 Local Development│   ├── services/                 # API Client Functions
-
-│   │   ├── apiChat.ts            # Non-streaming chat
-
-### Prerequisites│   │   ├── streamingChat.ts      # SSE streaming chat
-
-│   │   ├── chatServices.ts       # Chat CRUD
-
-- Node.js 18+│   │   ├── mastraService.ts      # AI agent routing
-
-- Phantom Wallet browser extension│   │   └── userMessage.ts        # Message creation
-
-- API keys (OpenRouter, Supabase, Bitquery)│   ├── globals.css               # Global styles + Tailwind
-
-│   ├── layout.tsx                # Root layout with providers
-
-### Setup│   ├── page.tsx                  # Main chat interface
-
-│   ├── types.ts                  # TypeScript interfaces
-
-```bash│   └── utils.ts                  # Helper functions
-
-# Clone repository├── ai/                           # AI Agent System
-
-git clone https://github.com/Theideabased/solpilot.git│   ├── agents/                   # Mastra Agent Definitions
-
-cd solpilot│   │   ├── solpilot.ts           # Main portfolio agent
-
-│   │   ├── sonia.ts              # Market data specialist
-
-# Install dependencies│   │   ├── zerion.ts             # Cross-chain expert
-
-npm install│   │   └── venice.ts             # News curator
-
-│   ├── tasks/                    # Agent Task Implementations
-
-# Configure environment│   │   ├── fetchBalance.ts       # Get wallet balances
-
-cp .env.example .env.local│   │   ├── fetchPrice.ts         # Get token prices
-
-# Add your API keys to .env.local│   │   ├── tokenSwap.ts          # Execute Jupiter swap
-
-│   │   ├── stakeSolana.ts        # Delegate SOL
-
-# Run development server│   │   ├── unstakeSolana.ts      # Undelegate SOL
-
-npm run dev│   │   ├── transferFunds.ts      # Send tokens
-
-│   │   ├── searchTxHash.ts       # Find transactions
-
-# Open http://localhost:3000│   │   ├── tokenAnalysis.ts      # Analyze token metrics
-
-```│   │   ├── searchSolanaNews.ts   # Fetch news
-
-│   │   └── fetchUserPortfolio.ts # Get full portfolio
-
-### Required Environment Variables│   ├── tools/                    # Mastra Tool Definitions
-
-│   │   ├── fetchBalances.ts      # Balance tool
-
-```bash│   │   ├── fetchTokenPrice.ts    # Price tool
-
-# AI & Database│   │   ├── executeSwap.ts        # Swap tool
-
-OPENROUTER_API_KEY=sk-or-v1-...│   │   ├── stakeTool.ts          # Staking tool
-
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co│   │   ├── transferTool.ts       # Transfer tool
-
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...│   │   ├── txSearch.ts           # Transaction search
-
-SUPABASE_JWT_SECRET=your-jwt-secret│   │   └── tokenTools.ts         # Token analysis
-
-│   ├── intentClassification.ts   # Query intent router
-
-# Blockchain Data│   ├── intents.ts                # Intent definitions
-
-BITQUERY_API_KEY=BQY...│   └── titleManager.ts           # Chat title generator
-
-COINGECKO_API_KEY=CG-... (optional)├── mastra/                       # Mastra Framework Config
-
-BIRDEYE_API_KEY=... (optional)│   ├── index.ts                  # Mastra instance
-
-ZERION_API_KEY=... (optional)│   ├── agents/                   # Agent exports
-
-VENICE_API_KEY=... (optional)│   └── tools/                    # Tool exports
-
-│       └── bitquery.ts           # Bitquery GraphQL tools
-
-# Solana Network├── wallet/                       # Blockchain Integration
-
-NEXT_PUBLIC_SOLANA_RPC=https://api.mainnet-beta.solana.com│   ├── solanaWalletConnection.ts # Phantom wallet connector
-
-```│   ├── walletConnection.ts       # Generic wallet adapter
-
-│   └── connectWallet.ts          # Connection orchestrator
-
----├── lib/                          # Shared Utilities
-
-│   ├── supabaseClient.ts         # Supabase singleton
-
-## 📊 Key Metrics│   ├── fetch.ts                  # Authenticated fetch wrapper
-
-│   └── utils.ts                  # General helpers
-
-### Performance├── public/                       # Static Assets
-
-- **First Token Response**: 50-200ms│   └── logo.png                  # SOLPILOT logo
-
-- **Streaming Latency**: 20-50ms per chunk├── middleware.ts                 # JWT auth middleware
-
-- **Docker Image**: 207MB (optimized)├── next.config.ts                # Next.js configuration
-
-- **API Response Time**: 10-30ms (database)├── tailwind.config.ts            # Tailwind CSS config
-
-├── tsconfig.json                 # TypeScript config
-
-### Features├── package.json                  # Dependencies
-
-- **4 Specialized Agents** (Mastra framework)└── .env.local                    # Environment variables
-
-- **25+ Tools** (blockchain, market data, news)```
-
-- **20+ API Integrations** (Bitquery, CoinGecko, Birdeye, etc.)
-
-- **Multi-Chain Support** (Solana primary, 25+ EVM chains via Zerion)---
-
-
-
----## 🔧 Technology Deep Dive
-
-
-
-## 🏆 Nosana Challenge Criteria Met### 1. Multi-Agent AI System (Mastra Framework)
-
-
-
-### ✅ Innovation (25%)**Mastra** is our orchestration layer that manages multiple specialized AI agents. Each agent has:
-
-- First conversational DeFi interface for Solana- **Instructions**: System prompt defining expertise and behavior
-
-- Multi-agent orchestration with smart routing- **Tools**: Executable functions the agent can call
-
-- Real-time streaming UI with Server-Sent Events- **Model**: LLM instance (gpt-4o-mini via OpenRouter)
-
-
-
-### ✅ Technical Implementation (25%)**Agent Routing Logic** (`mastraService.ts`):
-
-- Production-ready Next.js 15 + TypeScript
-
-- Mastra multi-agent framework integration**Agent Routing Logic** (`mastraService.ts`):
-
-- 25+ tools across blockchain, market data, news```typescript
-
-- Docker containerization with multi-stage builds// Smart routing based on query content
-
-const lowerMessage = userMessage.toLowerCase();
-
-### ✅ Deployment on Nosana (25%)
-
-- **Live URL**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/if (lowerMessage.includes('news') || lowerMessage.includes('trending')) {
-
-- **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  return veniceAgent;  // News & sentiment
-
-- Nosana job definition with secrets management}
-
-- Deployed via Nosana CLI
-
-if (lowerMessage.includes('pump.fun') || lowerMessage.includes('new tokens')) {
-
-### ✅ User Experience (25%)  return soniaAgent;   // Market data & DEX analytics
-
-- Natural language interface (no blockchain jargon)}
-
-- Real-time streaming responses
-
-- Transaction previews and confirmationsif (lowerMessage.includes('portfolio') || lowerMessage.includes('holdings')) {
-
-- Mobile-responsive design with Tailwind CSS  return zerionAgent;  // Portfolio tracking
-
-}
-
----
-
-return solpilotAgent;  // Default: transactions & general queries
-
-## 🎥 Demo Video (Coming Soon)```
-
-
-
-Will showcase:**Tool Execution Flow:**
-
-1. Live Nosana deployment walkthrough1. User sends message: "Show me the latest Pump.fun tokens"
-
-2. Natural language DeFi operations (swap, stake, transfer)2. Router selects `soniaAgent` (Pump.fun expert)
-
-3. Pump.fun token tracking in real-time3. Sonia calls `getPumpFunNewTokens()` tool with Bitquery
-
-4. Multi-agent orchestration demo4. Tool returns JSON data: `[{name, symbol, price, time}]`
-
-5. Portfolio tracking across chains5. Agent formats data into human-readable response
-
-6. Streaming SSE sends response word-by-word to UI
-
----
-
-### 2. Real-Time Streaming (Server-Sent Events)
-
-## 📱 Social Media
-
-**Why SSE over WebSockets?**
-
-Post template for #NosanaAgentChallenge:- Simpler implementation (HTTP-based)
-
-- Built-in reconnection logic
-
-```- Works with Next.js Edge Runtime
-
-🚀 Just deployed SOLPILOT on @nosana_ai Network!- Lower latency for text streaming
-
-
-
-The world's first conversational Solana copilot powered by @mastra_ai multi-agent framework.**Implementation** (`app/api/chat/route.ts`):
-
-```typescript
-
-✨ 4 specialized AI agentsexport async function POST(req: Request) {
-
-🔧 25+ tools (swaps, staking, Pump.fun tracking)  const encoder = new TextEncoder();
-
-🐳 Dockerized & live on decentralized compute  
-
-  const stream = new ReadableStream({
-
-Try it: [Nosana URL]    async start(controller) {
-
-      const agentStream = agent.stream(userMessage, {
-
-#NosanaAgentChallenge #Solana #AI        onStepFinish: (step) => {
-
-```          const chunk = `data: ${JSON.stringify({
-
-            type: 'text',
-
----            content: step.text
-
-          })}\n\n`;
-
-## 📄 License          controller.enqueue(encoder.encode(chunk));
-
-        }
-
-Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)      });
-
-      
-
-Commercial licenses available - contact: [your-email]      controller.enqueue(encoder.encode('data: {"type":"done"}\n\n'));
-
-      controller.close();
-
----    }
-
-  });
-
-## 🙏 Acknowledgments  
-
-  return new Response(stream, {
-
-- **Nosana Network** - Decentralized compute infrastructure    headers: {
-
-- **Mastra** - Multi-agent orchestration framework      'Content-Type': 'text/event-stream',
-
-- **Solana Foundation** - Blockchain platform      'Cache-Control': 'no-cache',
-
-- **OpenRouter** - AI model gateway      'Connection': 'keep-alive'
-
-- **Bitquery** - Real-time blockchain data    }
-
-  });
-
----}
-
-```
 
 ## 📞 Contact
 
-**Client-Side Consumption** (`streamingChat.ts`):
 
-- **GitHub**: [@Theideabased](https://github.com/Theideabased)```typescript
 
-- **Project**: https://github.com/Theideabased/solpilotasync function* fetchStreamingResponse(message: string) {
+**GitHub**: https://github.com/Theideabased/solpilot  ## 🔧 Technology Stack| **SOLPILOT** | Portfolio management, transactions | Balance, Swap, Stake, Transfer |## 💎 Core Value Proposition
 
-- **Issues**: https://github.com/Theideabased/solpilot/issues  const response = await fetch('/api/chat', {
+**Issues**: https://github.com/Theideabased/solpilot/issues
 
-    method: 'POST',
 
----    body: JSON.stringify({ message })
-
-  });
-
-<p align="center">  
-
-  <strong>Built for Nosana Builders Challenge: Agents 102</strong><br>  const reader = response.body!.getReader();
-
-  Making Solana accessible to everyone, one conversation at a time.  const decoder = new TextDecoder();
-
-</p>  
-
-  while (true) {
-
-<p align="center">    const { done, value } = await reader.read();
-
-  <a href="https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/">Live Demo</a> •    if (done) break;
-
-  <a href="https://hub.docker.com/r/seyman101/solpilot">Docker Hub</a> •    
-
-  <a href="https://github.com/Theideabased/solpilot">GitHub</a>    const chunk = decoder.decode(value);
-
-</p>    const lines = chunk.split('\n');
-
-    
-    for (const line of lines) {
-      if (line.startsWith('data: ')) {
-        const data = JSON.parse(line.slice(6));
-        yield data;
-      }
-    }
-  }
-}
-```
-
-### 3. Blockchain Authentication Flow
-
-**Challenge-Response with Wallet Signatures:**
-
-1. **Request Nonce** (`POST /api/auth/nonce`):
-```typescript
-const nonce = uuidv4();  // e.g., "a3f2d1e4-..."
-await supabase.from('users').upsert({ wallet_address, nonce });
-return { nonce };
-```
-
-2. **Sign Message** (Client-side with Phantom):
-```typescript
-const message = `Sign this message to authenticate with SOLPILOT:\n\nNonce: ${nonce}`;
-const encodedMessage = new TextEncoder().encode(message);
-const signedMessage = await phantom.signMessage(encodedMessage, 'utf8');
-const signature = bs58.encode(signedMessage.signature);
-```
-
-3. **Verify Signature** (`POST /api/auth/verifyArbitrary`):
-```typescript
-const publicKey = new PublicKey(address);
-const isValid = nacl.sign.detached.verify(
-  messageBytes,
-  bs58.decode(signature),
-  publicKey.toBytes()
-);
-
-if (isValid) {
-  const token = jwt.sign(
-    { wallet_address, nonce, exp: Date.now() + 3600 },
-    process.env.SUPABASE_JWT_SECRET!
-  );
-  return { isValid: true, token };
-}
-```
-
-4. **Store Token** (Client-side):
-```typescript
-localStorage.setItem('token', token);
-// Include in all future API requests:
-headers: { 'Authorization': `Bearer ${token}` }
-```
-
-### 4. Database Schema (Supabase PostgreSQL)
-
-**Users Table:**
-```sql
-CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  wallet_address TEXT UNIQUE NOT NULL,
-  is_whitelisted BOOLEAN DEFAULT false,
-  nonce TEXT,
-  referral_code TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
-  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-);
-
-CREATE INDEX idx_users_wallet_address ON users(wallet_address);
-```
-
-**Chats Table:**
-```sql
-CREATE TABLE chats (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  ai_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  title TEXT NOT NULL DEFAULT 'New Chat',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
-  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-);
-
-CREATE INDEX idx_chats_user_id ON chats(user_id);
-CREATE INDEX idx_chats_created_at ON chats(created_at DESC);
-```
-
-**Messages Table:**
-```sql
-CREATE TABLE messages (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  chat_id UUID NOT NULL REFERENCES chats(id) ON DELETE CASCADE,
-  sender_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  message JSONB NOT NULL,  -- Stores full ChatMessage object
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
-);
-
-CREATE INDEX idx_messages_chat_id ON messages(chat_id);
-CREATE INDEX idx_messages_created_at ON messages(created_at DESC);
-```
-
-**Message JSONB Structure:**
-```json
-{
-  "text": "What's my SOL balance?",
-  "sender": "user",
-  "type": "default",
-  "timestamp": "2025-10-30T12:34:56.789Z",
-  "id": "msg_abc123"
-}
-```
-
-### 5. Bitquery GraphQL Integration
-
-**Why Bitquery?**
-- **Real-Time Data**: WebSocket subscriptions for live trades
-- **Comprehensive**: All Solana DEX trades, token launches, liquidity pools
-- **Pump.fun Support**: Protocol filter `ProtocolName: ["pump", "pump_amm"]`
-- **Cost-Effective**: Pay-per-query pricing
-
-**Tool: getPumpFunNewTokens** (`mastra/tools/bitquery.ts`):
-```typescript
-const getPumpFunNewTokens = createTool({
-  id: 'bitquery-pumpfun-new-tokens',
-  description: 'Fetch recently launched tokens on Pump.fun',
-  inputSchema: z.object({
-    limit: z.number().default(10)
-  }),
-  
-  execute: async ({ context }) => {
-    const query = `
-      query PumpFunNewTokens($limit: Int!) {
-        Solana {
-          DEXTrades(
-            where: {
-              Trade: { Dex: { ProtocolName: { in: ["pump", "pump_amm"] } } }
-              Block: { Time: { since: "2024-10-29T00:00:00Z" } }
-            }
-            orderBy: { descending: Block_Time }
-            limit: $limit
-          ) {
-            Trade {
-              Currency { MintAddress Name Symbol }
-              Price PriceInUSD
-            }
-            Block { Time }
-          }
-        }
-      }
-    `;
-    
-    const response = await fetch('https://streaming.bitquery.io/eap', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.BITQUERY_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ query, variables: { limit } })
-    });
-    
-    const data = await response.json();
-    return data.data.Solana.DEXTrades;
-  }
-});
-```
-
-**Other Bitquery Tools:**
-- `getTokenBuySellPressure`: Analyzes buy vs. sell volume for sentiment
-- `getDEXPrices`: Fetches real-time prices across multiple DEXes
-- `getTrendingDEXTokens`: Ranks tokens by buyer count and volume
 
 ---
+
+### Frontend| **Sonia** | Market intelligence, Pump.fun tracking | Bitquery, DEX analytics, trending tokens |
+
+<p align="center">
+
+  <strong>Built for Nosana Builders Challenge: Agents 102</strong><br>- **Next.js 15.1.6** (App Router, React Server Components)
+
+  Powered by Mastra • Deployed on Nosana • Making Solana accessible to everyone
+
+</p>- **TypeScript 5.x** (Strict mode)| **Zerion** | Cross-chain portfolio (25+ chains) | Multi-chain balance, PnL, DeFi positions |
+
+### For Users
+
+
+
+<p align="center">- **Tailwind CSS + shadcn/ui** (Responsive design)
+
+  <a href="https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/">Live Demo</a> •
+
+  <a href="https://hub.docker.com/r/seyman101/solpilot">Docker Hub</a> •- **Framer Motion** (Smooth animations)| **Venice** | News curation, market sentiment | Real-time Solana news with web search |- **Zero Learning Curve**: No need to understand blockchain terminology
+
+  <a href="https://github.com/Theideabased/solpilot">GitHub</a>
+
+</p>
+
+
+### Backend- **All-in-One Platform**: Portfolio management, staking, swaps, news, and analytics in one place
+
+- **Mastra 0.23.1** (Multi-agent orchestration)
+
+- **OpenRouter API** (gpt-4o-mini for fast responses)### Smart Routing System- **Real-Time Intelligence**: Live data from Bitquery, CoinGecko, Birdeye, and Jupiter
+
+- **Supabase PostgreSQL** (User data, chat history)
+
+- **Solana Web3.js 1.98.4** (Blockchain interaction)- **Safety First**: Transaction previews and confirmations before any blockchain action
+
+
+
+### Data Providers```typescript
+
+- **Bitquery GraphQL**: Real-time Pump.fun & DEX data
+
+- **Birdeye API**: Solana token analytics// Automatic agent selection based on query intent### For Investors
+
+- **CoinGecko**: Market data and prices
+
+- **Zerion API**: Multi-chain portfolio tracking"Latest Pump.fun tokens" → Sonia Agent (Bitquery)- **Massive TAM**: $68B Solana market cap × 3M+ active wallets = enormous growth potential
+
+- **Venice AI**: News with web search (llama-3.3-70b)
+
+"Show my portfolio" → Zerion Agent (Cross-chain data)- **Network Effects**: Each user interaction improves our AI models
+
+---
+
+"What's new in Solana?" → Venice Agent (News search)- **Multiple Revenue Streams**: Transaction fees, premium features, API access, white-label solutions
+
+## 🛠️ Mastra Tools (25+ Tools)
+
+"Stake 10 SOL" → SOLPILOT Agent (Transaction)- **Proven Traction**: [Add your metrics: users, transactions, retention]
+
+### Blockchain Tools
+
+1. `fetchBalance` - Get SOL and SPL token balances```
+
+2. `fetchTokenPrice` - Real-time token prices
+
+3. `executeSwap` - Jupiter-powered swaps---
+
+4. `stakeSOL` - Delegate SOL to validators
+
+5. `unstakeSOL` - Undelegate staked SOL---
+
+6. `transferToken` - Send any token
+
+7. `searchTransaction` - Find transactions by signature## ✨ Key Features
+
+8. `getStakeAccounts` - View staking positions
+
+9. `getValidatorInfo` - Validator performance metrics## 🛠️ Core Features
+
+
+
+### Market Data Tools---
+
+10. `getPumpFunNewTokens` - Latest Pump.fun launches (Bitquery)
+
+11. `getTokenBuySellPressure` - Buy vs sell volume analysis### 💰 DeFi Operations
+
+12. `getDEXPrices` - Prices across multiple DEXes
+
+13. `getTrendingDEXTokens` - Trending by volume and buyers- ✅ **Portfolio Tracking**: Real-time SOL and SPL token balances## ✨ Key Features
+
+14. `getSolanaTokenList` - CoinGecko token list
+
+15. `searchSolanaToken` - Token search by name/symbol- ✅ **Token Swaps**: Jupiter Aggregator for best rates
+
+16. `getBirdeyeTokenPrice` - Birdeye price data
+
+17. `getTokenOverview` - Comprehensive token metrics- ✅ **Staking**: Delegate SOL to top validators### 🤖 Multi-Agent AI Architecture
+
+18. `getTokenHolders` - Top holders distribution
+
+- ✅ **Transfers**: Send any token with natural language- **SOLPILOT Agent**: Master orchestrator for portfolio management, transactions, and general queries
+
+### Portfolio Tools
+
+19. `getPortfolio` - Cross-chain portfolio (Zerion)- ✅ **Transaction Search**: Find and analyze any Solana transaction- **Sonia Agent**: Specialized in real-time market data, Pump.fun tokens, and DEX analytics
+
+20. `getTransactions` - Transaction history
+
+21. `getPnL` - Profit & loss tracking- **Zerion Agent**: Expert in cross-chain portfolio tracking and DeFi protocol analysis
+
+22. `getDeFiPositions` - Staking, LP, lending positions
+
+### 📊 Market Intelligence- **Venice Agent**: Curates Solana ecosystem news and market sentiment analysis
+
+### News Tools
+
+23. `searchSolanaNews` - Latest news from trusted sources- ✅ **Pump.fun Integration**: Live new token launches via Bitquery GraphQL
+
+24. `analyzeSolanaMarket` - Market trends and sentiment
+
+25. `researchSolanaTrends` - Deep ecosystem research- ✅ **DEX Analytics**: Buy/sell pressure, trending tokens### 💰 Complete Financial Suite
+
+
+
+---- ✅ **Price Feeds**: CoinGecko, Birdeye, Jupiter| Feature | Description | Status |
+
+
+
+## 🐳 Docker Deployment- ✅ **News Aggregation**: Curated Solana ecosystem updates|---------|-------------|--------|
+
+
+
+**Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  | **Portfolio Dashboard** | Real-time balance tracking across all tokens | ✅ Live |
+
+**Image**: `seyman101/solpilot:latest` (207MB optimized build)
+
+### 🔐 Security| **Token Swaps** | Powered by Jupiter Aggregator for best rates | ✅ Live |
+
+Multi-stage build with Node.js 20 Alpine, optimized for production deployment.
+
+- ✅ **Phantom Wallet**: Non-custodial authentication| **Staking & Unstaking** | Delegate SOL to top validators with one command | ✅ Live |
+
+---
+
+- ✅ **Message Signing**: No passwords, wallet-based auth| **Token Transfers** | Send any SPL token with natural language | ✅ Live |
+
+## ☁️ Nosana Network Deployment
+
+- ✅ **Transaction Previews**: Always confirm before executing| **Transaction Search** | Find and analyze any Solana transaction by signature | ✅ Live |
+
+### Deployed Infrastructure
+
+
+
+- **Platform**: Nosana Network (Decentralized GPU/CPU compute)
+
+- **Container**: seyman101/solpilot:v1.0.0---### 📊 Market Intelligence
+
+- **Port**: 3000 (HTTP)
+
+- **URL**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/- **Pump.fun Integration**: Track new token launches in real-time via Bitquery GraphQL API
+
+
+
+### Deploy with Nosana CLI## 🔧 Technology Stack- **DEX Analytics**: Buy/sell pressure, trending tokens, liquidity pools
+
+
+
+```bash- **Price Feeds**: Live pricing from CoinGecko, Birdeye, and Jupiter
+
+# Install Nosana CLI
+
+npm install -g @nosana/cli### Frontend- **News Aggregation**: Curated Solana ecosystem updates from trusted sources
+
+
+
+# Login with wallet- **Next.js 15.1.6** (App Router, React Server Components)- **Token Analysis**: Deep-dive metrics including holder distribution and trading patterns
+
+nosana auth login
+
+- **TypeScript 5.x** (Strict mode)
+
+# Deploy job
+
+nosana jobs run nos_job_def/nosana_solpilot.json- **Tailwind CSS + shadcn/ui** (Responsive design)### 🔐 Security & Authentication
+
+```
+
+- **Framer Motion** (Smooth animations)- **Phantom Wallet Integration**: Non-custodial, user-controlled funds
+
+---
+
+- **Message Signing Auth**: No passwords—authenticate with wallet signatures
+
+## 🚀 Local Development
+
+### Backend- **JWT Tokens**: Secure session management with 1-hour expiry
+
+### Prerequisites
+
+- Node.js 18+- **Mastra 0.23.1** (Multi-agent orchestration)- **Transaction Previews**: Always show details before executing
+
+- Phantom Wallet browser extension
+
+- API keys (OpenRouter, Supabase, Bitquery)- **OpenRouter API** (gpt-4o-mini for fast responses)
+
+
+
+### Required Environment Variables- **Supabase PostgreSQL** (User data, chat history)### 💬 Conversational Interface
+
+- OpenRouter API (AI models)
+
+- Supabase (Database & Auth)- **Solana Web3.js 1.98.4** (Blockchain interaction)- **Streaming Responses**: See AI responses word-by-word in real-time (SSE)
+
+- Bitquery API (Blockchain data)
+
+- Birdeye, CoinGecko, Zerion, Venice (Optional)- **Chat History**: Persistent conversations stored in Supabase PostgreSQL
+
+
+
+Full setup instructions available in repository.### Data Providers- **Smart Suggestions**: Context-aware prompts guide users to powerful features
+
+
+
+---- **Bitquery GraphQL**: Real-time Pump.fun & DEX data- **Multi-Format Responses**: Text, tables, charts, transaction cards, and more
+
+
+
+## 📊 Key Metrics- **Birdeye API**: Solana token analytics
+
+
+
+### Performance- **CoinGecko**: Market data and prices---
+
+- **First Token Response**: 50-200ms
+
+- **Streaming Latency**: 20-50ms per chunk- **Zerion API**: Multi-chain portfolio tracking
+
+- **Docker Image**: 207MB (optimized)
+
+- **API Response Time**: 10-30ms (database)- **Venice AI**: News with web search (llama-3.3-70b)## 🏗️ Technical Architecture
+
+
+
+### Features
+
+- **4 Specialized Agents** (Mastra framework)
+
+- **25+ Tools** (blockchain, market data, news)---### Frontend Stack
+
+- **20+ API Integrations** (Bitquery, CoinGecko, Birdeye, etc.)
+
+- **Multi-Chain Support** (Solana primary, 25+ EVM chains via Zerion)```typescript
+
+
+
+---## 🛠️ Mastra Tools (20+ Tools)Framework:     Next.js 15.1.6 (App Router, React Server Components)
+
+
+
+## 🏆 Nosana Challenge Criteria MetLanguage:      TypeScript 5.x (Strict mode enabled)
+
+
+
+### ✅ Innovation (25%)### Blockchain ToolsUI Library:    React 18.3.1 with Hooks & Context API
+
+- First conversational DeFi interface for Solana
+
+- Multi-agent orchestration with smart routing1. `fetchBalance` - Get SOL and SPL token balancesStyling:       Tailwind CSS 3.4 + shadcn/ui components
+
+- Real-time streaming UI with Server-Sent Events
+
+2. `fetchTokenPrice` - Real-time token pricesAnimations:    Framer Motion for smooth transitions
+
+### ✅ Technical Implementation (25%)
+
+- Production-ready Next.js 15 + TypeScript3. `executeSwap` - Jupiter-powered swapsState:         React Context (ChatProvider, MenuProvider, ValidatorProvider)
+
+- Mastra multi-agent framework integration
+
+- 25+ tools across blockchain, market data, news4. `stakeSOL` - Delegate SOL to validatorsForms:         React Hook Form with Zod validation
+
+- Docker containerization with multi-stage builds
+
+5. `unstakeSOL` - Undelegate staked SOL```
+
+### ✅ Deployment on Nosana (25%)
+
+- **Live URL**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/6. `transferToken` - Send any token
+
+- **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot
+
+- Nosana job definition with secrets management7. `searchTransaction` - Find transactions by signature**Key Dependencies:**
+
+- Deployed via Nosana CLI
+
+8. `getStakeAccounts` - View staking positions- `next` (15.1.6) - Server-side rendering, API routes, optimized builds
+
+### ✅ User Experience (25%)
+
+- Natural language interface (no blockchain jargon)9. `getValidatorInfo` - Validator performance metrics- `react` (18.3.1) - Component library with concurrent features
+
+- Real-time streaming responses
+
+- Transaction previews and confirmations- `typescript` (5.x) - Type safety across the entire codebase
+
+- Mobile-responsive design with Tailwind CSS
+
+### Market Data Tools- `tailwindcss` (3.4.1) - Utility-first CSS framework
+
+---
+
+10. `getPumpFunNewTokens` - Latest Pump.fun launches (Bitquery)- `framer-motion` (12.0.2) - Production-ready animation library
+
+## 🎥 Demo Video (Coming Soon)
+
+11. `getTokenBuySellPressure` - Buy vs sell volume analysis- `lucide-react` (0.469.0) - 1,000+ beautiful SVG icons
+
+Will showcase:
+
+1. Live Nosana deployment walkthrough12. `getDEXPrices` - Prices across multiple DEXes- `@radix-ui/*` - Accessible, unstyled UI primitives (Dialog, DropdownMenu, ScrollArea, etc.)
+
+2. Natural language DeFi operations (swap, stake, transfer)
+
+3. Pump.fun token tracking in real-time13. `getTrendingDEXTokens` - Trending by volume and buyers
+
+4. Multi-agent orchestration demo
+
+5. Portfolio tracking across chains14. `getSolanaTokenList` - CoinGecko token list### Backend Stack
+
+
+
+---15. `searchSolanaToken` - Token search by name/symbol```typescript
+
+
+
+## 📱 Social Media16. `getBirdeyeTokenPrice` - Birdeye price dataAPI Layer:       Next.js API Routes (Edge & Node.js runtimes)
+
+
+
+Post template for #NosanaAgentChallenge:17. `getTokenOverview` - Comprehensive token metricsAI Engine:       Mastra 0.23.1 (Multi-agent orchestration framework)
+
+
+
+```18. `getTokenHolders` - Top holders distributionLLM Provider:    OpenRouter API (gpt-4o-mini, gpt-4-turbo)
+
+🚀 Just deployed SOLPILOT on @nosana_ai Network!
+
+Database:        Supabase PostgreSQL 2.48.1 (Serverless)
+
+The world's first conversational Solana copilot powered by @mastra_ai multi-agent framework.
+
+### Portfolio ToolsAuthentication:  JWT (jsonwebtoken 9.0.2) + Wallet signatures
+
+✨ 4 specialized AI agents
+
+🔧 25+ tools (swaps, staking, Pump.fun tracking)19. `getPortfolio` - Cross-chain portfolio (Zerion)Blockchain:      Solana Web3.js 1.98.4
+
+🐳 Dockerized & live on decentralized compute
+
+20. `getTransactions` - Transaction history```
+
+Try it: [Nosana URL]
+
+21. `getPnL` - Profit & loss tracking
+
+#NosanaAgentChallenge #Solana #AI
+
+```22. `getDeFiPositions` - Staking, LP, lending positions**Key Dependencies:**
+
+
+
+---- `@mastra/core` (0.23.1) - Multi-agent AI framework with tool execution
+
+
+
+## 📄 License### News Tools- `@solana/web3.js` (1.98.4) - Solana blockchain interaction
+
+
+
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)23. `searchSolanaNews` - Latest news from trusted sources- `@supabase/supabase-js` (2.48.1) - PostgreSQL client
+
+
+
+Commercial licenses available - contact: [your-email]24. `analyzeSolanaMarket` - Market trends and sentiment- `jsonwebtoken` (9.0.2) - JWT token generation/verification
+
+
+
+---25. `researchSolanaTrends` - Deep ecosystem research- `tweetnacl` (1.0.3) - Cryptographic signature verification
+
+
+
+## 🙏 Acknowledgments- `bs58` (6.0.0) - Base58 encoding/decoding for Solana addresses
+
+
+
+- **Nosana Network** - Decentralized compute infrastructure---
+
+- **Mastra** - Multi-agent orchestration framework
+
+- **Solana Foundation** - Blockchain platform### AI & Data Integration
+
+- **OpenRouter** - AI model gateway
+
+- **Bitquery** - Real-time blockchain data## 🐳 Docker Deployment```typescript
+
+
+
+---AI Router:      OpenRouter (https://openrouter.ai)
+
+
+
+## 📞 Contact### Quick StartModel:          gpt-4o-mini (streaming enabled)
+
+
+
+- **GitHub**: [@Theideabased](https://github.com/Theideabased)Real-Time Data: Bitquery GraphQL (https://streaming.bitquery.io/eap)
+
+- **Project**: https://github.com/Theideabased/solpilot
+
 
 ## 📦 Installation & Setup
 
@@ -1079,75 +850,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 3. Sign authentication message
 4. Start chatting!
 
----
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. **Push to GitHub:**
-```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-```
-
-2. **Import to Vercel:**
-   - Go to https://vercel.com/new
-   - Import your GitHub repository
-   - Vercel auto-detects Next.js
-
-3. **Configure Environment Variables:**
-   - Settings → Environment Variables
-   - Add all values from `.env.local`
-   - Separate configs for Production/Preview/Development
-
-4. **Deploy:**
-   - Click "Deploy"
-   - Live in ~2 minutes at `your-app.vercel.app`
-
-**Production Optimizations:**
-- ✅ Automatic HTTPS
-
-**Production Optimizations:**
-- ✅ Automatic HTTPS
-- ✅ Global CDN (300+ edge locations)
-- ✅ Serverless Functions (API routes auto-scale)
-- ✅ Image Optimization (Next.js Image component)
-- ✅ Code Splitting (per-route bundles)
-
-**Post-Deployment:**
-- Update `NEXT_PUBLIC_API_BASE_URL` to your Vercel domain
-- Test wallet connection on production
-- Monitor with Vercel Analytics
-
-### Alternative: Docker
-
-```dockerfile
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:18-alpine AS runner
-WORKDIR /app
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package*.json ./
-RUN npm ci --only=production
-
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-```bash
-docker build -t solpilot .
-docker run -p 3000:3000 --env-file .env.local solpilot
-```
-
----
 
 ## 🎨 Key Components Explained
 
@@ -1764,97 +1467,7 @@ npx supabase gen types typescript --local > types/supabase.ts
 # Testing
 npm run test         # Run Jest tests
 npm run test:e2e     # Run Playwright E2E tests
-```
 
-### Code Quality Tools
-
-**ESLint** (`.eslintrc.json`):
-```json
-{
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "warn"
-  }
-}
-```
-
-**Prettier** (`.prettierrc`):
-```json
-{
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "es5",
-  "printWidth": 100
-}
-```
-
-**TypeScript** (`tsconfig.json`):
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "moduleResolution": "bundler"
-  }
-}
-```
-
-### Git Hooks (Husky)
-```bash
-# Pre-commit: Run linting & type-check
-npm run lint && npm run type-check
-
-# Pre-push: Run tests
-npm test
-```
-
----
-
-## 🧪 Testing Strategy
-
-### Unit Tests (Jest)
-```typescript
-// app/__tests__/utils.test.ts
-import { formatTokenAmount } from '@/app/utils';
-
-describe('formatTokenAmount', () => {
-  it('formats large numbers with commas', () => {
-    expect(formatTokenAmount(1000000)).toBe('1,000,000');
-  });
-  
-  it('handles decimals correctly', () => {
-    expect(formatTokenAmount(0.00123456, 6)).toBe('0.001235');
-  });
-});
-```
-
-### Integration Tests (Playwright)
-```typescript
-// e2e/chat.spec.ts
-test('sends message and receives AI response', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-  
-  // Connect wallet (mock)
-  await page.click('[data-testid="connect-wallet"]');
-  
-  // Send message
-  await page.fill('[data-testid="chat-input"]', 'What is my balance?');
-  await page.click('[data-testid="send-button"]');
-  
-  // Wait for streaming response
-  await page.waitForSelector('[data-testid="ai-message"]');
-  
-  const response = await page.textContent('[data-testid="ai-message"]');
-  expect(response).toContain('SOL');
-});
-```
 
 ### Test Coverage Goals
 - **Unit Tests**: 80% coverage for utils, services, components
@@ -1935,17 +1548,7 @@ npm run dev
 - Check browser supports SSE (all modern browsers do)
 - Disable browser extensions that block streaming
 
-### Debug Mode
 
-Enable verbose logging:
-```typescript
-// .env.local
-NEXT_PUBLIC_DEBUG=true
-
-// Use in code:
-if (process.env.NEXT_PUBLIC_DEBUG === 'true') {
-  console.log('[DEBUG]', data);
-}
 ```
 
 ---
@@ -2012,71 +1615,4 @@ git commit -m "docs: update README with new API endpoints"
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
 
-### You are free to:
-✅ **Share** — Copy and redistribute the material in any medium or format  
-✅ **Adapt** — Remix, transform, and build upon the material
 
-### Under the following terms:
-⚠️ **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made  
-⚠️ **NonCommercial** — You may not use the material for commercial purposes without explicit permission
-
-**Commercial licenses available**. Contact us at: [your-email@domain.com]
-
-Full license: [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
-
----
-
-## 📞 Support & Contact
-
-### Community
-- **Discord**: [Join our server](https://discord.gg/solpilot)
-- **Twitter/X**: [@solpilot_ai](https://twitter.com/solpilot_ai)
-- **Telegram**: [t.me/solpilot](https://t.me/solpilot)
-
-### Technical Support
-- **GitHub Issues**: [Report bugs or request features](https://github.com/your-username/solpilot/issues)
-- **Email**: support@solpilot.ai
-- **Documentation**: [docs.solpilot.ai](https://docs.solpilot.ai)
-
-### For Investors
-- **Pitch Deck**: [Download PDF](https://solpilot.ai/deck)
-- **Demo Video**: [Watch on YouTube](https://youtube.com/solpilot)
-- **Contact**: partnerships@solpilot.ai
-
----
-
-## 🙏 Acknowledgments
-
-Built with ❤️ by the SOLPILOT team
-
-**Special Thanks:**
-- Solana Foundation for blockchain infrastructure
-- OpenRouter for AI model access
-- Mastra team for the amazing multi-agent framework
-- shadcn for beautiful UI components
-- Bitquery for real-time blockchain data
-- Our early users and beta testers
-
----
-
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/your-username/solpilot?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/solpilot?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/solpilot)
-![GitHub license](https://img.shields.io/github/license/your-username/solpilot)
-
-**Built with cutting-edge technology. Designed for the future of finance.**
-
----
-
-<p align="center">
-  <strong>SOLPILOT</strong> - Making Solana accessible to everyone, one conversation at a time.
-</p>
-
-<p align="center">
-  <a href="https://solpilot.ai">Website</a> •
-  <a href="https://docs.solpilot.ai">Docs</a> •
-  <a href="https://twitter.com/solpilot_ai">Twitter</a> •
-  <a href="https://discord.gg/solpilot">Discord</a>
-</p>
