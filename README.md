@@ -6,7 +6,7 @@
 
 [![Powered by Mastra](https://img.shields.io/badge/Powered%20by-Mastra-blue?style=for-the-badge)](https://mastra.ai)
 
-[![Docker Hub](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)
+[![Docker Hub](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/r/seyman101/solpilot)
 
 
 
@@ -30,7 +30,6 @@
 
 ##  What is SOLPILOT?
 
-## Live links
 
 A conversational Solana copilot that transforms complex DeFi operations into simple natural language interactions. Users type commands like "Swap 5 USDC for SOL" or "Show trending Pump.fun tokens" and our AI agents handle everything safely.
 
@@ -38,36 +37,22 @@ A conversational Solana copilot that transforms complex DeFi operations into sim
 
 **The Problem**: 95% of potential Solana users can't access DeFi due to complexity—managing portfolios, tracking launches, staking requires juggling 10+ apps.
 
-- Live app: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/> **Nosana Builders Challenge: Agents 102** - Conversational Solana DeFi powered by Mastra multi-agent framework
-
 **Our Solution**: One conversational interface powered by 4 specialized Mastra agents with 25+ production tools.
 
-- Docker Hub: https://hub.docker.com/r/seyman101/solpilot
-
----
-
-- Repo: https://github.com/Theideabased/solpilot
-
+-
 ## 🤖 Mastra Multi-Agent Architecture
-
-- Demo video (Nosana): https://youtu.be/HhgCNku9oDo
 
 ### 4 Specialized Agents
 
----[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)[![Deployed on Nosana](https://img.shields.io/badge/Deployed%20on-Nosana-blueviolet?style=for-the-badge)](https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/)> 
+
 
 **The Future of Solana DeFi Intelligence**: An enterprise-grade, AI-native platform that transforms how users interact with the Solana blockchain through natural language conversations.
 
 | Agent | Focus | Key Tools |
-
-|-------|-------|-----------|---
-
+|-------|-------|-----------|
 | **SOLPILOT** | Transactions & portfolio | Balance, swap, stake, transfer |
-
 | **Sonia** | Market intelligence | Bitquery (Pump.fun), DEX analytics |
-
 | **Zerion** | Cross-chain portfolio | 25+ chains, PnL, DeFi positions |
-
 | **Venice** | News & sentiment | Real-time Solana ecosystem news |## One-line pitch
 
 
@@ -88,14 +73,14 @@ A conversational Solana copilot that transforms complex DeFi operations into sim
 
 
 
-## ⚡ Key Features🌐 **Live**: https://49asxcqnrhal4kdahfseu6bkbrpxojjzdrjvk4d5ohps.node.k8s.prd.nos.ci/ 
+## ⚡ Key Features🌐 
 
 
 ### DeFi Operations## What judges should care about (quick)
 
 - Real-time portfolio tracking (SOL + SPL tokens)
 
-- Token swaps via Jupiter Aggregator🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  
+- Token swaps via Jupiter Aggregator🐳 
 
 - Staking/unstaking with top validators
 
@@ -103,8 +88,7 @@ A conversational Solana copilot that transforms complex DeFi operations into sim
 
 - Transaction search and analysis
 
-- 25+ production-ready tools for blockchain ops, market analytics, and news💻 **GitHub**: https://github.com/Theideabased/solpilot> **Nosana Builders Challenge: Agents 102 Submission** - Making Solana DeFi accessible through conversational AI powered by Mastra's multi-agent framework
-
+- 25+ production-ready tools for blockchain ops, market analytics, and news
 ### Market Intelligence
 
 - Live Pump.fun token launches (Bitquery GraphQL)- Live on Nosana (decentralized compute) + Docker image published
@@ -127,15 +111,10 @@ A conversational Solana copilot that transforms complex DeFi operations into sim
 
 - Real-time streaming responses (SSE)
 
-## Demo video
-
-[!Youtube Demo video](https://youtu.be/HhgCNku9oDo)
-
 
 
 ## 🔧 Technical Stack
 
-Watch the Nosana deployment & feature demo (3 min):## 📋 Overview---
 
 - **Frontend**: Next.js 15 + TypeScript + Tailwind CSS
 
@@ -149,9 +128,6 @@ Watch the Nosana deployment & feature demo (3 min):## 📋 Overview---
 
 - **Data Sources**: Bitquery, CoinGecko, Birdeye, Zerion, Venice AI
 
-
-
-------**The Problem**: 95% of Solana users locked out of DeFi due to complexity—juggling 10+ apps for portfolios, staking, and swaps.
 
 
 
@@ -194,10 +170,9 @@ Multi-stage build with Node.js 20 Alpine for production efficiency.
 ------
 
 
+## 🤖 Mastra Multi-Agent Architecture
 
-
-
-### Market Intelligence## 🤖 Mastra Multi-Agent Architecture🐳 **Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  **SOLPILOT** is a revolutionary AI-powered interface that democratizes access to Solana's DeFi ecosystem. By combining cutting-edge Large Language Models with real-time blockchain data, we've created the world's first truly conversational blockchain copilot that anyone can use—from crypto natives to complete beginners.
+**SOLPILOT** is a revolutionary AI-powered interface that democratizes access to Solana's DeFi ecosystem. By combining cutting-edge Large Language Models with real-time blockchain data, we've created the world's first truly conversational blockchain copilot that anyone can use—from crypto natives to complete beginners.
 
 ✅ Pump.fun launches (Bitquery)  
 
@@ -205,7 +180,7 @@ Multi-stage build with Node.js 20 Alpine for production efficiency.
 
 ✅ Price feeds (CoinGecko, Birdeye)  
 
-✅ News aggregation**Powered by Mastra 0.23.1** - A production-grade multi-agent orchestration framework💻 **GitHub**: https://github.com/Theideabased/solpilot  
+✅ News aggregation**Powered by Mastra 0.23.1**
 
 
 
