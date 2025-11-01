@@ -186,23 +186,6 @@ Multi-stage build with Node.js 20 Alpine for production efficiency.
 
 ---
 
-| Agent | Specialization | Key Tools |
-
-## 🔧 Tech Stack
-
-|-------|---------------|-----------|
-
-- **Frontend**: Next.js 15, TypeScript, Tailwind CSS
-
-- **Backend**: Mastra 0.23.1, OpenRouter (gpt-4o-mini), Supabase| **SOLPILOT** | Portfolio management, transactions | Balance, Swap, Stake, Transfer |---The Solana ecosystem is exploding with innovation, but **95% of potential users** are locked out due to:
-
-- **Blockchain**: Solana Web3.js, Jupiter, Phantom
-
-- **Data**: Bitquery, Birdeye, CoinGecko, Zerion, Venice AI| **Sonia** | Market intelligence, Pump.fun tracking | Bitquery, DEX analytics, trending tokens |
-
-
-
----| **Zerion** | Cross-chain portfolio (25+ chains) | Multi-chain balance, PnL, DeFi positions |- **Complexity Barrier**: Understanding wallets, tokens, staking, and DeFi protocols requires technical knowledge
 
 
 
@@ -224,9 +207,6 @@ Multi-stage build with Node.js 20 Alpine for production efficiency.
 
 **News**: searchSolanaNews, analyzeSolanaMarket, researchSolanaTrends- "Latest Pump.fun tokens" → Sonia Agent (Bitquery)
 
-
-
----- "Show my portfolio" → Zerion Agent (Cross-chain data)**The Problem**: 95% of potential Solana users are locked out of DeFi—managing portfolios, tracking Pump.fun launches, staking, and swapping requires juggling 10+ apps and technical blockchain knowledge.- **Fear of Mistakes**: One wrong transaction can cost thousands in gas fees or lost funds
 
 
 
@@ -318,7 +298,7 @@ nosana jobs run nos_job_def/nosana_solpilot.json
 
 - **Bitquery GraphQL**: Real-time Pump.fun & DEX data
 
-- **Birdeye API**: Solana token analytics// Automatic agent selection based on query intent### For Investors
+- **Birdeye API**: Solana token analytics
 
 - **CoinGecko**: Market data and prices
 
@@ -362,27 +342,27 @@ nosana jobs run nos_job_def/nosana_solpilot.json
 
 10. `getPumpFunNewTokens` - Latest Pump.fun launches (Bitquery)
 
-11. `getTokenBuySellPressure` - Buy vs sell volume analysis### 💰 DeFi Operations
+11. `getTokenBuySellPressure` - Buy vs sell volume analysis
 
 12. `getDEXPrices` - Prices across multiple DEXes
 
-13. `getTrendingDEXTokens` - Trending by volume and buyers- ✅ **Portfolio Tracking**: Real-time SOL and SPL token balances## ✨ Key Features
+13. `getTrendingDEXTokens` - Trending by volume and buyers-  **Portfolio Tracking**: Real-time SOL and SPL token balances## ✨ Key Features
 
 14. `getSolanaTokenList` - CoinGecko token list
 
-15. `searchSolanaToken` - Token search by name/symbol- ✅ **Token Swaps**: Jupiter Aggregator for best rates
+15. `searchSolanaToken` - Token search by name/symbol-  **Token Swaps**: Jupiter Aggregator for best rates
 
 16. `getBirdeyeTokenPrice` - Birdeye price data
 
-17. `getTokenOverview` - Comprehensive token metrics- ✅ **Staking**: Delegate SOL to top validators### 🤖 Multi-Agent AI Architecture
+17. `getTokenOverview` - Comprehensive token metrics-  **Staking**: Delegate SOL to top validators### 🤖 Multi-Agent AI Architecture
 
 18. `getTokenHolders` - Top holders distribution
 
-- ✅ **Transfers**: Send any token with natural language- **SOLPILOT Agent**: Master orchestrator for portfolio management, transactions, and general queries
+- **Transfers**: Send any token with natural language- **SOLPILOT Agent**: Master orchestrator for portfolio management, transactions, and general queries
 
 ### Portfolio Tools
 
-19. `getPortfolio` - Cross-chain portfolio (Zerion)- ✅ **Transaction Search**: Find and analyze any Solana transaction- **Sonia Agent**: Specialized in real-time market data, Pump.fun tokens, and DEX analytics
+19. `getPortfolio` - Cross-chain portfolio (Zerion)-  **Transaction Search**: Find and analyze any Solana transaction- **Sonia Agent**: Specialized in real-time market data, Pump.fun tokens, and DEX analytics
 
 20. `getTransactions` - Transaction history
 
@@ -394,39 +374,39 @@ nosana jobs run nos_job_def/nosana_solpilot.json
 
 ### News Tools
 
-23. `searchSolanaNews` - Latest news from trusted sources- ✅ **Pump.fun Integration**: Live new token launches via Bitquery GraphQL
+23. `searchSolanaNews` - Latest news from trusted sources-  **Pump.fun Integration**: Live new token launches via Bitquery GraphQL
 
 24. `analyzeSolanaMarket` - Market trends and sentiment
 
-25. `researchSolanaTrends` - Deep ecosystem research- ✅ **DEX Analytics**: Buy/sell pressure, trending tokens### 💰 Complete Financial Suite
+25. `researchSolanaTrends` - Deep ecosystem research-  **DEX Analytics**: Buy/sell pressure, trending tokens
 
 
 
----- ✅ **Price Feeds**: CoinGecko, Birdeye, Jupiter| Feature | Description | Status |
+----  **Price Feeds**: CoinGecko, Birdeye, Jupiter| Feature | Description | Status |
 
 
 
-## 🐳 Docker Deployment- ✅ **News Aggregation**: Curated Solana ecosystem updates|---------|-------------|--------|
+## 🐳 Docker Deployment-  **News Aggregation**: Curated Solana ecosystem updates|---------|-------------|--------|
 
 
 
-**Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  | **Portfolio Dashboard** | Real-time balance tracking across all tokens | ✅ Live |
+**Docker Hub**: https://hub.docker.com/r/seyman101/solpilot  | **Portfolio Dashboard** | Real-time balance tracking across all tokens |  Live |
 
 **Image**: `seyman101/solpilot:latest` (207MB optimized build)
 
-### 🔐 Security| **Token Swaps** | Powered by Jupiter Aggregator for best rates | ✅ Live |
+### 🔐 Security| **Token Swaps** | Powered by Jupiter Aggregator for best rates |
 
 Multi-stage build with Node.js 20 Alpine, optimized for production deployment.
 
-- ✅ **Phantom Wallet**: Non-custodial authentication| **Staking & Unstaking** | Delegate SOL to top validators with one command | ✅ Live |
+-  **Phantom Wallet**: Non-custodial authentication| **Staking & Unstaking** | Delegate SOL to top validators with one command |
 
 ---
 
-- ✅ **Message Signing**: No passwords, wallet-based auth| **Token Transfers** | Send any SPL token with natural language | ✅ Live |
+- **Message Signing**: No passwords, wallet-based auth| **Token Transfers** | Send any SPL token with natural language | 
 
 ## ☁️ Nosana Network Deployment
 
-- ✅ **Transaction Previews**: Always confirm before executing| **Transaction Search** | Find and analyze any Solana transaction by signature | ✅ Live |
+-  **Transaction Previews**: Always confirm before executing| **Transaction Search** | Find and analyze any Solana transaction by signature |  Live |
 
 ### Deployed Infrastructure
 
@@ -434,7 +414,7 @@ Multi-stage build with Node.js 20 Alpine, optimized for production deployment.
 
 - **Platform**: Nosana Network (Decentralized GPU/CPU compute)
 
-- **Container**: seyman101/solpilot:v1.0.0---### 📊 Market Intelligence
+- **Container**: seyman101/solpilot:v1.0.0---
 
 - **Port**: 3000 (HTTP)
 
@@ -462,7 +442,7 @@ nosana auth login
 
 # Deploy job
 
-nosana jobs run nos_job_def/nosana_solpilot.json- **Tailwind CSS + shadcn/ui** (Responsive design)### 🔐 Security & Authentication
+nosana jobs run nos_job_def/nosana_solpilot.json- **Tailwind CSS + shadcn/ui** (Responsive design)
 
 ```
 
@@ -583,7 +563,7 @@ Create `.env.local` in root directory:
 # DATABASE (Supabase)
 # ============================================
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=ey...
 SUPABASE_JWT_SECRET=your-jwt-secret-from-supabase-settings
 
 # ============================================
@@ -1138,7 +1118,7 @@ NEXT_PUBLIC_SOLANA_RPC=https://api.mainnet-beta.solana.com
 # DATABASE (Supabase)
 # ============================================
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 SUPABASE_JWT_SECRET=your-jwt-secret-from-dashboard
 
 # ============================================
@@ -1300,28 +1280,28 @@ npm run test:e2e     # Run Playwright E2E tests
 ## 🔐 Security Best Practices
 
 ### 1. Environment Variables
-- ✅ Never commit `.env.local` to Git
-- ✅ Use different keys for dev/prod
-- ✅ Rotate secrets every 90 days
-- ✅ Store in Vercel's encrypted vault
+- Never commit `.env.local` to Git
+- Use different keys for dev/prod
+- Rotate secrets every 90 days
+- Store in Vercel's encrypted vault
 
 ### 2. Authentication
-- ✅ Wallet signature verification (no passwords)
-- ✅ JWT tokens with 1-hour expiry
-- ✅ Nonce-based replay attack prevention
-- ✅ HTTPS-only in production
+- Wallet signature verification (no passwords)
+- JWT tokens with 1-hour expiry
+- Nonce-based replay attack prevention
+- HTTPS-only in production
 
 ### 3. Blockchain Transactions
-- ✅ Always show transaction preview
-- ✅ Require explicit user confirmation
-- ✅ Validate amounts and addresses client-side
-- ✅ Use Phantom's secure transaction signing
+- Always show transaction preview
+- Require explicit user confirmation
+- Validate amounts and addresses client-side
+- Use Phantom's secure transaction signing
 
 ### 4. API Security
-- ✅ Rate limiting (Vercel Edge Middleware)
-- ✅ CORS configuration
-- ✅ Input validation with Zod schemas
-- ✅ SQL injection protection (Supabase parameterized queries)
+- Rate limiting (Vercel Edge Middleware)
+- CORS configuration
+- Input validation with Zod schemas
+- SQL injection protection (Supabase parameterized queries)
 
 ### 5. Dependencies
 ```bash
